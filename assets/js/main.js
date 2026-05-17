@@ -85,16 +85,6 @@ Mensagem: ${data.mensagem || 'Sem mensagem adicional'}`;
 
     const whatsappUrl = buildWhatsAppUrl(message);
 
-    // Disparar evento de conversão antes de redirecionar
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-        event: 'quote_form_submit',
-        form_data: {
-            type: data.tipo,
-            region: data.bairro
-        }
-    });
-
     const opened = window.open(whatsappUrl, '_blank');
     if (opened) {
         opened.opener = null;

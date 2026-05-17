@@ -27,6 +27,7 @@ body::before {
     background-attachment: fixed;
     opacity: 0.15;
     z-index: -1;
+    pointer-events: none;
 }
 
 body::after {
@@ -68,6 +69,13 @@ nav {
     list-style: none;
 }
 
+.logo {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
 .logo img {
     height: 120px;
     width: auto;
@@ -98,6 +106,10 @@ nav ul li a {
 }
 
 nav ul li a:hover {
+    color: #ffffff;
+}
+
+nav ul li a[aria-current="page"] {
     color: #ffffff;
 }
 
@@ -230,6 +242,10 @@ section {
     padding: 80px 5%;
     background-color: #120f0d;
     text-align: center;
+}
+
+#diferenciais h2 {
+    margin-bottom: 50px;
 }
 
 #diferenciais > div {
@@ -494,7 +510,7 @@ footer .social-links {
 footer .copyright {
     margin-top: 30px;
     font-size: 0.8rem;
-    color: #444;
+    color: #8f8378;
 }
 
 /* REGIÕES ATENDIDAS */
@@ -612,6 +628,21 @@ input:focus, textarea:focus, select:focus {
     background-color: rgba(42, 33, 25, 0.98);
     border-color: #e3b07e;
     box-shadow: 0 0 0 3px rgba(227, 176, 126, 0.18), 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #f1c48e;
+    outline-offset: 4px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline-offset: 2px;
 }
 
 textarea {
@@ -777,5 +808,24 @@ textarea {
 
     .foto-card {
         height: 300px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .service-card:hover,
+    .service-card:hover .service-image img,
+    .foto-card:hover img,
+    .btn-primary:hover,
+    .btn-secondary:hover {
+        transform: none !important;
     }
 }
