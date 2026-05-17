@@ -103,17 +103,42 @@ nav ul li a:hover {
 
 /* HERO SECTION */
 #hero {
-    height: 100vh;
+    min-height: calc(100vh + 70px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../../Fotos/foto2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: #120f0d;
     margin-top: 0;
+    padding: 130px 5% 120px;
+}
+
+#hero::before,
+#hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#hero::before {
+    background: url('../../Fotos/foto45.jpg') right 48% / cover no-repeat;
+    transform: scale(1.12);
+    transform-origin: right center;
+}
+
+#hero::after {
+    background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.7));
+}
+
+#hero > * {
+    position: relative;
+    z-index: 1;
 }
 
 #hero h1 {
@@ -201,6 +226,7 @@ section {
 }
 
 #diferenciais {
+    margin-top: 0;
     padding: 80px 5%;
     background-color: #120f0d;
     text-align: center;
@@ -333,6 +359,10 @@ section {
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
+}
+
+.service-image img.home-office-cover {
+    object-position: center 72%;
 }
 
 .service-card:hover .service-image img {
