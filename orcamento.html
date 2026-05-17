@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Orçamento | Marcenaria Butantã</title>
+    <meta name="description" content="Solicite seu orçamento para móveis sob medida. Preenchimento rápido e seguro. Responderemos em breve com sua cotação personalizada.">
+    <meta name="keywords" content="orçamento, marcenaria, móveis, cotação, preço, marcenaria butantã">
+
+    <!-- Google Tag Manager: substituir GTM-XXXXXXX pelo ID real -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-XXXXXXX');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/jpg" href="Fotos/logo.jpg">
+</head>
+<body>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Fotos/logo.jpg" alt="Marcenaria Butantã Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cozinhas-planejadas.html">Cozinhas</a></li>
+                <li><a href="dormitorios-planejados.html">Dormitórios</a></li>
+                <li><a href="home-office-planejado.html">Home Office</a></li>
+                <li><a href="orcamento.html">Orçamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Solicite Seu Orçamento</h1>
+        <p>Preencha o formulário abaixo e receba uma cotação personalizada</p>
+    </section>
+
+    <section style="padding: 80px 5%;">
+        <div style="max-width: 800px; margin: 0 auto;">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+                <div style="text-align: center; padding: 40px; background: rgba(227, 176, 126, 0.05); border-radius: 12px; border: 1px solid rgba(227, 176, 126, 0.2);">
+                    <h3 style="margin-bottom: 15px;">Por Formulário</h3>
+                    <p style="color: #bbb; margin-bottom: 20px;">Preencha os dados abaixo e envie sua solicitação. Entraremos em contato em breve.</p>
+                </div>
+
+                <div style="text-align: center; padding: 40px; background: rgba(37, 211, 102, 0.05); border-radius: 12px; border: 1px solid rgba(37, 211, 102, 0.2);">
+                    <h3 style="margin-bottom: 15px;">Pelo WhatsApp</h3>
+                    <p style="color: #bbb; margin-bottom: 20px;">Prefere conversar agora? Entre em contato conosco pelo WhatsApp.</p>
+                    <a href="https://wa.me/5511958522265?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20m%C3%B3veis%20sob%20medida." target="_blank" class="btn-secondary js-whatsapp-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 16px; height: 16px; margin-right: 8px; vertical-align: middle;">
+                        Abrir WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <form id="quote-form" style="background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 12px; border: 1px solid rgba(227, 176, 126, 0.2);">
+                <h2 style="margin-bottom: 30px; text-align: center;">Formulário de Orçamento</h2>
+
+                <!-- Linha 1: Nome e Telefone -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nome">Nome *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone *</label>
+                        <input type="tel" id="telefone" name="telefone" required placeholder="(11) 99999-9999">
+                    </div>
+                </div>
+
+                <!-- Linha 2: E-mail e Bairro -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro *</label>
+                        <select id="bairro" name="bairro" required>
+                            <option value="">Selecione seu bairro</option>
+                            <option value="Butantã">Butantã</option>
+                            <option value="Pinheiros">Pinheiros</option>
+                            <option value="Vila Madalena">Vila Madalena</option>
+                            <option value="Alto de Pinheiros">Alto de Pinheiros</option>
+                            <option value="Morumbi">Morumbi</option>
+                            <option value="Vila Sônia">Vila Sônia</option>
+                            <option value="Perdizes">Perdizes</option>
+                            <option value="Lapa">Lapa</option>
+                            <option value="Outro">Outro bairro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tipo de Projeto -->
+                <div class="form-group">
+                    <label for="tipo">Tipo de Projeto *</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="">Selecione o tipo de projeto</option>
+                        <option value="Cozinha Planejada">Cozinha Planejada</option>
+                        <option value="Dormitório Planejado">Dormitório Planejado</option>
+                        <option value="Guarda-Roupa">Guarda-Roupa</option>
+                        <option value="Home Office">Home Office</option>
+                        <option value="Sala">Sala / Estar</option>
+                        <option value="Outro Móvel">Outro Móvel Sob Medida</option>
+                    </select>
+                </div>
+
+                <!-- Mensagem -->
+                <div class="form-group">
+                    <label for="mensagem">Mensagem (Conte-nos mais sobre seu projeto)</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Descreva seu projeto, dimensões, preferências de material/cores, etc..."></textarea>
+                </div>
+
+                <!-- Botões -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Enviar Orçamento via WhatsApp</button>
+                    <button type="reset" class="btn-secondary">Limpar Formulário</button>
+                </div>
+
+                <!-- Mensagem de feedback -->
+                <div class="form-message"></div>
+
+                <!-- Aviso de privacidade -->
+                <p style="text-align: center; font-size: 0.85rem; color: #666; margin-top: 20px;">
+                    Seus dados serão usados apenas para responder sua solicitação de orçamento.
+                </p>
+            </form>
+
+            <!-- Informações adicionais -->
+            <div style="margin-top: 60px; padding: 40px; background: rgba(0,0,0,0.3); border-radius: 12px;">
+                <h3 style="margin-bottom: 20px;">Como Funciona?</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                    <div>
+                        <h4 style="color: #e3b07e; margin-bottom: 10px;">1. Envie a Solicitação</h4>
+                        <p style="color: #bbb; font-size: 0.9rem;">Preencha o formulário com os dados do seu projeto.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #e3b07e; margin-bottom: 10px;">2. Entraremos em Contato</h4>
+                        <p style="color: #bbb; font-size: 0.9rem;">Nossa equipe responderá em poucas horas pelo WhatsApp.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #e3b07e; margin-bottom: 10px;">3. Projeto e Cotação</h4>
+                        <p style="color: #bbb; font-size: 0.9rem;">Apresentaremos um projeto personalizado e seu orçamento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="regions" style="padding: 60px 5%; background-color: rgba(0,0,0,0.3);">
+        <h2 style="text-align: center; margin-bottom: 40px;">Atendemos Toda Zona Oeste de São Paulo</h2>
+        <div class="regions-grid">
+            <div class="region-tag">Butantã</div>
+            <div class="region-tag">Pinheiros</div>
+            <div class="region-tag">Vila Madalena</div>
+            <div class="region-tag">Alto de Pinheiros</div>
+            <div class="region-tag">Morumbi</div>
+            <div class="region-tag">Vila Sônia</div>
+            <div class="region-tag">Perdizes</div>
+            <div class="region-tag">Lapa</div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; color: #bbb;">Também atendemos regiões próximas. Consulte-nos para outras localidades.</p>
+    </section>
+
+    <footer>
+        <h3>Marcenaria Butantã</h3>
+        <div class="social-links">
+            <a href="https://www.instagram.com/marcenariabutanta" target="_blank">Instagram</a>
+            <a href="index.html">Voltar para Home</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Marcenaria Butantã. Desenvolvido por Maurício.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511958522265?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20m%C3%B3veis%20sob%20medida."
+       class="whatsapp-fixed js-whatsapp-link"
+       target="_blank"
+       aria-label="Entre em contato pelo WhatsApp">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/tracking.js"></script>
+</body>
+</html>
