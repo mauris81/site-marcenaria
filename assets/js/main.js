@@ -18,7 +18,7 @@ window.addEventListener("scroll", function() {
 });
 
 const WHATSAPP_NUMBER = '5511958522265';
-const DEFAULT_WHATSAPP_MESSAGE = 'Olá, gostaria de solicitar um orçamento para móveis sob medida.';
+const DEFAULT_WHATSAPP_MESSAGE = 'Olá, vim pelo site e gostaria de solicitar um orçamento para móveis sob medida.';
 
 function buildWhatsAppUrl(message = DEFAULT_WHATSAPP_MESSAGE) {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -74,7 +74,7 @@ function showFormMessage(message, type) {
 
 function handleFormSubmit(data) {
     // Opção 1: Enviar via WhatsApp com mensagem pré-preenchida
-    const message = `Olá! Gostaria de solicitar um orçamento.
+    const message = `Olá! Vim pelo site e gostaria de solicitar um orçamento.
 
 Nome: ${data.nome}
 Telefone: ${data.telefone}
