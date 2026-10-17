@@ -32,6 +32,10 @@
   --color-oak-600: #9a6233;
   --color-oak-700: #8a5a2e;
   --color-oak-800: #5c3b1f;
+
+  /* Verde do WhatsApp escurecido para o ícone branco atingir 3,5:1 (o #25d366 original fica em 2:1). */
+  --color-whatsapp: #1a9e4f;
+  --color-whatsapp-hover: #16934a;
 }
 
 /* 2. Tokens semânticos — o que os componentes usam (bg-canvas, text-ink...).
@@ -129,7 +133,14 @@
 
   html {
     scroll-behavior: smooth;
+    /* Âncoras param abaixo do cabeçalho fixo, em vez de escondidas atrás dele. */
+    scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
+  }
+
+  /* Com o menu (dialog) aberto, a página de fundo não rola. */
+  html:has(dialog[open]) {
+    overflow: hidden;
   }
 
   body {
