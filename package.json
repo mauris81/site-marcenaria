@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/fix-export-segments.mjs",
     "preview": "serve out",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
