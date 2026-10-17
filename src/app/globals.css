@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — fonte única de verdade do visual do site.
+ * Cada variável declarada em @theme vira um utilitário do Tailwind
+ * (ex.: --color-oak-300 → bg-oak-300, text-oak-300, border-oak-300).
+ */
+
+/* 1. Paleta bruta — tons extraídos do logo (carvalho sobre madeira escura).
+ *    Componentes devem preferir os tokens semânticos da seção 2. */
+@theme {
+  --color-espresso-950: #0b0806;
+  --color-espresso-900: #110d0a;
+  --color-espresso-850: #1a1410;
+  --color-espresso-800: #231c16;
+  --color-espresso-700: #30271f;
+  --color-espresso-600: #4a3d31;
+
+  --color-linen-50: #fbf8f3;
+  --color-linen-100: #f3ede4;
+  --color-linen-200: #e8dfd2;
+  --color-linen-300: #d6c9b8;
+  --color-linen-400: #b5a797;
+  --color-linen-500: #8c7e6f;
+  --color-linen-600: #5f5246;
+
+  --color-oak-100: #f6e7d3;
+  --color-oak-200: #eed0ab;
+  --color-oak-300: #e3b07e;
+  --color-oak-400: #d39459;
+  --color-oak-500: #b8783d;
+  --color-oak-600: #9a6233;
+  --color-oak-700: #8a5a2e;
+  --color-oak-800: #5c3b1f;
+}
+
+/* 2. Tokens semânticos — o que os componentes usam (bg-canvas, text-ink...).
+ *    Apontam para variáveis definidas por tema (seção 4), então o mesmo
+ *    componente se adapta sozinho dentro de uma seção clara ou escura. */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-brand: var(--brand);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+
+  /* As variáveis --font-fraunces e --font-manrope vêm do next/font (layout.tsx). */
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* 3. Escala tipográfica fluida (cresce com a tela, sem saltos por breakpoint),
+ *    curvas de movimento, sombras e largura máxima do conteúdo. */
+@theme {
+  --text-display-xl: clamp(3rem, 1.9rem + 4.6vw, 6.5rem);
+  --text-display-xl--line-height: 0.98;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display: clamp(2.5rem, 1.75rem + 3.2vw, 4.75rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.02em;
+  --text-heading: clamp(2rem, 1.55rem + 1.9vw, 3.25rem);
+  --text-heading--line-height: 1.08;
+  --text-heading--letter-spacing: -0.015em;
+  --text-title: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.01em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-lead--line-height: 1.65;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.5;
+  --text-eyebrow--letter-spacing: 0.22em;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quint: cubic-bezier(0.83, 0, 0.17, 1);
+
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.25), 0 12px 32px -12px rgb(0 0 0 / 0.45);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.2), 0 32px 64px -24px rgb(0 0 0 / 0.6);
+
+  --container-site: 84rem;
+}
+
+/* 4. Temas por seção. O escuro é o padrão; aplique `theme-light` numa seção
+ *    para criar ritmo claro/escuro. Contrastes medidos sobre o canvas (WCAG 2.2):
+ *    escuro — texto 16,6:1 · apoio 8,2:1 · marca 9,9:1 · line-strong 3,4:1
+ *    claro  — texto 15,7:1 · apoio 6,5:1 · marca 5,0:1 · line-strong 3,4:1 */
+@layer base {
+  :root,
+  .theme-dark {
+    --canvas: var(--color-espresso-900);
+    --surface: var(--color-espresso-850);
+    --ink: var(--color-linen-100);
+    --ink-muted: var(--color-linen-400);
+    --brand: var(--color-oak-300);
+    --line: rgb(243 237 228 / 0.12);
+    --line-strong: rgb(243 237 228 / 0.4);
+    --primary: var(--color-oak-300);
+    --on-primary: var(--color-espresso-900);
+    /* Grão sutil (SVG inline, zero requisições) que dá textura “de material”. */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    color-scheme: dark;
+  }
+
+  .theme-light {
+    --canvas: var(--color-linen-100);
+    --surface: var(--color-linen-50);
+    --ink: var(--color-espresso-850);
+    --ink-muted: var(--color-linen-600);
+    --brand: var(--color-oak-700);
+    --line: rgb(26 20 16 / 0.12);
+    --line-strong: rgb(26 20 16 / 0.5);
+    --primary: var(--color-espresso-850);
+    --on-primary: var(--color-linen-50);
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    color-scheme: light;
+  }
+
+  body,
+  .theme-dark,
+  .theme-light {
+    background-color: var(--canvas);
+    background-image: var(--grain);
+    color: var(--ink);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-oak-300);
+    color: var(--color-espresso-900);
+  }
+
+  /* Foco sempre visível para quem navega por teclado (WCAG 2.4.7 / 2.4.11). */
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  @media (prefers-contrast: more) {
+    body,
+    .theme-dark,
+    .theme-light {
+      background-image: none;
+    }
+  }
+}
+
+/* 5. Utilitários do projeto. */
+
+/* Largura máxima + respiro lateral fluido, usado por todas as seções. */
+@utility container-site {
+  width: 100%;
+  max-width: var(--container-site);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+}
+
+/* Motivo de painel ripado — assinatura visual ligada a um dos produtos da marcenaria. */
+@utility bg-slats {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgb(227 176 126 / 0.07) 0 1px,
+    transparent 1px 22px
+  );
+  mask-image: linear-gradient(to bottom, black, transparent);
+}

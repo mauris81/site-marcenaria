@@ -1,0 +1,10 @@
+# Gerados
+package-lock.json
+next-env.d.ts
+
+# Site estático legado — removido ao final da migração
+/*.html
+/assets
+/style.css
+/script.js
+/Fotos

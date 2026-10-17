@@ -1,0 +1,4 @@
+# Normaliza fim de linha em LF no repositório e na cópia de trabalho,
+# independentemente do core.autocrlf de cada máquina (evita diffs fantasmas
+# e falsos alertas do Prettier no Windows).
+* text=auto eol=lf
