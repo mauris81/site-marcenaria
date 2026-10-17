@@ -1,0 +1,61 @@
+{
+  "seo": {
+    "title": "Marcenaria sob medida em São Paulo",
+    "description": "Marcenaria sob medida na Zona Oeste de São Paulo para cozinhas planejadas, dormitórios, home offices, painéis e móveis personalizados.",
+    "ogDescription": "Móveis planejados e projetos personalizados com acabamento cuidadoso para cozinhas, dormitórios, home offices e peças sob medida."
+  },
+  "hero": {
+    "eyebrow": "Marcenaria sob medida · Zona Oeste de São Paulo",
+    "title": "Marcenaria sob medida para *projetos únicos*",
+    "text": "Móveis planejados em São Paulo com desenho personalizado, execução cuidadosa e acabamento de alto padrão.",
+    "photo": "tabua-resina-mar"
+  },
+  "differentials": {
+    "title": "Marcenaria sob medida, do projeto à montagem",
+    "items": [
+      {
+        "title": "Projeto bem resolvido",
+        "text": "Cada ambiente começa com escuta, medidas corretas e soluções pensadas para a rotina de quem vai usar o espaço todos os dias."
+      },
+      {
+        "title": "Acabamento de alto padrão",
+        "text": "Trabalhamos com materiais confiáveis, ferragens adequadas e montagem precisa para entregar móveis sob medida bonitos e duráveis."
+      },
+      {
+        "title": "Marcenaria personalizada",
+        "text": "Do closet sob medida ao painel ripado, o projeto é desenvolvido para conversar com a arquitetura e valorizar o ambiente."
+      }
+    ]
+  },
+  "services": {
+    "title": "Móveis planejados para cada ambiente"
+  },
+  "process": {
+    "title": "Processo claro, resultado sob medida",
+    "steps": [
+      {
+        "label": "Planejamento",
+        "title": "Projeto personalizado",
+        "text": "Entendemos o ambiente, definimos prioridades e organizamos medidas, materiais e acabamentos antes da produção."
+      },
+      {
+        "label": "Detalhamento",
+        "title": "Soluções funcionais",
+        "text": "Definimos divisões internas, ferragens, iluminação e pontos de uso para que o móvel funcione bem na prática."
+      },
+      {
+        "label": "Execução",
+        "title": "Fabricação e montagem",
+        "text": "Produzimos e instalamos com cuidado, buscando encaixes precisos, limpeza na entrega e acabamento consistente."
+      }
+    ]
+  },
+  "regions": {
+    "title": "Móveis sob medida na Zona Oeste de São Paulo",
+    "text": "Atendemos Butantã, Pinheiros, Vila Madalena e bairros próximos. Consulte a viabilidade para outras regiões de São Paulo."
+  },
+  "cta": {
+    "title": "Vamos desenhar seu próximo móvel?",
+    "text": "Conte um pouco sobre o ambiente e receba uma orientação inicial para o seu projeto de marcenaria sob medida."
+  }
+}

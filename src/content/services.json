@@ -1,0 +1,270 @@
+[
+  {
+    "slug": "cozinhas-planejadas",
+    "navLabel": "Cozinhas",
+    "name": "Cozinhas planejadas",
+    "quoteType": "Cozinha planejada",
+    "seo": {
+      "title": "Cozinha planejada sob medida em São Paulo",
+      "description": "Cozinha planejada sob medida na Zona Oeste de São Paulo, com projeto personalizado, boa distribuição interna e acabamento de alto padrão.",
+      "ogDescription": "Projetos de cozinha planejada com marcenaria sob medida, materiais adequados e montagem cuidadosa na Zona Oeste de São Paulo."
+    },
+    "hero": {
+      "eyebrow": "Ambientes · Cozinhas",
+      "title": "Cozinha planejada *sob medida*",
+      "text": "Marcenaria personalizada para cozinhas funcionais, bem distribuídas e com acabamento elegante.",
+      "photo": "cozinha-integrada-escura"
+    },
+    "card": {
+      "text": "Cozinha planejada para aproveitar melhor o espaço, organizar a rotina e manter uma estética elegante no uso diário.",
+      "cta": "Conhecer cozinhas",
+      "photo": "cozinha-integrada-escura"
+    },
+    "highlights": {
+      "title": "O que uma boa cozinha planejada precisa resolver",
+      "items": [
+        {
+          "title": "Aproveitamento real do espaço",
+          "text": "Planejamos armários, gavetas e módulos para deixar utensílios, eletros e bancada no lugar certo."
+        },
+        {
+          "title": "Materiais adequados ao uso",
+          "text": "Indicamos acabamentos e ferragens compatíveis com a rotina da cozinha, um ambiente que pede resistência."
+        },
+        {
+          "title": "Visual integrado à casa",
+          "text": "O projeto conversa com o estilo do imóvel, seja em uma cozinha compacta, integrada ou gourmet."
+        }
+      ]
+    },
+    "gallery": {
+      "title": "Projetos de cozinhas planejadas",
+      "items": [
+        {
+          "photo": "cozinha-compacta-armarios-claros",
+          "caption": "Cozinha compacta com armários claros"
+        },
+        {
+          "photo": "cozinha-integrada-escura",
+          "caption": "Cozinha integrada com acabamentos escuros"
+        },
+        {
+          "photo": "cozinha-bancada-amadeirada",
+          "caption": "Bancada amadeirada e armários claros"
+        },
+        { "photo": "cozinha-linear-coifa", "caption": "Cozinha linear com coifa" },
+        { "photo": "cristaleira-madeira", "caption": "Cristaleira sob medida" },
+        { "photo": "cozinha-clara-bancada-preta", "caption": "Cozinha clara com bancada preta" },
+        {
+          "photo": "cozinha-compacta-armarios-superiores",
+          "caption": "Cozinha compacta com armários superiores"
+        },
+        { "photo": "torre-quente", "caption": "Torre quente e marcenaria funcional" },
+        { "photo": "modulo-geladeira-forno", "caption": "Módulo para geladeira e forno" },
+        { "photo": "cozinha-verde-bancada-l", "caption": "Cozinha verde com bancada em L" },
+        { "photo": "cozinha-gaveteiros-forno", "caption": "Gaveteiros e módulo para forno" },
+        { "photo": "cozinha-armarios-inferiores", "caption": "Armários inferiores com gavetas" },
+        { "photo": "cozinha-em-l", "caption": "Cozinha em L sob medida" },
+        { "photo": "ilha-amadeirada", "caption": "Ilha com acabamento amadeirado" },
+        { "photo": "cozinha-ilha-central", "caption": "Cozinha integrada com ilha central" },
+        { "photo": "bancada-cooktop", "caption": "Detalhe de bancada e cooktop" }
+      ]
+    },
+    "process": {
+      "title": "Como funciona nosso processo",
+      "text": "Do levantamento ao acabamento, cada etapa é pensada para reduzir improvisos e entregar uma cozinha pronta para uso.",
+      "steps": [
+        {
+          "label": "Consultoria",
+          "title": "Medidas e rotina",
+          "text": "Analisamos o espaço, os pontos existentes e a forma como você usa a cozinha para orientar o projeto."
+        },
+        {
+          "label": "Projeto 3D",
+          "title": "Definição do projeto",
+          "text": "Apresentamos a proposta com distribuição, acabamentos e soluções de armazenamento antes da produção."
+        },
+        {
+          "label": "Execução",
+          "title": "Fabricação e montagem",
+          "text": "Fabricamos e montamos com atenção aos encaixes, alinhamentos e detalhes visíveis do ambiente."
+        }
+      ]
+    },
+    "regionsTitle": "Cozinha planejada na Zona Oeste de São Paulo",
+    "cta": {
+      "title": "Quer planejar sua cozinha com mais segurança?",
+      "text": "Envie suas medidas, referências ou dúvidas. A gente ajuda a transformar a ideia em um projeto possível."
+    }
+  },
+  {
+    "slug": "dormitorios-planejados",
+    "navLabel": "Dormitórios",
+    "name": "Dormitórios planejados",
+    "quoteType": "Dormitório planejado",
+    "seo": {
+      "title": "Dormitórios e closets sob medida",
+      "description": "Dormitórios planejados, closets sob medida, camas e guarda-roupas personalizados na Zona Oeste de São Paulo, com marcenaria bem acabada.",
+      "ogDescription": "Guarda-roupas, closets e móveis sob medida para quartos mais organizados, confortáveis e bem resolvidos."
+    },
+    "hero": {
+      "eyebrow": "Ambientes · Dormitórios",
+      "title": "Dormitórios e closets *sob medida*",
+      "text": "Guarda-roupas, camas e móveis planejados para quartos mais organizados, confortáveis e bem aproveitados.",
+      "photo": "guarda-roupa-infantil-nichos"
+    },
+    "card": {
+      "text": "Guarda-roupas, camas, closets e bancadas sob medida para deixar o quarto mais organizado e confortável.",
+      "cta": "Conhecer dormitórios",
+      "photo": "guarda-roupa-infantil-nichos"
+    },
+    "highlights": {
+      "title": "Marcenaria para organizar melhor o quarto",
+      "items": [
+        {
+          "title": "Guarda-roupas bem divididos",
+          "text": "Divisórias, cabideiros, gavetas e nichos definidos conforme roupas, acessórios e rotina de uso."
+        },
+        {
+          "title": "Conforto sem excesso",
+          "text": "Cabeceiras, camas e bancadas entram no projeto para deixar o quarto bonito sem perder circulação."
+        },
+        {
+          "title": "Closet sob medida",
+          "text": "Quando o espaço permite, criamos closets sob medida com leitura clara, boa iluminação e acesso fácil."
+        }
+      ]
+    },
+    "gallery": {
+      "title": "Projetos de dormitórios planejados",
+      "items": [
+        { "photo": "cama-madeira", "caption": "Cama sob medida em madeira" },
+        { "photo": "cama-auxiliar", "caption": "Cama auxiliar sob medida" },
+        { "photo": "guarda-roupa-infantil-nichos", "caption": "Guarda-roupa infantil com nichos" },
+        { "photo": "porta-correr-madeira", "caption": "Porta de correr em madeira" },
+        { "photo": "corredor-armarios", "caption": "Corredor com armários planejados" },
+        { "photo": "guarda-roupa-divisorias", "caption": "Guarda-roupa com divisórias internas" },
+        { "photo": "porta-celeiro", "caption": "Porta de correr tipo celeiro" },
+        { "photo": "painel-porta-correr", "caption": "Painel e porta de correr em madeira" },
+        {
+          "photo": "guarda-roupa-espelho-ripado",
+          "caption": "Guarda-roupa com espelho e detalhe ripado"
+        },
+        { "photo": "painel-tv-dormitorio", "caption": "Painel de TV sob medida" },
+        { "photo": "cabeceira-estofada", "caption": "Cabeceira estofada com criados-mudos" },
+        { "photo": "armario-gavetas-interno", "caption": "Interior de armário com gavetas" },
+        { "photo": "guarda-roupa-portas-correr", "caption": "Guarda-roupa com portas de correr" },
+        { "photo": "guarda-roupa-porta-espelhada", "caption": "Guarda-roupa com porta espelhada" },
+        { "photo": "armario-cinza", "caption": "Armário planejado em tom cinza" },
+        { "photo": "dormitorio-armarios-bancada", "caption": "Dormitório com armários e bancada" }
+      ]
+    },
+    "process": {
+      "title": "Como funciona nosso processo",
+      "text": "Criamos soluções para o quarto a partir das medidas, do volume de armazenamento e do estilo do ambiente.",
+      "steps": [
+        {
+          "label": "Análise",
+          "title": "Leitura do ambiente",
+          "text": "Analisamos medidas, circulação, tomadas e necessidades de armazenamento antes de propor o móvel."
+        },
+        {
+          "label": "Design",
+          "title": "Projeto 3D",
+          "text": "Apresentamos a distribuição dos módulos, acabamentos e detalhes para aprovação antes da execução."
+        },
+        {
+          "label": "Realização",
+          "title": "Fabricação e montagem",
+          "text": "Fabricamos e instalamos os móveis com atenção ao alinhamento, acabamento e uso diário."
+        }
+      ]
+    },
+    "regionsTitle": "Dormitórios sob medida na Zona Oeste",
+    "cta": {
+      "title": "Quer organizar melhor seu quarto?",
+      "text": "Envie as medidas ou uma foto do espaço e damos o primeiro direcionamento para o projeto."
+    }
+  },
+  {
+    "slug": "home-office-planejado",
+    "navLabel": "Home Office",
+    "name": "Home office planejado",
+    "quoteType": "Home office",
+    "seo": {
+      "title": "Home office planejado sob medida",
+      "description": "Home office planejado com bancada, armários, prateleiras e painel sob medida para trabalhar melhor em casa, na Zona Oeste de São Paulo.",
+      "ogDescription": "Bancadas, armários, prateleiras e painéis sob medida para criar um espaço de trabalho confortável e organizado."
+    },
+    "hero": {
+      "eyebrow": "Ambientes · Home office",
+      "title": "Home office planejado *sob medida*",
+      "text": "Bancadas, armários e painéis personalizados para trabalhar melhor, com conforto e organização.",
+      "photo": "sala-reuniao-painel-ripado"
+    },
+    "card": {
+      "text": "Bancadas, armários e painéis sob medida para criar um home office profissional, confortável e bem organizado.",
+      "cta": "Conhecer home offices",
+      "photo": "sala-reuniao-painel-ripado"
+    },
+    "highlights": {
+      "title": "Um espaço de trabalho feito para sua rotina",
+      "items": [
+        {
+          "title": "Bancada na medida certa",
+          "text": "Definimos dimensões, altura e apoios pensando no computador, documentos e equipamentos do dia a dia."
+        },
+        {
+          "title": "Organização discreta",
+          "text": "Gavetas, armários e prateleiras ajudam a esconder o excesso visual sem dificultar o acesso."
+        },
+        {
+          "title": "Painel e acabamentos",
+          "text": "Painel ripado, nichos e acabamentos amadeirados podem trazer presença sem pesar no ambiente."
+        }
+      ]
+    },
+    "gallery": {
+      "title": "Projetos de home office planejado",
+      "items": [
+        { "photo": "sala-reuniao-painel-ripado", "caption": "Sala de reunião com painel ripado" },
+        { "photo": "mesa-trabalho", "caption": "Mesa de trabalho sob medida" },
+        { "photo": "home-office-bancada-l", "caption": "Bancada em L para estudo e trabalho" },
+        { "photo": "expositor-colecao", "caption": "Expositor personalizado para coleção" },
+        { "photo": "painel-bancada", "caption": "Painel sob medida com bancada" },
+        { "photo": "gaveteiro-corredicas", "caption": "Gaveteiro com corrediças telescópicas" },
+        { "photo": "home-office-bancada-armario", "caption": "Bancada e armário sob medida" },
+        {
+          "photo": "gaveteiro-vertical-preto",
+          "caption": "Gaveteiro vertical com acabamento preto"
+        }
+      ]
+    },
+    "process": {
+      "title": "Nosso processo de design",
+      "text": "O projeto nasce da forma como você trabalha: tempo de uso, equipamentos, armazenamento e espaço disponível.",
+      "steps": [
+        {
+          "label": "Levantamento",
+          "title": "Entendemos o uso",
+          "text": "Conversamos sobre sua rotina, equipamentos, medidas do ambiente e preferências de acabamento."
+        },
+        {
+          "label": "Projeto",
+          "title": "Visualização 3D",
+          "text": "Organizamos bancada, prateleiras, armários e pontos de apoio para validar a solução antes da execução."
+        },
+        {
+          "label": "Entrega",
+          "title": "Montagem cuidadosa",
+          "text": "Instalamos o conjunto com cuidado nos encaixes e no acabamento, para que o espaço esteja pronto para uso."
+        }
+      ]
+    },
+    "regionsTitle": "Home office sob medida na Zona Oeste",
+    "cta": {
+      "title": "Seu trabalho precisa de um espaço melhor?",
+      "text": "Conte como você usa o ambiente e criamos uma proposta sob medida, sem excessos e com boa funcionalidade."
+    }
+  }
+]

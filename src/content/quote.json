@@ -1,0 +1,62 @@
+{
+  "seo": {
+    "title": "Orçamento de móveis sob medida",
+    "description": "Solicite orçamento para móveis sob medida, cozinha planejada, closet, home office, painel ripado e projetos personalizados em São Paulo.",
+    "ogDescription": "Envie as informações do seu projeto e fale com a Marcenaria Butantã sobre móveis planejados em São Paulo."
+  },
+  "hero": {
+    "eyebrow": "Orçamento sem compromisso",
+    "title": "Orçamento de móveis *sob medida*",
+    "text": "Conte sobre seu ambiente e receba um primeiro direcionamento para o projeto.",
+    "photo": "tabua-resina-mar"
+  },
+  "channels": {
+    "title": "Como prefere iniciar seu orçamento?",
+    "form": {
+      "title": "Por formulário",
+      "text": "Ideal para enviar medidas, bairro e tipo de projeto com calma. Respondemos pelo WhatsApp."
+    },
+    "whatsapp": {
+      "title": "Pelo WhatsApp",
+      "text": "Prefere conversar direto? Chame no WhatsApp e envie fotos ou referências do ambiente.",
+      "cta": "Abrir WhatsApp"
+    }
+  },
+  "form": {
+    "title": "Dados para avaliar seu projeto",
+    "projectTypes": [
+      "Cozinha planejada",
+      "Dormitório planejado",
+      "Closet sob medida",
+      "Guarda-roupa",
+      "Home office",
+      "Sala / estar",
+      "Painel ripado / estante",
+      "Banheiro / lavabo",
+      "Cristaleira / aparador",
+      "Outro móvel sob medida"
+    ],
+    "privacy": "Seus dados serão usados apenas para responder sua solicitação de orçamento."
+  },
+  "steps": {
+    "title": "Como funciona?",
+    "items": [
+      {
+        "title": "Envie a solicitação",
+        "text": "Informe o tipo de móvel, bairro e detalhes que já tiver em mãos."
+      },
+      {
+        "title": "Conversamos pelo WhatsApp",
+        "text": "Tiramos dúvidas, pedimos fotos ou medidas extras quando necessário."
+      },
+      {
+        "title": "Projeto e orçamento",
+        "text": "Com as informações certas, preparamos uma proposta alinhada ao escopo."
+      }
+    ]
+  },
+  "regions": {
+    "title": "Atendimento na Zona Oeste de São Paulo",
+    "text": "Também atendemos regiões próximas. Consulte-nos para outras localidades."
+  }
+}

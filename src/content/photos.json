@@ -1,0 +1,209 @@
+[
+  {
+    "id": "tabua-resina-mar",
+    "file": "Fotos/foto45.jpg",
+    "alt": "Tábua de madeira com resina azul que imita as ondas do mar, com o logo da Marcenaria Butantã gravado",
+    "position": "60% 50%"
+  },
+  {
+    "id": "cozinha-compacta-armarios-claros",
+    "file": "Fotos/foto25.jpg",
+    "alt": "Cozinha compacta com armários claros"
+  },
+  {
+    "id": "cozinha-integrada-escura",
+    "file": "Fotos/foto26.jpg",
+    "alt": "Cozinha integrada com armários escuros e bancada em pedra"
+  },
+  {
+    "id": "cozinha-bancada-amadeirada",
+    "file": "Fotos/foto27.jpg",
+    "alt": "Cozinha com bancada amadeirada e armários claros"
+  },
+  {
+    "id": "cozinha-linear-coifa",
+    "file": "Fotos/foto4.jpg",
+    "alt": "Cozinha planejada linear com coifa"
+  },
+  {
+    "id": "cristaleira-madeira",
+    "file": "Fotos/foto5.jpg",
+    "alt": "Cristaleira sob medida em madeira"
+  },
+  {
+    "id": "cozinha-clara-bancada-preta",
+    "file": "Fotos/foto11.jpg",
+    "alt": "Cozinha clara com bancada preta"
+  },
+  {
+    "id": "cozinha-compacta-armarios-superiores",
+    "file": "Fotos/foto12.jpg",
+    "alt": "Cozinha compacta com armários superiores"
+  },
+  {
+    "id": "torre-quente",
+    "file": "Fotos/foto13.jpg",
+    "alt": "Torre quente e marcenaria funcional na cozinha"
+  },
+  {
+    "id": "modulo-geladeira-forno",
+    "file": "Fotos/foto14.jpg",
+    "alt": "Módulo de cozinha para geladeira e forno"
+  },
+  {
+    "id": "cozinha-verde-bancada-l",
+    "file": "Fotos/foto1.jpg",
+    "alt": "Cozinha planejada verde com bancada em L"
+  },
+  {
+    "id": "cozinha-gaveteiros-forno",
+    "file": "Fotos/foto2.jpg",
+    "alt": "Módulo de cozinha com gaveteiros e nicho para forno"
+  },
+  {
+    "id": "cozinha-armarios-inferiores",
+    "file": "Fotos/foto3.jpg",
+    "alt": "Armários inferiores de cozinha planejada com gavetas"
+  },
+  {
+    "id": "cozinha-em-l",
+    "file": "Fotos/foto28.jpg",
+    "alt": "Cozinha em L sob medida"
+  },
+  {
+    "id": "ilha-amadeirada",
+    "file": "Fotos/foto29.jpg",
+    "alt": "Ilha de cozinha com acabamento amadeirado"
+  },
+  {
+    "id": "cozinha-ilha-central",
+    "file": "Fotos/foto30.jpg",
+    "alt": "Cozinha integrada com ilha central"
+  },
+  {
+    "id": "bancada-cooktop",
+    "file": "Fotos/foto31.jpg",
+    "alt": "Detalhe de bancada com cooktop"
+  },
+  {
+    "id": "cama-madeira",
+    "file": "Fotos/foto39.jpg",
+    "alt": "Cama sob medida em madeira"
+  },
+  {
+    "id": "cama-auxiliar",
+    "file": "Fotos/foto40.jpg",
+    "alt": "Cama auxiliar sob medida"
+  },
+  {
+    "id": "guarda-roupa-infantil-nichos",
+    "file": "Fotos/foto41.jpg",
+    "alt": "Dormitório infantil planejado com guarda-roupa e nichos"
+  },
+  {
+    "id": "porta-correr-madeira",
+    "file": "Fotos/foto6.jpg",
+    "alt": "Porta de correr em madeira para dormitório"
+  },
+  {
+    "id": "corredor-armarios",
+    "file": "Fotos/foto7.jpg",
+    "alt": "Corredor com armários planejados"
+  },
+  {
+    "id": "guarda-roupa-divisorias",
+    "file": "Fotos/foto8.jpg",
+    "alt": "Guarda-roupa com divisórias internas"
+  },
+  {
+    "id": "porta-celeiro",
+    "file": "Fotos/foto9.jpg",
+    "alt": "Porta de correr tipo celeiro"
+  },
+  {
+    "id": "painel-porta-correr",
+    "file": "Fotos/foto10.jpg",
+    "alt": "Painel e porta de correr em madeira"
+  },
+  {
+    "id": "guarda-roupa-espelho-ripado",
+    "file": "Fotos/foto17.jpg",
+    "alt": "Guarda-roupa com espelho e detalhe ripado"
+  },
+  {
+    "id": "painel-tv-dormitorio",
+    "file": "Fotos/foto18.jpg",
+    "alt": "Painel de TV sob medida para dormitório"
+  },
+  {
+    "id": "cabeceira-estofada",
+    "file": "Fotos/foto20.jpg",
+    "alt": "Dormitório com cabeceira estofada e criados-mudos"
+  },
+  {
+    "id": "armario-gavetas-interno",
+    "file": "Fotos/foto21.jpg",
+    "alt": "Interior de armário com gavetas"
+  },
+  {
+    "id": "guarda-roupa-portas-correr",
+    "file": "Fotos/foto22.jpg",
+    "alt": "Guarda-roupa com portas de correr"
+  },
+  {
+    "id": "guarda-roupa-porta-espelhada",
+    "file": "Fotos/foto23.jpg",
+    "alt": "Guarda-roupa com porta espelhada"
+  },
+  {
+    "id": "armario-cinza",
+    "file": "Fotos/foto24.jpg",
+    "alt": "Armário planejado em tom cinza"
+  },
+  {
+    "id": "dormitorio-armarios-bancada",
+    "file": "Fotos/foto38.jpg",
+    "alt": "Dormitório com armários e bancada planejados"
+  },
+  {
+    "id": "sala-reuniao-painel-ripado",
+    "file": "Fotos/foto44.jpg",
+    "alt": "Sala de reunião planejada com mesa central e painel ripado",
+    "position": "50% 72%"
+  },
+  {
+    "id": "mesa-trabalho",
+    "file": "Fotos/foto32.jpg",
+    "alt": "Mesa de trabalho sob medida"
+  },
+  {
+    "id": "home-office-bancada-l",
+    "file": "Fotos/foto33.jpg",
+    "alt": "Home office com bancada em L para estudo e trabalho"
+  },
+  {
+    "id": "expositor-colecao",
+    "file": "Fotos/foto35.jpg",
+    "alt": "Expositor personalizado para coleção"
+  },
+  {
+    "id": "painel-bancada",
+    "file": "Fotos/foto34.jpg",
+    "alt": "Painel sob medida com bancada"
+  },
+  {
+    "id": "gaveteiro-corredicas",
+    "file": "Fotos/foto36.jpg",
+    "alt": "Gaveteiro preto com três gavetas abertas e corrediças telescópicas"
+  },
+  {
+    "id": "home-office-bancada-armario",
+    "file": "Fotos/foto37.jpg",
+    "alt": "Home office com bancada e armário sob medida"
+  },
+  {
+    "id": "gaveteiro-vertical-preto",
+    "file": "Fotos/foto37 (2).jpg",
+    "alt": "Gaveteiro vertical com acabamento preto"
+  }
+]

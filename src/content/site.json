@@ -1,0 +1,31 @@
+{
+  "name": "Marcenaria Butantã",
+  "url": "https://mauris81.github.io/site-marcenaria",
+  "locale": "pt-BR",
+  "description": "Marcenaria sob medida na Zona Oeste de São Paulo para cozinhas planejadas, dormitórios, home offices, painéis e móveis personalizados.",
+  "contact": {
+    "whatsapp": "5511958522265",
+    "phone": "(11) 95852-2265",
+    "instagram": {
+      "handle": "@marcenariabutanta",
+      "url": "https://www.instagram.com/marcenariabutanta"
+    }
+  },
+  "whatsappMessage": "Olá, vim pelo site e gostaria de solicitar um orçamento para móveis sob medida.",
+  "area": {
+    "city": "São Paulo",
+    "state": "SP",
+    "region": "Zona Oeste",
+    "neighborhoods": [
+      "Butantã",
+      "Pinheiros",
+      "Vila Madalena",
+      "Alto de Pinheiros",
+      "Morumbi",
+      "Vila Sônia",
+      "Perdizes",
+      "Lapa"
+    ]
+  },
+  "credits": "Desenvolvido por Maurício."
+}
