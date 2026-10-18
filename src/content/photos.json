@@ -211,5 +211,41 @@
     "id": "madeira-resina-negra",
     "file": "assets/photos/foto43.jpg",
     "alt": "Detalhe de madeira maciça com veios preenchidos por resina preta"
+  },
+  {
+    "id": "porta-correr-puxador-barra",
+    "file": "assets/photos/porta-correr-puxador-barra.jpg",
+    "alt": "Porta de correr em madeira com puxador de barra preto e trilho aparente, ao lado de armário com o mesmo acabamento"
+  },
+  {
+    "id": "corredor-porta-correr-armario",
+    "file": "assets/photos/corredor-porta-correr-armario.jpg",
+    "alt": "Corredor com porta de correr em madeira no trilho aparente e armário embutido"
+  },
+  {
+    "id": "porta-giro-batente-preto",
+    "file": "assets/photos/porta-giro-batente-preto.jpg",
+    "alt": "Porta de giro amadeirada com batente preto e maçaneta preta, em corredor com papel de parede"
+  },
+  {
+    "id": "portas-giro-corredor",
+    "file": "assets/photos/portas-giro-corredor.jpg",
+    "alt": "Porta de giro aberta e, ao fundo do corredor, outra porta amadeirada com batente preto"
+  },
+  {
+    "id": "sala-painel-portas-correr",
+    "file": "assets/photos/sala-painel-portas-correr.jpg",
+    "alt": "Sala com painel de madeira e portas de correr no trilho aparente, sob luminárias de LED geométricas"
+  },
+  {
+    "id": "porta-correr-puxador-cava",
+    "file": "assets/photos/porta-correr-puxador-cava.jpg",
+    "alt": "Porta de correr com trilho aparente preto e puxador cava, diante de painel de madeira",
+    "position": "50% 8%"
+  },
+  {
+    "id": "porta-correr-brinquedoteca",
+    "file": "assets/photos/porta-correr-brinquedoteca.jpg",
+    "alt": "Porta de correr entreaberta revelando uma brinquedoteca atrás do painel de madeira"
   }
 ]

@@ -400,5 +400,126 @@
       "title": "Gire o ripado e veja nossos *home offices*",
       "photos": ["sala-reuniao-painel-ripado", "painel-bancada", "home-office-bancada-armario"]
     }
+  },
+  {
+    "slug": "portas-sob-medida",
+    "navLabel": "Portas",
+    "name": "Portas sob medida",
+    "quoteType": "Porta sob medida",
+    "seo": {
+      "title": "Portas sob medida em São Paulo",
+      "description": "Portas de correr com trilho aparente e portas de giro sob medida na Zona Oeste de São Paulo, com acabamento amadeirado e ferragens pensadas para o ambiente.",
+      "ogDescription": "Portas de correr e de giro feitas sob medida para integrar ou separar ambientes, com acabamento e ferragens escolhidos para cada projeto."
+    },
+    "hero": {
+      "eyebrow": "Ambientes · Portas",
+      "title": "Portas *sob medida*",
+      "text": "Portas de correr e de giro feitas na medida do vão, em harmonia com o painel e os móveis do ambiente.",
+      "photo": "corredor-porta-correr-armario",
+      "photoPosition": "50% 32%"
+    },
+    "card": {
+      "text": "Portas de correr com trilho aparente e portas de giro, feitas na medida do vão e no mesmo acabamento dos móveis.",
+      "cta": "Conhecer portas",
+      "photo": "porta-correr-puxador-barra"
+    },
+    "highlights": {
+      "title": "Portas que fazem parte do projeto",
+      "items": [
+        {
+          "title": "Na medida do vão",
+          "text": "Cada porta é feita para a abertura do seu ambiente, com altura, largura e folgas definidas no projeto."
+        },
+        {
+          "title": "De correr ou de giro",
+          "text": "A porta de correr com trilho aparente dispensa o espaço de abertura; a de giro, com batente, fecha o ambiente com discrição."
+        },
+        {
+          "title": "Acabamento integrado",
+          "text": "Padrão de madeira, puxador e ferragens combinam com o painel e os armários ao redor."
+        }
+      ]
+    },
+    "gallery": {
+      "title": "Projetos de portas sob medida",
+      "items": [
+        {
+          "photo": "porta-correr-puxador-barra",
+          "caption": "Porta de correr com puxador de barra"
+        },
+        {
+          "photo": "sala-painel-portas-correr",
+          "caption": "Painel de madeira com portas de correr"
+        },
+        {
+          "photo": "porta-giro-batente-preto",
+          "caption": "Porta de giro com batente preto"
+        },
+        {
+          "photo": "porta-correr-puxador-cava",
+          "caption": "Porta de correr com puxador cava"
+        },
+        {
+          "photo": "corredor-porta-correr-armario",
+          "caption": "Corredor com porta de correr e armário"
+        },
+        {
+          "photo": "porta-correr-brinquedoteca",
+          "caption": "Porta de correr que esconde a brinquedoteca"
+        },
+        {
+          "photo": "portas-giro-corredor",
+          "caption": "Portas de giro no corredor"
+        },
+        {
+          "photo": "porta-celeiro",
+          "caption": "Porta de correr tipo celeiro"
+        },
+        {
+          "photo": "painel-porta-correr",
+          "caption": "Painel e porta de correr em madeira"
+        },
+        {
+          "photo": "porta-correr-madeira",
+          "caption": "Porta de correr em madeira"
+        }
+      ]
+    },
+    "process": {
+      "title": "Do vão à porta instalada",
+      "text": "Medimos o vão, definimos a forma de abrir e o acabamento e cuidamos da instalação.",
+      "steps": [
+        {
+          "label": "Medição",
+          "title": "Medimos o vão",
+          "text": "Levantamos a abertura, o espaço livre na parede e o piso para indicar a melhor forma de abrir."
+        },
+        {
+          "label": "Projeto",
+          "title": "Abertura e acabamento",
+          "text": "Definimos com você porta de correr ou de giro, padrão de madeira, puxador e ferragens."
+        },
+        {
+          "label": "Entrega",
+          "title": "Instalação cuidadosa",
+          "text": "Instalamos trilho, batente e ferragens com atenção ao alinhamento, para a porta correr ou fechar com suavidade."
+        }
+      ]
+    },
+    "regionsTitle": "Portas sob medida na Zona Oeste",
+    "cta": {
+      "title": "Precisa de uma porta sob medida?",
+      "text": "Envie as medidas aproximadas do vão e fotos do ambiente, e preparamos uma proposta para o seu projeto."
+    },
+    "showcase": {
+      "reveal": "sliding",
+      "title": "Deslize a porta e conheça nossas *portas*",
+      "photos": [
+        "porta-correr-puxador-barra",
+        "porta-giro-batente-preto",
+        "porta-correr-puxador-cava",
+        "corredor-porta-correr-armario"
+      ]
+    }
   }
 ]

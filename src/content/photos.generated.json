@@ -263,6 +263,48 @@
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JagCdMoRwABTFrY2YUX9WgADo4/e1px6tJRm+NxGc3hOSEnioBhFLE88sOq5Rc9OxEQbynM0io9y6P4JVk1dzWf8ov+Rx2t0hmtB66Hrg7k5gzbxNCN1vT2Nu4lAA"
+    },
+    "porta-correr-puxador-barra": {
+      "signature": "106c17e3db598b76-full",
+      "width": 960,
+      "height": 1280,
+      "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYgCdABeq09Fbo0HOBOwA/mAGJzZuGLC+kePVKtWgTwUQredjwzvKdsJUt62FXpDl+JJZQGpk1O1GvQmnfMrf6++ryPQT93zCAoAA"
+    },
+    "corredor-porta-correr-armario": {
+      "signature": "6f906f971f0161b7-full",
+      "width": 960,
+      "height": 1280,
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JQAAMLZjnaPNZX1JsAADc0PI1wkZd+zHAIx/ZDqWRKWNBv7Ib/wsalPH0Hxlc60WBhz9BES9vbjU2E2QFL3gA"
+    },
+    "porta-giro-batente-preto": {
+      "signature": "7b6f8cec41e83b3c-full",
+      "width": 900,
+      "height": 1600,
+      "blurDataURL": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBACdASoQABwAPu1qrU8ppiQiMAgBMB2JYwC7ACG7pYGEml1Q1MOtoAD8KTR9zAJotsN2Tr0WEX2A9SxeH5cwoD98upwQbJtpAuYHajQi2EQBYBGTTpGOkn5iN/Gr3H2XmVpWfRb1wDFT6znXZ3qtxd4SRAap5fW6UKVEW7eB7990S02JbjTiPTVcAAAA"
+    },
+    "portas-giro-corredor": {
+      "signature": "d2cc9732025f8621-full",
+      "width": 900,
+      "height": 1600,
+      "blurDataURL": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADQBACdASoQABwAPu1kqU2ppaQiMAgBMB2JZACdL13x/lAAkAAk44dmFonwvreBAADOMU57Pr73uyWSm1IsWlSFn/sIGarNJp7LiiNWReNpTfuVZvMxJHvIDtVK3j6pyHFKPAn6BnbHACCbN2t2TON26jE4RD00Tt5F2lu23chlt67+/N3ipce193mcErhS17loIJ9X5UaMxzWlk3VPow6KdAjawNflLovpwKBQWAAAAA=="
+    },
+    "sala-painel-portas-correr": {
+      "signature": "c9d6cc7d26b63839-full",
+      "width": 1600,
+      "height": 1200,
+      "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQAgCdASoQAAwAA4BaJbACdAywCoGwxLfGoMAA8afRndqhJSrm388dJp0Rxd5X/G7inaoeIzlldmhZWAjP/Gv4YBl8C2fwCQuRoWBk4dLMxkVXLHDzJIAA"
+    },
+    "porta-correr-puxador-cava": {
+      "signature": "b149b014e71d41f7-full",
+      "width": 1200,
+      "height": 1600,
+      "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQABUAPu1kqk4ppaQiMAgBMB2JQBOmUABv4AYzZC87mkKAAP1J4TXqjIOw05fh7IXn48qyFKRRy1V232Vq4fv4Ir+uqVoFId3R4QK9iwxJ2RQAB4PC8O+O8Q0Cgi9yV9ygnDwqAAA="
+    },
+    "porta-correr-brinquedoteca": {
+      "signature": "5c7d946cb608379e-full",
+      "width": 1200,
+      "height": 1600,
+      "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoQABUAPu1kqU2ppaOiMAgBMB2JQBOgBBtjEYxLJlu28z4A/HcI7vHqyhdR5Mq5RJt1fnphIq4tr/COgGSI6hRqyA4LaKMknXzTIS772HX5eXWJaequnUNE2KGNaRNBChrSZXzQMAj24TxUAAA="
     }
   }
 }
