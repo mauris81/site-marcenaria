@@ -3,11 +3,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { PageTransition } from "@/components/motion/page-transition";
+import { Gallery } from "@/components/gallery/gallery";
 import { WhatsAppIcon } from "@/components/icons/brand";
+import { PageTransition } from "@/components/motion/page-transition";
+import { CtaBanner } from "@/components/sections/cta-banner";
+import { Differentials } from "@/components/sections/differentials";
 import { PageHero } from "@/components/sections/page-hero";
+import { ProcessSteps } from "@/components/sections/process-steps";
+import { ScrollMarquee } from "@/components/sections/scroll-marquee";
+import { SectionHeading } from "@/components/sections/section-heading";
 import { buttonVariants } from "@/components/ui/button";
-import { getService, getServices, getSite } from "@/lib/content";
+import { getGallery, getService, getServices, getSite } from "@/lib/content";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 // Um único template gera as páginas de todos os serviços em src/content/services.json.
@@ -29,6 +35,9 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
   const [service, site] = await Promise.all([getService((await params).slug), getSite()]);
   if (!service) notFound();
 
+  const gallery = await getGallery(service);
+  const whatsappHref = whatsappUrl(site.contact.whatsapp, site.whatsappMessage);
+
   return (
     <PageTransition>
       <PageHero {...service.hero}>
@@ -40,7 +49,7 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
           />
         </Link>
         <a
-          href={whatsappUrl(site.contact.whatsapp, site.whatsappMessage)}
+          href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
           className={buttonVariants({ variant: "secondary", size: "lg" })}
@@ -49,6 +58,47 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
           Conversar no WhatsApp
         </a>
       </PageHero>
+
+      <Differentials eyebrow={service.name} {...service.highlights} />
+
+      <section aria-labelledby="projetos" className="py-24 md:py-32">
+        <div className="container-site">
+          <SectionHeading
+            id="projetos"
+            eyebrow="Portfólio"
+            title={service.gallery.title}
+            text={`${gallery.length} projetos executados pela Marcenaria Butantã.`}
+          />
+          <div className="mt-14">
+            <Gallery items={gallery} />
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="processo" className="theme-light">
+        <div className="container-site py-24 md:py-32">
+          <SectionHeading
+            id="processo"
+            eyebrow="Como trabalhamos"
+            title={service.process.title}
+            text={service.process.text}
+          />
+          <div className="mt-16">
+            <ProcessSteps steps={service.process.steps} />
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="regioes" className="py-24 md:py-32">
+        <div className="container-site">
+          <SectionHeading id="regioes" eyebrow="Onde atendemos" title={service.regionsTitle} />
+        </div>
+        <div className="mt-14">
+          <ScrollMarquee items={site.area.neighborhoods} />
+        </div>
+      </section>
+
+      <CtaBanner {...service.cta} whatsappHref={whatsappHref} />
     </PageTransition>
   );
 }
