@@ -4,6 +4,7 @@ import { Logo } from "@/components/brand/logo";
 import { SplitWordmark } from "@/components/motion/split-wordmark";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand";
 import type { Site } from "@/lib/content";
+import { whatsappUrl } from "@/lib/whatsapp";
 
 import type { NavItem } from "./site-header";
 
@@ -83,7 +84,16 @@ export function SiteFooter({ site, nav, whatsappHref }: SiteFooterProps) {
         {/* Respiro extra para o botão flutuante do WhatsApp não cobrir o texto ao fim da rolagem. */}
         <div className="container-site flex flex-col gap-2 pt-6 pb-24 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {site.name}. {site.credits}
+            © {new Date().getFullYear()} {site.name}. Desenvolvido por {site.credits.name} ·{" "}
+            <a
+              href={whatsappUrl(site.credits.whatsapp)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`WhatsApp do desenvolvedor: ${site.credits.phone}`}
+              className="whitespace-nowrap underline-offset-4 hover:text-ink hover:underline"
+            >
+              {site.credits.phone}
+            </a>
           </p>
           <a href="#conteudo" className="inline-flex min-h-11 items-center hover:text-ink">
             Voltar ao topo ↑

@@ -107,13 +107,16 @@ export const photosSchema = z.array(photoSchema).superRefine((photos, ctx) => {
   });
 });
 
+/** Número de WhatsApp: 55 + DDD + número, só dígitos (ex.: 5511994408731). */
+const whatsappNumber = z.string().regex(/^55\d{10,11}$/, "use 55 + DDD + número, apenas dígitos");
+
 export const siteSchema = z.strictObject({
   name: text,
   url: z.url(),
   locale: z.literal("pt-BR"),
   description: text.max(160),
   contact: z.strictObject({
-    whatsapp: z.string().regex(/^55\d{10,11}$/, "use 55 + DDD + número, apenas dígitos"),
+    whatsapp: whatsappNumber,
     phone: text,
     instagram: z.strictObject({ handle: z.string().startsWith("@"), url: z.url() }),
   }),
@@ -124,7 +127,8 @@ export const siteSchema = z.strictObject({
     region: text,
     neighborhoods: z.array(text).min(1),
   }),
-  credits: text,
+  /** Crédito do desenvolvedor no rodapé, com contato próprio (não é o da marcenaria). */
+  credits: z.strictObject({ name: text, phone: text, whatsapp: whatsappNumber }),
 });
 
 export const homeSchema = z.strictObject({
