@@ -46,12 +46,27 @@ export function loadContent(raw: RawContent) {
     }
   };
 
+  // Toda página precisa de uma foto para a imagem de compartilhamento
+  // (scripts/generate-og.mjs): a de seo.ogPhoto ou, na falta dela, a do hero.
+  type Page = { seo: { ogPhoto?: string }; hero: { photo?: string } };
+  const requireSharePhoto = (page: Page, where: string) => {
+    requirePhoto(page.seo.ogPhoto, `${where} › seo.ogPhoto`);
+    if (!page.seo.ogPhoto && !page.hero.photo) {
+      problems.push(
+        `${where} › seo.ogPhoto: defina a foto de compartilhamento (o hero não tem foto)`,
+      );
+    }
+  };
+
   requirePhoto(home.hero.photo, "home.json › hero.photo");
   requirePhoto(quote.hero.photo, "quote.json › hero.photo");
+  requireSharePhoto(home, "home.json");
+  requireSharePhoto(quote, "quote.json");
 
   for (const service of services) {
     const at = `services.json › ${service.slug}`;
     requirePhoto(service.hero.photo, `${at} › hero.photo`);
+    requireSharePhoto(service, at);
     requirePhoto(service.card.photo, `${at} › card.photo`);
     service.gallery.items.forEach((item, index) =>
       requirePhoto(item.photo, `${at} › gallery.items[${index}]`),

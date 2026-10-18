@@ -14,14 +14,18 @@ const slug = z
 /** Referência a uma foto do catálogo (`id` em photos.json). */
 const photoRef = slug;
 
+/** Ponto focal ao recortar a foto (CSS `object-position`), ex.: "50% 72%". */
+const position = z.string().regex(/^\d{1,3}% \d{1,3}%$/, 'use o formato "X% Y%"');
+
 const seo = z.strictObject({
   title: text.max(60, "títulos com mais de 60 caracteres são cortados pelo Google"),
   description: text.max(160, "descrições com mais de 160 caracteres são cortadas pelo Google"),
   ogDescription: text.max(200).optional(),
+  /** Foto da imagem de compartilhamento (WhatsApp, redes sociais); padrão: a foto do hero. */
+  ogPhoto: photoRef.optional(),
+  /** Enquadramento da foto de compartilhamento, se diferente do padrão. */
+  ogPhotoPosition: position.optional(),
 });
-
-/** Ponto focal ao recortar a foto (CSS `object-position`), ex.: "50% 72%". */
-const position = z.string().regex(/^\d{1,3}% \d{1,3}%$/, 'use o formato "X% Y%"');
 
 const hero = z.strictObject({
   eyebrow: text.optional(),

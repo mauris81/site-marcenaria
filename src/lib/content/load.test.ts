@@ -52,6 +52,16 @@ describe("conteúdo do site (src/content)", () => {
     expect(() => loadContent({ ...raw, photos: withNewPhoto })).toThrow(/npm run images/);
   });
 
+  it("exige foto de compartilhamento em página cujo hero não tem foto", () => {
+    const broken = { ...raw, home: { ...home, seo: { ...home.seo, ogPhoto: undefined } } };
+    expect(() => loadContent(broken)).toThrow(/home\.json › seo\.ogPhoto/);
+  });
+
+  it("detecta foto de compartilhamento inexistente", () => {
+    const broken = { ...raw, quote: { ...quote, seo: { ...quote.seo, ogPhoto: "foto-sumida" } } };
+    expect(() => loadContent(broken)).toThrow(/quote\.json › seo\.ogPhoto[\s\S]*foto-sumida/);
+  });
+
   it("detecta tipo de orçamento ausente no formulário", () => {
     const brokenServices = structuredClone(services);
     brokenServices[0].quoteType = "Tipo inventado";

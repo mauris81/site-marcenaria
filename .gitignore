@@ -13,6 +13,9 @@
 # Versões otimizadas das fotos (geradas por `npm run images`)
 /public/images/
 
+# Imagens de compartilhamento (geradas por `npm run og`)
+/public/og/
+
 # Build
 /build
 
