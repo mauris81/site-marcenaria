@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/reveal";
+import { UnfoldSection } from "@/components/motion/unfold-section";
 
 import { SectionHeading } from "./section-heading";
 
@@ -10,7 +11,7 @@ type DifferentialsProps = {
 
 export function Differentials({ eyebrow, title, items }: DifferentialsProps) {
   return (
-    <section aria-labelledby="diferenciais" className="theme-light">
+    <UnfoldSection aria-labelledby="diferenciais" className="theme-light">
       <div className="container-site py-24 md:py-32">
         <SectionHeading id="diferenciais" eyebrow={eyebrow} title={title} />
         <Reveal stagger className="mt-16 grid gap-x-12 gap-y-14 md:grid-cols-3">
@@ -25,6 +26,6 @@ export function Differentials({ eyebrow, title, items }: DifferentialsProps) {
           ))}
         </Reveal>
       </div>
-    </section>
+    </UnfoldSection>
   );
 }

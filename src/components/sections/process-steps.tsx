@@ -31,6 +31,13 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
           ease: "none",
           scrollTrigger: { trigger: root, start: "top 70%", end: "bottom 60%", scrub: 0.6 },
         });
+        gsap.from("[data-process-number]", {
+          scale: 0.3,
+          autoAlpha: 0,
+          stagger: 0.15,
+          ease: "back.out(2.2)",
+          scrollTrigger: { trigger: root, start: "top 80%", once: true },
+        });
         gsap.from("[data-process-step]", {
           autoAlpha: 0,
           y: 32,
@@ -58,7 +65,10 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
       <ol className="relative grid gap-12 md:grid-cols-3 md:gap-10">
         {steps.map((step, index) => (
           <li key={step.title} data-process-step className="relative pl-20 md:pt-20 md:pl-0">
-            <span className="absolute top-0 left-0 grid size-12 place-items-center rounded-full border border-brand bg-canvas font-display text-lg text-brand tabular-nums">
+            <span
+              data-process-number
+              className="absolute top-0 left-0 grid size-12 place-items-center rounded-full border border-brand bg-canvas font-display text-lg text-brand tabular-nums"
+            >
               {String(index + 1).padStart(2, "0")}
             </span>
             <p className="text-eyebrow font-semibold text-ink-muted uppercase">{step.label}</p>

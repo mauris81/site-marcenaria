@@ -38,8 +38,13 @@ export function CabinetReveal({ photos, ...copy }: CabinetRevealProps) {
       0.1,
     );
     timeline.fromTo("[data-door-shade]", { opacity: 0 }, { opacity: 0.65, duration: 0.45 }, 0.1);
-    // 0,28 → 0,6: a fita de LED acende e a luz invade o interior.
-    timeline.fromTo("[data-led]", { opacity: 0.12 }, { opacity: 1, duration: 0.2 }, 0.28);
+    // 0,28 → 0,6: a fita de LED acende — piscando, como um LED de verdade — e a luz invade o interior.
+    timeline.set("[data-led]", { opacity: 0.12 }, 0);
+    timeline.to(
+      "[data-led]",
+      { keyframes: { opacity: [0.12, 1, 0.25, 0.9, 0.5, 1] }, duration: 0.2 },
+      0.28,
+    );
     timeline.fromTo("[data-glow]", { opacity: 0 }, { opacity: 1, duration: 0.32 }, 0.28);
     timeline.fromTo("[data-spot]", { opacity: 0.25 }, { opacity: 1, duration: 0.4 }, 0.25);
     // 0,45 → 0,85: as fotos sobem nas prateleiras, uma a uma.

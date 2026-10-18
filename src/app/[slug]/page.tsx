@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { Gallery } from "@/components/gallery/gallery";
 import { WhatsAppIcon } from "@/components/icons/brand";
 import { PageTransition } from "@/components/motion/page-transition";
+import { UnfoldSection } from "@/components/motion/unfold-section";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Differentials } from "@/components/sections/differentials";
 import { PageHero } from "@/components/sections/page-hero";
@@ -75,7 +76,7 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
         </div>
       </section>
 
-      <section aria-labelledby="processo" className="theme-light">
+      <UnfoldSection aria-labelledby="processo" className="theme-light">
         <div className="container-site py-24 md:py-32">
           <SectionHeading
             id="processo"
@@ -87,7 +88,7 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
             <ProcessSteps steps={service.process.steps} />
           </div>
         </div>
-      </section>
+      </UnfoldSection>
 
       <RegionsSection
         eyebrow="Onde atendemos"

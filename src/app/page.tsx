@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { WhatsAppIcon } from "@/components/icons/brand";
 import { PageTransition } from "@/components/motion/page-transition";
+import { UnfoldSection } from "@/components/motion/unfold-section";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Differentials } from "@/components/sections/differentials";
 import { PageHero } from "@/components/sections/page-hero";
@@ -67,14 +68,14 @@ export default async function HomePage() {
         ))}
       </section>
 
-      <section aria-labelledby="processo" className="theme-light border-t border-line">
+      <UnfoldSection aria-labelledby="processo" className="theme-light border-t border-line">
         <div className="container-site py-24 md:py-32">
           <SectionHeading id="processo" eyebrow={home.process.eyebrow} title={home.process.title} />
           <div className="mt-16">
             <ProcessSteps steps={home.process.steps} />
           </div>
         </div>
-      </section>
+      </UnfoldSection>
 
       <RegionsSection {...home.regions} neighborhoods={site.area.neighborhoods} />
 

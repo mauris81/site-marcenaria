@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { WhatsAppIcon } from "@/components/icons/brand";
 import { Reveal } from "@/components/motion/reveal";
+import { UnfoldSection } from "@/components/motion/unfold-section";
 import { buttonVariants } from "@/components/ui/button";
 
 import { SectionHeading } from "./section-heading";
@@ -17,7 +18,7 @@ type CtaBannerProps = {
 /** Chamada final para orçamento, reaproveitada em todas as páginas de conteúdo. */
 export function CtaBanner({ eyebrow, title, text, whatsappHref }: CtaBannerProps) {
   return (
-    <section aria-labelledby="chamada-final" className="theme-light">
+    <UnfoldSection aria-labelledby="chamada-final" className="theme-light">
       <div className="container-site py-24 md:py-36">
         <SectionHeading
           id="chamada-final"
@@ -45,6 +46,6 @@ export function CtaBanner({ eyebrow, title, text, whatsappHref }: CtaBannerProps
           </a>
         </Reveal>
       </div>
-    </section>
+    </UnfoldSection>
   );
 }

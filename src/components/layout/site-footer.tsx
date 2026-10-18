@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Logo } from "@/components/brand/logo";
+import { SplitWordmark } from "@/components/motion/split-wordmark";
 import { InstagramIcon, WhatsAppIcon } from "@/components/icons/brand";
 import type { Site } from "@/lib/content";
 
@@ -71,6 +72,11 @@ export function SiteFooter({ site, nav, whatsappHref }: SiteFooterProps) {
             {area.region} de {area.city}: {area.neighborhoods.join(", ")} e regiões próximas.
           </p>
         </div>
+      </div>
+
+      {/* Assinatura gigante, decorativa */}
+      <div className="container-site overflow-hidden pb-4">
+        <SplitWordmark text={site.name} />
       </div>
 
       <div className="border-t border-line">
