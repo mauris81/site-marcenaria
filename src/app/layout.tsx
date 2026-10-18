@@ -36,6 +36,19 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: site.name, template: `%s | ${site.name}` },
     description: site.description,
     applicationName: site.name,
+    // Libera prévias grandes de imagem e trechos completos nos resultados do
+    // Google (busca e Discover). Páginas fora da busca sobrescrevem com noindex.
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
   };
 }
 

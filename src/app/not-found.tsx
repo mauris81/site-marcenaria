@@ -7,6 +7,8 @@ import { buttonVariants } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Página não encontrada",
+  // Sobrescreve o "index, follow" do layout: a página de erro fica fora da busca.
+  robots: { index: false, follow: true },
 };
 
 export default function NotFound() {
