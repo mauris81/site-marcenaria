@@ -8,7 +8,7 @@ import { CtaBanner } from "@/components/sections/cta-banner";
 import { Differentials } from "@/components/sections/differentials";
 import { PageHero } from "@/components/sections/page-hero";
 import { ProcessSteps } from "@/components/sections/process-steps";
-import { ScrollMarquee } from "@/components/sections/scroll-marquee";
+import { RegionsSection } from "@/components/sections/regions-section";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ServiceShowcase } from "@/components/showcase/service-showcase";
 import { buttonVariants } from "@/components/ui/button";
@@ -76,19 +76,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="regioes" className="py-24 md:py-32">
-        <div className="container-site">
-          <SectionHeading
-            id="regioes"
-            eyebrow={home.regions.eyebrow}
-            title={home.regions.title}
-            text={home.regions.text}
-          />
-        </div>
-        <div className="mt-14">
-          <ScrollMarquee items={site.area.neighborhoods} />
-        </div>
-      </section>
+      <RegionsSection {...home.regions} neighborhoods={site.area.neighborhoods} />
 
       <CtaBanner {...home.cta} whatsappHref={whatsappHref} />
     </PageTransition>

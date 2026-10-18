@@ -10,7 +10,7 @@ import { CtaBanner } from "@/components/sections/cta-banner";
 import { Differentials } from "@/components/sections/differentials";
 import { PageHero } from "@/components/sections/page-hero";
 import { ProcessSteps } from "@/components/sections/process-steps";
-import { ScrollMarquee } from "@/components/sections/scroll-marquee";
+import { RegionsSection } from "@/components/sections/regions-section";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { getGallery, getService, getServices, getSite } from "@/lib/content";
@@ -89,14 +89,11 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
         </div>
       </section>
 
-      <section aria-labelledby="regioes" className="py-24 md:py-32">
-        <div className="container-site">
-          <SectionHeading id="regioes" eyebrow="Onde atendemos" title={service.regionsTitle} />
-        </div>
-        <div className="mt-14">
-          <ScrollMarquee items={site.area.neighborhoods} />
-        </div>
-      </section>
+      <RegionsSection
+        eyebrow="Onde atendemos"
+        title={service.regionsTitle}
+        neighborhoods={site.area.neighborhoods}
+      />
 
       <CtaBanner {...service.cta} whatsappHref={whatsappHref} />
     </PageTransition>
