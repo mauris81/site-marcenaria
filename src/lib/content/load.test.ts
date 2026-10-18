@@ -48,7 +48,10 @@ describe("conteúdo do site (src/content)", () => {
   });
 
   it("avisa quando uma foto nova ainda não foi otimizada", () => {
-    const withNewPhoto = [...photos, { id: "foto-nova", file: "Fotos/nova.jpg", alt: "Nova" }];
+    const withNewPhoto = [
+      ...photos,
+      { id: "foto-nova", file: "assets/photos/nova.jpg", alt: "Nova" },
+    ];
     expect(() => loadContent({ ...raw, photos: withNewPhoto })).toThrow(/npm run images/);
   });
 

@@ -16,6 +16,10 @@
 # Imagens de compartilhamento (geradas por `npm run og`)
 /public/og/
 
+# Pasta de arquivos pessoais (não faz parte do site). As fotos do site ficam
+# em assets/photos/ — veja "Adicionar uma foto" no README.
+/Fotos/
+
 # Build
 /build
 
