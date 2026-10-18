@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader, type NavItem } from "@/components/layout/site-header";
 import { SkipLink } from "@/components/layout/skip-link";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { PointerEffects } from "@/components/motion/pointer-effects";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { getServices, getSite } from "@/lib/content";
 import { whatsappUrl } from "@/lib/whatsapp";
@@ -57,6 +58,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         <SmoothScroll />
+        <PointerEffects />
         <SkipLink />
         <SiteHeader
           nav={nav}

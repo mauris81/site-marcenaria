@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 
 import { Parallax } from "@/components/motion/parallax";
-import { Emphasis } from "@/components/ui/emphasis";
+import { PointerDepth } from "@/components/motion/pointer-depth";
+import { CascadeText } from "@/components/ui/cascade-text";
 import { Photo } from "@/components/ui/photo";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,7 @@ type PageHeroProps = {
 export function PageHero({ eyebrow, title, text, photo, photoPosition, children }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden">
+      <PointerDepth />
       {photo ? (
         <>
           <Parallax className="-z-20">
@@ -34,6 +36,7 @@ export function PageHero({ eyebrow, title, text, photo, photoPosition, children 
               loading="eager"
               fetchPriority="high"
               className="object-cover motion-safe:animate-hero-zoom"
+              data-depth="-0.025"
             />
           </Parallax>
           {/* Véus em gradiente: garantem o contraste do texto (base e coluna esquerda)
@@ -55,16 +58,21 @@ export function PageHero({ eyebrow, title, text, photo, photoPosition, children 
         <>
           <div
             aria-hidden="true"
+            data-depth="-0.015"
             className="absolute inset-0 -z-10 origin-top bg-slats motion-safe:animate-slats-draw"
           />
           <div
             aria-hidden="true"
             className="absolute -top-48 right-[-15%] -z-10 size-[44rem] rounded-full bg-[radial-gradient(closest-side,rgb(227_176_126/0.14),transparent)] motion-safe:animate-glow-in"
+            data-depth="0.05"
           />
         </>
       )}
 
-      <div className="container-site flex min-h-[85svh] flex-col justify-end pt-36 pb-16 md:pb-24">
+      <div
+        data-depth="0.008"
+        className="container-site flex min-h-[85svh] flex-col justify-end pt-36 pb-16 md:pb-24"
+      >
         {eyebrow && (
           // Sobre foto, o texto fica creme (contraste garantido) e o dourado vai para o traço.
           <p
@@ -77,8 +85,8 @@ export function PageHero({ eyebrow, title, text, photo, photoPosition, children 
             {eyebrow}
           </p>
         )}
-        <h1 className="mt-6 max-w-5xl font-display text-display-xl font-light motion-safe:animate-hero-focus">
-          <Emphasis text={title} />
+        <h1 className="mt-6 max-w-5xl font-display text-display-xl font-light">
+          <CascadeText text={title} />
         </h1>
         {text && (
           <p className="mt-8 max-w-2xl text-lead text-ink-muted motion-safe:animate-hero-rise motion-safe:[animation-delay:200ms]">

@@ -10,7 +10,7 @@ export function WhatsAppButton({ href }: { href: string }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="group fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 inline-flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lift transition duration-500 ease-out-expo hover:-translate-y-1 hover:bg-whatsapp-hover sm:right-6 sm:bottom-6"
+        className="magnetic group fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 inline-flex size-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-lift transition duration-500 ease-out-expo hover:-translate-y-1 hover:bg-whatsapp-hover sm:right-6 sm:bottom-6"
       >
         <WhatsAppIcon className="size-7" />
         <span className="sr-only">Fale no WhatsApp (abre em nova aba)</span>

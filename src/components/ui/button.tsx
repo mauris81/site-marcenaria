@@ -2,9 +2,10 @@ import { cva } from "class-variance-authority";
 
 // Variantes de botão como classes: servem tanto para <button> quanto para links
 // (<Link> e <a>), já que a maioria das ações do site é navegação.
-// Todas as alturas respeitam o alvo de toque mínimo de 44 px.
+// Todas as alturas respeitam o alvo de toque mínimo de 44 px. A classe `magnetic`
+// faz o botão "puxar" o cursor no desktop (ver motion/pointer-effects.tsx).
 export const buttonVariants = cva(
-  "group inline-flex shrink-0 items-center justify-center gap-3 rounded-full font-semibold whitespace-nowrap transition duration-500 ease-out-expo disabled:pointer-events-none disabled:opacity-50",
+  "magnetic group inline-flex shrink-0 items-center justify-center gap-3 rounded-full font-semibold whitespace-nowrap transition duration-500 ease-out-expo disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
