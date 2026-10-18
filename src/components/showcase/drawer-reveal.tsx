@@ -102,8 +102,8 @@ export function DrawerReveal({ photos, ...copy }: DrawerRevealProps) {
                     data-drawer
                     className="absolute inset-0 [transform:translateZ(var(--depth))] [transform-style:preserve-3d]"
                   >
-                    {/* Fundo com divisórias e fotos */}
-                    <div className="absolute inset-x-0 top-full h-[var(--depth)] origin-top [transform:rotateX(-90deg)] melamine">
+                    {/* Fundo com divisórias e fotos: face para cima, da traseira até a frente da gaveta */}
+                    <div className="absolute inset-x-0 top-full h-[var(--depth)] origin-top [transform:translateZ(calc(var(--depth)*-1))_rotateX(90deg)] melamine">
                       <div
                         data-drawer-light
                         aria-hidden="true"
