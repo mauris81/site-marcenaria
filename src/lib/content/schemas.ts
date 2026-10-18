@@ -72,6 +72,8 @@ export const photoSchema = z.strictObject({
   file: z.string().regex(/\.(jpe?g|png|webp)$/i, "use uma imagem .jpg, .png ou .webp"),
   alt: text,
   position: position.optional(),
+  /** Recorta tarjas pretas uniformes nas bordas (ex.: capturas de tela de celular). */
+  trim: z.boolean().optional(),
 });
 
 /** Saída de scripts/optimize-images.mjs (src/content/photos.generated.json). */
@@ -83,6 +85,7 @@ export const photosGeneratedSchema = z.strictObject({
   photos: z.record(
     slug,
     z.strictObject({
+      signature: z.string(),
       width: z.int().positive(),
       height: z.int().positive(),
       blurDataURL: z.string().startsWith("data:image/webp;base64,"),

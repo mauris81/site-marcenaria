@@ -8,7 +8,8 @@
   {
     "id": "cozinha-compacta-armarios-claros",
     "file": "Fotos/foto25.jpg",
-    "alt": "Cozinha compacta com armários claros"
+    "alt": "Cozinha compacta com armários claros",
+    "trim": true
   },
   {
     "id": "cozinha-integrada-escura",

@@ -6,7 +6,8 @@
 //   foto (versionado, pois o site precisa dele para compilar).
 //
 // Roda sozinho antes de `dev` e `build`. Fotos já processadas são puladas;
-// use `npm run images -- --force` para refazer todas.
+// use `npm run images -- --force` para refazer todas. Fotos com `"trim": true` no
+// catálogo têm tarjas pretas uniformes recortadas (ex.: capturas de tela).
 
 import { existsSync } from "node:fs";
 import { mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
@@ -44,15 +45,25 @@ for (const photo of photos) {
   const sourceStat = await stat(source);
   const outputs = widths.map((width) => join(outDir, `${photo.id}-${width}.webp`));
   const cached = previous?.photos?.[photo.id];
+  // Assinatura do processamento: muda se o arquivo ou os ajustes da foto mudarem.
+  const signature = `${sourceStat.size}-${Math.round(sourceStat.mtimeMs)}-${photo.trim ? "trim" : "full"}`;
 
-  if (!force && cached && (await allNewerThan(outputs, sourceStat.mtimeMs))) {
+  if (
+    !force &&
+    cached?.signature === signature &&
+    (await allNewerThan(outputs, sourceStat.mtimeMs))
+  ) {
     generated.photos[photo.id] = cached;
   } else {
     // Decodifica o original (até 18 MP) uma única vez, já aplicando a orientação
     // do EXIF, e deriva todas as larguras desses pixels. Os metadados (EXIF) não
     // são copiados para as versões geradas.
-    const { data, info } = await sharp(source)
-      .rotate()
+    let pipeline = sharp(source).rotate();
+    if (photo.trim) {
+      // Materializa a rotação antes do recorte das tarjas.
+      pipeline = sharp(await pipeline.toBuffer()).trim({ background: "#000000", threshold: 18 });
+    }
+    const { data, info } = await pipeline
       .resize({ width: widths.at(-1), withoutEnlargement: true })
       .raw()
       .toBuffer({ resolveWithObject: true });
@@ -70,6 +81,7 @@ for (const photo of photos) {
     const blur = await pixels().resize({ width: 16 }).webp({ quality: 40 }).toBuffer();
 
     generated.photos[photo.id] = {
+      signature,
       width: info.width,
       height: info.height,
       blurDataURL: `data:image/webp;base64,${blur.toString("base64")}`,
