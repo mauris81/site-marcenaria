@@ -53,13 +53,12 @@ describe("dados estruturados (schema.org)", () => {
     expect(business.address).not.toHaveProperty("streetAddress");
   });
 
-  it("usa URLs absolutas de produção, com o subcaminho do GitHub Pages", () => {
+  it("usa URLs absolutas no domínio de produção", () => {
     const all = [homeStructuredData(siteData), serviceStructuredData(siteData, service)].flatMap(
       urls,
     );
     expect(all.length).toBeGreaterThan(5);
-    for (const url of all)
-      expect(url).toMatch(/^https:\/\/mauris81\.github\.io\/site-marcenaria\//);
+    for (const url of all) expect(url).toMatch(/^https:\/\/www\.marcenariabutanta\.com\.br\//);
   });
 
   it("liga o serviço à empresa e monta a trilha Início › serviço", () => {
@@ -75,13 +74,13 @@ describe("dados estruturados (schema.org)", () => {
         "@type": "ListItem",
         position: 1,
         name: "Início",
-        item: "https://mauris81.github.io/site-marcenaria/",
+        item: "https://www.marcenariabutanta.com.br/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: service.name,
-        item: `https://mauris81.github.io/site-marcenaria/${service.slug}`,
+        item: `https://www.marcenariabutanta.com.br/${service.slug}`,
       },
     ]);
   });

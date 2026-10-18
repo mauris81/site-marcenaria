@@ -18,10 +18,10 @@ describe("SEO", () => {
     expect(shareImagePath("/orcamento")).toBe("/og/orcamento.jpg");
   });
 
-  it("gera URLs absolutas de produção, com o subcaminho do GitHub Pages", () => {
-    expect(absoluteUrl(siteData, "/")).toBe("https://mauris81.github.io/site-marcenaria/");
+  it("gera URLs absolutas no domínio de produção", () => {
+    expect(absoluteUrl(siteData, "/")).toBe("https://www.marcenariabutanta.com.br/");
     expect(absoluteUrl(siteData, "/orcamento")).toBe(
-      "https://mauris81.github.io/site-marcenaria/orcamento",
+      "https://www.marcenariabutanta.com.br/orcamento",
     );
   });
 

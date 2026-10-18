@@ -30,8 +30,8 @@ const manrope = Manrope({
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getSite();
   return {
-    // Base das URLs absolutas (canônicas, Open Graph): o endereço de produção,
-    // já com o subcaminho do GitHub Pages — mesmo nos builds locais.
+    // Base das URLs absolutas (canônicas, Open Graph): o domínio de produção,
+    // mesmo nos builds locais e nas prévias.
     metadataBase: new URL(`${site.url}/`),
     title: { default: site.name, template: `%s | ${site.name}` },
     description: site.description,

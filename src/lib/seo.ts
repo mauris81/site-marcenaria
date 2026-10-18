@@ -8,7 +8,7 @@ type Path = `/${string}`;
 /** Tamanho das imagens de compartilhamento geradas por scripts/generate-og.mjs. */
 export const SHARE_IMAGE_SIZE = { width: 1200, height: 630 } as const;
 
-/** URL absoluta de produção; `site.url` já inclui o subcaminho do GitHub Pages. */
+/** URL absoluta no domínio de produção (`site.url`). */
 export function absoluteUrl(site: Site, path: Path) {
   return `${site.url}${path}`;
 }
