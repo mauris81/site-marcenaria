@@ -12,6 +12,7 @@ import { Differentials } from "@/components/sections/differentials";
 import { PageHero } from "@/components/sections/page-hero";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { RegionsSection } from "@/components/sections/regions-section";
+import { RelatedServices } from "@/components/sections/related-services";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { JsonLd } from "@/components/seo/json-ld";
 import { buttonVariants } from "@/components/ui/button";
@@ -36,7 +37,11 @@ export async function generateMetadata({ params }: PageProps<"/[slug]">): Promis
 }
 
 export default async function ServicePage({ params }: PageProps<"/[slug]">) {
-  const [service, site] = await Promise.all([getService((await params).slug), getSite()]);
+  const [service, site, services] = await Promise.all([
+    getService((await params).slug),
+    getSite(),
+    getServices(),
+  ]);
   if (!service) notFound();
 
   const gallery = await getGallery(service);
@@ -101,6 +106,8 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
         title={service.regionsTitle}
         neighborhoods={site.area.neighborhoods}
       />
+
+      <RelatedServices services={services.filter((other) => other.slug !== service.slug)} />
 
       <CtaBanner {...service.cta} whatsappHref={whatsappHref} quoteType={service.quoteType} />
     </PageTransition>
