@@ -10,6 +10,7 @@
     "text": "Móveis planejados em São Paulo com desenho personalizado, execução cuidadosa e acabamento de alto padrão."
   },
   "differentials": {
+    "eyebrow": "Como trabalhamos",
     "title": "Marcenaria sob medida, do projeto à montagem",
     "items": [
       {
@@ -27,9 +28,12 @@
     ]
   },
   "services": {
-    "title": "Móveis planejados para cada ambiente"
+    "eyebrow": "Ambientes",
+    "title": "Móveis planejados para cada ambiente",
+    "text": "Cada móvel guarda um projeto. Role a página para abrir."
   },
   "process": {
+    "eyebrow": "Do primeiro contato à entrega",
     "title": "Processo claro, resultado sob medida",
     "steps": [
       {
@@ -50,10 +54,12 @@
     ]
   },
   "regions": {
+    "eyebrow": "Onde atendemos",
     "title": "Móveis sob medida na Zona Oeste de São Paulo",
     "text": "Atendemos Butantã, Pinheiros, Vila Madalena e bairros próximos. Consulte a viabilidade para outras regiões de São Paulo."
   },
   "cta": {
+    "eyebrow": "Vamos conversar",
     "title": "Vamos desenhar seu próximo móvel?",
     "text": "Conte um pouco sobre o ambiente e receba uma orientação inicial para o seu projeto de marcenaria sob medida."
   }

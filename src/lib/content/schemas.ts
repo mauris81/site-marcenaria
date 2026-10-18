@@ -36,7 +36,7 @@ const hero = z.strictObject({
 
 const feature = z.strictObject({ title: text, text: text });
 const step = z.strictObject({ label: text, title: text, text: text });
-const cta = z.strictObject({ title: text, text: text });
+const cta = z.strictObject({ eyebrow: text.optional(), title: text, text: text });
 
 export const photoSchema = z.strictObject({
   id: slug,
@@ -95,10 +95,14 @@ export const siteSchema = z.strictObject({
 export const homeSchema = z.strictObject({
   seo,
   hero,
-  differentials: z.strictObject({ title: text, items: z.array(feature).min(1) }),
-  services: z.strictObject({ title: text }),
-  process: z.strictObject({ title: text, steps: z.array(step).min(1) }),
-  regions: z.strictObject({ title: text, text: text }),
+  differentials: z.strictObject({
+    eyebrow: text.optional(),
+    title: text,
+    items: z.array(feature).min(1),
+  }),
+  services: z.strictObject({ eyebrow: text.optional(), title: text, text: text.optional() }),
+  process: z.strictObject({ eyebrow: text.optional(), title: text, steps: z.array(step).min(1) }),
+  regions: z.strictObject({ eyebrow: text.optional(), title: text, text: text }),
   cta,
 });
 
