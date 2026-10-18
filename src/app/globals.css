@@ -95,6 +95,7 @@
      O título nunca fica invisível (só desfocado) para não atrasar o LCP. */
   --animate-hero-focus: hero-focus 1.6s var(--ease-out-expo) both;
   --animate-word-focus: word-focus 1.3s var(--ease-out-expo) both;
+  --animate-lightbox-in: lightbox-in 0.6s var(--ease-out-expo) both;
   --animate-hero-rise: hero-rise 1.2s var(--ease-out-expo) both;
   --animate-hero-zoom: hero-zoom 2.4s var(--ease-out-expo) both;
   --animate-slats-draw: slats-draw 1.8s var(--ease-out-expo) both;
@@ -104,6 +105,12 @@
     from {
       filter: blur(14px);
       translate: 0 28px;
+    }
+  }
+  @keyframes lightbox-in {
+    from {
+      opacity: 0;
+      scale: 0.96;
     }
   }
   @keyframes word-focus {
