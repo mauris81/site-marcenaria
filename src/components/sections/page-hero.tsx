@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { Parallax } from "@/components/motion/parallax";
 import { Emphasis } from "@/components/ui/emphasis";
 import { Photo } from "@/components/ui/photo";
 import { cn } from "@/lib/utils";
@@ -22,17 +23,19 @@ export function PageHero({ eyebrow, title, text, photo, photoPosition, children 
     <section className="relative isolate overflow-hidden">
       {photo ? (
         <>
-          {/* Maior elemento da tela (LCP): carregado com prioridade, sem lazy loading. */}
-          <Photo
-            id={photo}
-            alt=""
-            position={photoPosition}
-            fill
-            sizes="100vw"
-            loading="eager"
-            fetchPriority="high"
-            className="-z-20 object-cover"
-          />
+          <Parallax className="-z-20">
+            {/* Maior elemento da tela (LCP): carregado com prioridade, sem lazy loading. */}
+            <Photo
+              id={photo}
+              alt=""
+              position={photoPosition}
+              fill
+              sizes="100vw"
+              loading="eager"
+              fetchPriority="high"
+              className="object-cover motion-safe:animate-hero-zoom"
+            />
+          </Parallax>
           {/* Véus em gradiente: garantem o contraste do texto (base e coluna esquerda)
               e do menu (topo) sobre qualquer foto — medido no pior pixel atrás do texto. */}
           <div
@@ -50,10 +53,13 @@ export function PageHero({ eyebrow, title, text, photo, photoPosition, children 
         </>
       ) : (
         <>
-          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-slats" />
           <div
             aria-hidden="true"
-            className="absolute -top-48 right-[-15%] -z-10 size-[44rem] rounded-full bg-[radial-gradient(closest-side,rgb(227_176_126/0.14),transparent)]"
+            className="absolute inset-0 -z-10 origin-top bg-slats motion-safe:animate-slats-draw"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute -top-48 right-[-15%] -z-10 size-[44rem] rounded-full bg-[radial-gradient(closest-side,rgb(227_176_126/0.14),transparent)] motion-safe:animate-glow-in"
           />
         </>
       )}
@@ -63,7 +69,7 @@ export function PageHero({ eyebrow, title, text, photo, photoPosition, children 
           // Sobre foto, o texto fica creme (contraste garantido) e o dourado vai para o traço.
           <p
             className={cn(
-              "flex items-center gap-3 text-eyebrow font-semibold uppercase",
+              "flex items-center gap-3 text-eyebrow font-semibold uppercase motion-safe:animate-hero-rise",
               photo ? "text-ink" : "text-brand",
             )}
           >
@@ -71,11 +77,19 @@ export function PageHero({ eyebrow, title, text, photo, photoPosition, children 
             {eyebrow}
           </p>
         )}
-        <h1 className="mt-6 max-w-5xl font-display text-display-xl font-light">
+        <h1 className="mt-6 max-w-5xl font-display text-display-xl font-light motion-safe:animate-hero-focus">
           <Emphasis text={title} />
         </h1>
-        {text && <p className="mt-8 max-w-2xl text-lead text-ink-muted">{text}</p>}
-        {children && <div className="mt-10 flex flex-wrap gap-4">{children}</div>}
+        {text && (
+          <p className="mt-8 max-w-2xl text-lead text-ink-muted motion-safe:animate-hero-rise motion-safe:[animation-delay:200ms]">
+            {text}
+          </p>
+        )}
+        {children && (
+          <div className="mt-10 flex flex-wrap gap-4 motion-safe:animate-hero-rise motion-safe:[animation-delay:350ms]">
+            {children}
+          </div>
+        )}
       </div>
     </section>
   );

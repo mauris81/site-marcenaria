@@ -5,7 +5,7 @@ export function WhatsAppButton({ href }: { href: string }) {
   return (
     // <aside> dá ao atalho uma região própria para leitores de tela (fora dele,
     // o link ficaria "solto" fora de qualquer landmark da página).
-    <aside aria-label="Atalho de contato">
+    <aside aria-label="Atalho de contato" className="[view-transition-name:whatsapp-fab]">
       <a
         href={href}
         target="_blank"

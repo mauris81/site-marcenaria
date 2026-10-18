@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { PageTransition } from "@/components/motion/page-transition";
 import { WhatsAppIcon } from "@/components/icons/brand";
 import { PageHero } from "@/components/sections/page-hero";
 import { buttonVariants } from "@/components/ui/button";
@@ -17,23 +18,25 @@ export default async function HomePage() {
   const [home, site] = await Promise.all([getHomeContent(), getSite()]);
 
   return (
-    <PageHero {...home.hero}>
-      <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
-        Solicitar orçamento
-        <ArrowRight
-          aria-hidden="true"
-          className="size-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-1"
-        />
-      </Link>
-      <a
-        href={whatsappUrl(site.contact.whatsapp, site.whatsappMessage)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={buttonVariants({ variant: "secondary", size: "lg" })}
-      >
-        <WhatsAppIcon className="size-5" />
-        Conversar no WhatsApp
-      </a>
-    </PageHero>
+    <PageTransition>
+      <PageHero {...home.hero}>
+        <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
+          Solicitar orçamento
+          <ArrowRight
+            aria-hidden="true"
+            className="size-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-1"
+          />
+        </Link>
+        <a
+          href={whatsappUrl(site.contact.whatsapp, site.whatsappMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonVariants({ variant: "secondary", size: "lg" })}
+        >
+          <WhatsAppIcon className="size-5" />
+          Conversar no WhatsApp
+        </a>
+      </PageHero>
+    </PageTransition>
   );
 }

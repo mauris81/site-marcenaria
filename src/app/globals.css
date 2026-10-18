@@ -86,6 +86,42 @@
   --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.2), 0 32px 64px -24px rgb(0 0 0 / 0.6);
 
   --container-site: 84rem;
+
+  /* Entrada do hero em CSS puro: roda na primeira pintura, sem depender de JS.
+     O título nunca fica invisível (só desfocado) para não atrasar o LCP. */
+  --animate-hero-focus: hero-focus 1.6s var(--ease-out-expo) both;
+  --animate-hero-rise: hero-rise 1.2s var(--ease-out-expo) both;
+  --animate-hero-zoom: hero-zoom 2.4s var(--ease-out-expo) both;
+  --animate-slats-draw: slats-draw 1.8s var(--ease-out-expo) both;
+  --animate-glow-in: glow-in 2.4s ease-out both;
+
+  @keyframes hero-focus {
+    from {
+      filter: blur(14px);
+      translate: 0 28px;
+    }
+  }
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      translate: 0 18px;
+    }
+  }
+  @keyframes hero-zoom {
+    from {
+      scale: 1.08;
+    }
+  }
+  @keyframes slats-draw {
+    from {
+      scale: 1 0;
+    }
+  }
+  @keyframes glow-in {
+    from {
+      opacity: 0;
+    }
+  }
 }
 
 /* 4. Temas por seção. O escuro é o padrão; aplique `theme-light` numa seção
@@ -195,7 +231,63 @@
   }
 }
 
-/* 5. Utilitários do projeto. */
+/* 5. Transição entre páginas (ver components/motion/page-transition.tsx).
+ *    A página antiga sai desfocando; a nova entra subindo. Cabeçalho e botão do
+ *    WhatsApp ficam parados como âncoras visuais. */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-old(.page-exit) {
+  animation: page-out 0.28s var(--ease-in-out-quint) both;
+}
+
+::view-transition-new(.page-enter) {
+  animation: page-in 0.6s var(--ease-out-expo) 0.12s both;
+}
+
+::view-transition-group(site-header),
+::view-transition-group(whatsapp-fab) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(site-header),
+::view-transition-old(whatsapp-fab) {
+  display: none;
+}
+
+::view-transition-new(site-header),
+::view-transition-new(whatsapp-fab) {
+  animation: none;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    filter: blur(6px);
+    translate: 0 -12px;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    translate: 0 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* 6. Utilitários do projeto. */
 
 /* Largura máxima + respiro lateral fluido, usado por todas as seções. */
 @utility container-site {

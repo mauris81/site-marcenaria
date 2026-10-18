@@ -36,7 +36,7 @@ export function SiteHeader({ nav, whatsappHref, instagramHref }: SiteHeaderProps
     // Altura fixa: ao rolar, só fundo e borda mudam — nada de layout pulando.
     <header
       data-scrolled={scrolled || undefined}
-      className="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-500 ease-out-expo data-scrolled:border-line data-scrolled:bg-canvas/80 data-scrolled:backdrop-blur-xl"
+      className="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-500 ease-out-expo [view-transition-name:site-header] data-scrolled:border-line data-scrolled:bg-canvas/80 data-scrolled:backdrop-blur-xl"
     >
       <div className="container-site flex h-20 items-center justify-between gap-6">
         <Logo />

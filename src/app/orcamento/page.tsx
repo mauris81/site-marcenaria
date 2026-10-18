@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { PageTransition } from "@/components/motion/page-transition";
 import { WhatsAppIcon } from "@/components/icons/brand";
 import { PageHero } from "@/components/sections/page-hero";
 import { buttonVariants } from "@/components/ui/button";
@@ -15,16 +16,18 @@ export default async function QuotePage() {
   const [quote, site] = await Promise.all([getQuoteContent(), getSite()]);
 
   return (
-    <PageHero {...quote.hero}>
-      <a
-        href={whatsappUrl(site.contact.whatsapp, site.whatsappMessage)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={buttonVariants({ variant: "whatsapp", size: "lg" })}
-      >
-        <WhatsAppIcon className="size-5" />
-        {quote.channels.whatsapp.cta}
-      </a>
-    </PageHero>
+    <PageTransition>
+      <PageHero {...quote.hero}>
+        <a
+          href={whatsappUrl(site.contact.whatsapp, site.whatsappMessage)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonVariants({ variant: "whatsapp", size: "lg" })}
+        >
+          <WhatsAppIcon className="size-5" />
+          {quote.channels.whatsapp.cta}
+        </a>
+      </PageHero>
+    </PageTransition>
   );
 }

@@ -23,8 +23,10 @@
     "check": "npm run lint && npm run typecheck && npm run test && npm run format:check"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
     "lucide-react": "^1.59.0",
     "next": "16.4.2",
     "react": "19.3.1",
