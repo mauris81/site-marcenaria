@@ -31,15 +31,17 @@ export function ProcessSteps({ steps }: ProcessStepsProps) {
           ease: "none",
           scrollTrigger: { trigger: root, start: "top 70%", end: "bottom 60%", scrub: 0.6 },
         });
+        // `opacity`, e não `autoAlpha`: o texto segue acessível ao leitor de tela
+        // mesmo antes de aparecer.
         gsap.from("[data-process-number]", {
           scale: 0.3,
-          autoAlpha: 0,
+          opacity: 0,
           stagger: 0.15,
           ease: "back.out(2.2)",
           scrollTrigger: { trigger: root, start: "top 80%", once: true },
         });
         gsap.from("[data-process-step]", {
-          autoAlpha: 0,
+          opacity: 0,
           y: 32,
           stagger: 0.15,
           scrollTrigger: { trigger: root, start: "top 80%", once: true },

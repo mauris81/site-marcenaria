@@ -28,20 +28,24 @@ export function Gallery({ items }: GalleryProps) {
     () => {
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
+        // `opacity`, e não `autoAlpha` (visibility: hidden): fotos ainda não
+        // reveladas continuam no leitor de tela e na ordem do Tab.
         const figures = gsap.utils.toArray<HTMLElement>("[data-gallery-item]");
-        gsap.set(figures, { autoAlpha: 0, y: 48, clipPath: "inset(14% 0% 0% 0%)" });
+        const shown = { opacity: 1, y: 0, clipPath: "inset(0% 0% 0% 0%)" };
+        gsap.set(figures, { opacity: 0, y: 48, clipPath: "inset(14% 0% 0% 0%)" });
         ScrollTrigger.batch(figures, {
           start: "top 92%",
           once: true,
-          onEnter: (batch) =>
-            gsap.to(batch, {
-              autoAlpha: 1,
-              y: 0,
-              clipPath: "inset(0% 0% 0% 0%)",
-              stagger: 0.08,
-              duration: 1.2,
-            }),
+          onEnter: (batch) => gsap.to(batch, { ...shown, stagger: 0.08, duration: 1.2 }),
         });
+        // Se o foco do teclado chegar a uma foto antes da rolagem, ela aparece na hora.
+        const list = ref.current;
+        const revealFocused = (event: FocusEvent) => {
+          const figure = (event.target as HTMLElement).closest("[data-gallery-item]");
+          if (figure) gsap.to(figure, { ...shown, duration: 0.4, overwrite: true });
+        };
+        list?.addEventListener("focusin", revealFocused);
+        return () => list?.removeEventListener("focusin", revealFocused);
       });
       // Inclinação 3D + reflexo seguindo o mouse (só em computador).
       mm.add(POINTER_OK, () => {

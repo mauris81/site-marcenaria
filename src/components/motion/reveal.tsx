@@ -31,12 +31,18 @@ export function Reveal({ children, className, stagger = false }: RevealProps) {
 
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
-        gsap.from(stagger ? element.children : element, {
-          autoAlpha: 0,
+        // `opacity`, e não `autoAlpha` (visibility: hidden): antes de revelado, o
+        // conteúdo continua no leitor de tela e na ordem do Tab.
+        const tween = gsap.from(stagger ? element.children : element, {
+          opacity: 0,
           y: 40,
           stagger: stagger ? 0.12 : 0,
           scrollTrigger: { trigger: element, start: "top 85%", once: true },
         });
+        // Se o foco do teclado chegar antes da rolagem, revela na hora.
+        const reveal = () => tween.progress(1);
+        element.addEventListener("focusin", reveal);
+        return () => element.removeEventListener("focusin", reveal);
       });
       return () => mm.revert();
     },
