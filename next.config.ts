@@ -21,6 +21,13 @@ const nextConfig: NextConfig = {
     ...imageWidths,
   },
 
+  experimental: {
+    // CSS embutido no <head> em vez de um arquivo à parte: o navegador pinta
+    // assim que chega o HTML, sem esperar outra requisição. Compensa com
+    // Tailwind, que gera um CSS pequeno (ver docs: inlineCss).
+    inlineCss: true,
+  },
+
   turbopack: {
     rules: {
       "*.css": {
