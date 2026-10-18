@@ -20,12 +20,12 @@ describe("cn", () => {
 
 describe("whatsappUrl", () => {
   it("codifica a mensagem para a URL", () => {
-    expect(whatsappUrl("5511958522265", "Olá, vim pelo site")).toBe(
-      "https://wa.me/5511958522265?text=Ol%C3%A1%2C%20vim%20pelo%20site",
+    expect(whatsappUrl("5511994408731", "Olá, vim pelo site")).toBe(
+      "https://wa.me/5511994408731?text=Ol%C3%A1%2C%20vim%20pelo%20site",
     );
   });
 
   it("funciona sem mensagem", () => {
-    expect(whatsappUrl("5511958522265")).toBe("https://wa.me/5511958522265");
+    expect(whatsappUrl("5511994408731")).toBe("https://wa.me/5511994408731");
   });
 });
