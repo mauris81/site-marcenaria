@@ -20,12 +20,18 @@ const seo = z.strictObject({
   ogDescription: text.max(200).optional(),
 });
 
+/** Ponto focal ao recortar a foto (CSS `object-position`), ex.: "50% 72%". */
+const position = z.string().regex(/^\d{1,3}% \d{1,3}%$/, 'use o formato "X% Y%"');
+
 const hero = z.strictObject({
   eyebrow: text.optional(),
   /** Trechos entre *asteriscos* são exibidos com ênfase (itálico na cor da marca). */
   title: text,
   text: text,
-  photo: photoRef,
+  /** Foto de fundo; sem ela, o hero usa o fundo escuro texturizado da marca. */
+  photo: photoRef.optional(),
+  /** Enquadramento da foto neste hero, se diferente do padrão do catálogo. */
+  photoPosition: position.optional(),
 });
 
 const feature = z.strictObject({ title: text, text: text });
@@ -37,11 +43,23 @@ export const photoSchema = z.strictObject({
   /** Caminho do arquivo original, a partir da raiz do projeto. */
   file: z.string().regex(/\.(jpe?g|png|webp)$/i, "use uma imagem .jpg, .png ou .webp"),
   alt: text,
-  /** Ponto focal ao recortar a foto (CSS `object-position`), ex.: "50% 72%". */
-  position: z
-    .string()
-    .regex(/^\d{1,3}% \d{1,3}%$/, 'use o formato "X% Y%"')
-    .optional(),
+  position: position.optional(),
+});
+
+/** Saída de scripts/optimize-images.mjs (src/content/photos.generated.json). */
+export const photosGeneratedSchema = z.strictObject({
+  settings: z.strictObject({
+    quality: z.number(),
+    widths: z.array(z.int().positive()),
+  }),
+  photos: z.record(
+    slug,
+    z.strictObject({
+      width: z.int().positive(),
+      height: z.int().positive(),
+      blurDataURL: z.string().startsWith("data:image/webp;base64,"),
+    }),
+  ),
 });
 
 export const photosSchema = z.array(photoSchema).superRefine((photos, ctx) => {
@@ -137,7 +155,6 @@ export const quotePageSchema = z.strictObject({
   regions: z.strictObject({ title: text, text: text }),
 });
 
-export type Photo = z.infer<typeof photoSchema>;
 export type Site = z.infer<typeof siteSchema>;
 export type HomeContent = z.infer<typeof homeSchema>;
 export type Service = z.infer<typeof serviceSchema>;

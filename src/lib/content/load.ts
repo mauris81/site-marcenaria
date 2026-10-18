@@ -1,10 +1,18 @@
 import { z } from "zod";
 
-import { homeSchema, photosSchema, quotePageSchema, servicesSchema, siteSchema } from "./schemas";
+import {
+  homeSchema,
+  photosGeneratedSchema,
+  photosSchema,
+  quotePageSchema,
+  servicesSchema,
+  siteSchema,
+} from "./schemas";
 
 export type RawContent = {
   site: unknown;
   photos: unknown;
+  photosGenerated: unknown;
   home: unknown;
   services: unknown;
   quote: unknown;
@@ -17,15 +25,25 @@ export type RawContent = {
  */
 export function loadContent(raw: RawContent) {
   const site = parse(siteSchema, raw.site, "site.json");
-  const photos = parse(photosSchema, raw.photos, "photos.json");
+  const catalog = parse(photosSchema, raw.photos, "photos.json");
+  const generated = parse(photosGeneratedSchema, raw.photosGenerated, "photos.generated.json");
   const home = parse(homeSchema, raw.home, "home.json");
   const services = parse(servicesSchema, raw.services, "services.json");
   const quote = parse(quotePageSchema, raw.quote, "quote.json");
 
   const problems: string[] = [];
-  const photoIds = new Set(photos.map((photo) => photo.id));
-  const requirePhoto = (id: string, where: string) => {
-    if (!photoIds.has(id)) problems.push(`${where}: a foto "${id}" não existe em photos.json`);
+
+  for (const photo of catalog) {
+    if (!generated.photos[photo.id]) {
+      problems.push(`photos.json › ${photo.id}: sem versões otimizadas — rode "npm run images"`);
+    }
+  }
+
+  const photoIds = new Set(catalog.map((photo) => photo.id));
+  const requirePhoto = (id: string | undefined, where: string) => {
+    if (id !== undefined && !photoIds.has(id)) {
+      problems.push(`${where}: a foto "${id}" não existe em photos.json`);
+    }
   };
 
   requirePhoto(home.hero.photo, "home.json › hero.photo");
@@ -49,10 +67,14 @@ export function loadContent(raw: RawContent) {
     throw new Error(`Conteúdo inconsistente:\n- ${problems.join("\n- ")}`);
   }
 
+  // Cada foto do catálogo já sai com dimensões e placeholder das versões otimizadas.
+  const photos = catalog.map((photo) => ({ ...photo, ...generated.photos[photo.id] }));
+
   return { site, photos, home, services, quote };
 }
 
 export type Content = ReturnType<typeof loadContent>;
+export type Photo = Content["photos"][number];
 
 function parse<T extends z.ZodType>(schema: T, data: unknown, file: string): z.output<T> {
   const result = schema.safeParse(data);

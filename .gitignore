@@ -10,6 +10,9 @@
 /.next/
 /out/
 
+# Versões otimizadas das fotos (geradas por `npm run images`)
+/public/images/
+
 # Build
 /build
 

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import home from "@/content/home.json";
+import photosGenerated from "@/content/photos.generated.json";
 import photos from "@/content/photos.json";
 import quote from "@/content/quote.json";
 import services from "@/content/services.json";
@@ -8,7 +9,7 @@ import site from "@/content/site.json";
 
 import { loadContent, type RawContent } from "./load";
 
-const raw: RawContent = { site, photos, home, services, quote };
+const raw: RawContent = { site, photos, photosGenerated, home, services, quote };
 
 describe("conteúdo do site (src/content)", () => {
   it("é válido e consistente entre os arquivos", () => {
@@ -19,6 +20,15 @@ describe("conteúdo do site (src/content)", () => {
     const { services } = loadContent(raw);
     const slugs = services.map((service) => service.slug);
     expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it("entrega cada foto com dimensões e placeholder das versões otimizadas", () => {
+    const { photos } = loadContent(raw);
+    for (const photo of photos) {
+      expect(photo.width).toBeGreaterThan(0);
+      expect(photo.height).toBeGreaterThan(0);
+      expect(photo.blurDataURL).toMatch(/^data:image\/webp;base64,/);
+    }
   });
 
   it("aponta arquivo e campo quando um dado é inválido", () => {
@@ -35,6 +45,11 @@ describe("conteúdo do site (src/content)", () => {
     const brokenServices = structuredClone(services);
     brokenServices[0].gallery.items[0].photo = "foto-que-nao-existe";
     expect(() => loadContent({ ...raw, services: brokenServices })).toThrow(/foto-que-nao-existe/);
+  });
+
+  it("avisa quando uma foto nova ainda não foi otimizada", () => {
+    const withNewPhoto = [...photos, { id: "foto-nova", file: "Fotos/nova.jpg", alt: "Nova" }];
+    expect(() => loadContent({ ...raw, photos: withNewPhoto })).toThrow(/npm run images/);
   });
 
   it("detecta tipo de orçamento ausente no formulário", () => {

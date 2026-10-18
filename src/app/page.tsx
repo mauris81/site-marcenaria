@@ -17,7 +17,7 @@ export default async function HomePage() {
   const [home, site] = await Promise.all([getHomeContent(), getSite()]);
 
   return (
-    <PageHero eyebrow={home.hero.eyebrow} title={home.hero.title} text={home.hero.text}>
+    <PageHero {...home.hero}>
       <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
         Solicitar orçamento
         <ArrowRight

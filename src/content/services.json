@@ -13,7 +13,8 @@
       "eyebrow": "Ambientes · Cozinhas",
       "title": "Cozinha planejada *sob medida*",
       "text": "Marcenaria personalizada para cozinhas funcionais, bem distribuídas e com acabamento elegante.",
-      "photo": "cozinha-integrada-escura"
+      "photo": "cozinha-bancada-amadeirada",
+      "photoPosition": "50% 62%"
     },
     "card": {
       "text": "Cozinha planejada para aproveitar melhor o espaço, organizar a rotina e manter uma estética elegante no uso diário.",
@@ -52,22 +53,58 @@
           "photo": "cozinha-bancada-amadeirada",
           "caption": "Bancada amadeirada e armários claros"
         },
-        { "photo": "cozinha-linear-coifa", "caption": "Cozinha linear com coifa" },
-        { "photo": "cristaleira-madeira", "caption": "Cristaleira sob medida" },
-        { "photo": "cozinha-clara-bancada-preta", "caption": "Cozinha clara com bancada preta" },
+        {
+          "photo": "cozinha-linear-coifa",
+          "caption": "Cozinha linear com coifa"
+        },
+        {
+          "photo": "cristaleira-madeira",
+          "caption": "Cristaleira sob medida"
+        },
+        {
+          "photo": "cozinha-clara-bancada-preta",
+          "caption": "Cozinha clara com bancada preta"
+        },
         {
           "photo": "cozinha-compacta-armarios-superiores",
           "caption": "Cozinha compacta com armários superiores"
         },
-        { "photo": "torre-quente", "caption": "Torre quente e marcenaria funcional" },
-        { "photo": "modulo-geladeira-forno", "caption": "Módulo para geladeira e forno" },
-        { "photo": "cozinha-verde-bancada-l", "caption": "Cozinha verde com bancada em L" },
-        { "photo": "cozinha-gaveteiros-forno", "caption": "Gaveteiros e módulo para forno" },
-        { "photo": "cozinha-armarios-inferiores", "caption": "Armários inferiores com gavetas" },
-        { "photo": "cozinha-em-l", "caption": "Cozinha em L sob medida" },
-        { "photo": "ilha-amadeirada", "caption": "Ilha com acabamento amadeirado" },
-        { "photo": "cozinha-ilha-central", "caption": "Cozinha integrada com ilha central" },
-        { "photo": "bancada-cooktop", "caption": "Detalhe de bancada e cooktop" }
+        {
+          "photo": "torre-quente",
+          "caption": "Torre quente e marcenaria funcional"
+        },
+        {
+          "photo": "modulo-geladeira-forno",
+          "caption": "Módulo para geladeira e forno"
+        },
+        {
+          "photo": "cozinha-verde-bancada-l",
+          "caption": "Cozinha verde com bancada em L"
+        },
+        {
+          "photo": "cozinha-gaveteiros-forno",
+          "caption": "Gaveteiros e módulo para forno"
+        },
+        {
+          "photo": "cozinha-armarios-inferiores",
+          "caption": "Armários inferiores com gavetas"
+        },
+        {
+          "photo": "cozinha-em-l",
+          "caption": "Cozinha em L sob medida"
+        },
+        {
+          "photo": "ilha-amadeirada",
+          "caption": "Ilha com acabamento amadeirado"
+        },
+        {
+          "photo": "cozinha-ilha-central",
+          "caption": "Cozinha integrada com ilha central"
+        },
+        {
+          "photo": "bancada-cooktop",
+          "caption": "Detalhe de bancada e cooktop"
+        }
       ]
     },
     "process": {
@@ -111,7 +148,8 @@
       "eyebrow": "Ambientes · Dormitórios",
       "title": "Dormitórios e closets *sob medida*",
       "text": "Guarda-roupas, camas e móveis planejados para quartos mais organizados, confortáveis e bem aproveitados.",
-      "photo": "guarda-roupa-infantil-nichos"
+      "photo": "cabeceira-estofada",
+      "photoPosition": "50% 45%"
     },
     "card": {
       "text": "Guarda-roupas, camas, closets e bancadas sob medida para deixar o quarto mais organizado e confortável.",
@@ -138,25 +176,70 @@
     "gallery": {
       "title": "Projetos de dormitórios planejados",
       "items": [
-        { "photo": "cama-madeira", "caption": "Cama sob medida em madeira" },
-        { "photo": "cama-auxiliar", "caption": "Cama auxiliar sob medida" },
-        { "photo": "guarda-roupa-infantil-nichos", "caption": "Guarda-roupa infantil com nichos" },
-        { "photo": "porta-correr-madeira", "caption": "Porta de correr em madeira" },
-        { "photo": "corredor-armarios", "caption": "Corredor com armários planejados" },
-        { "photo": "guarda-roupa-divisorias", "caption": "Guarda-roupa com divisórias internas" },
-        { "photo": "porta-celeiro", "caption": "Porta de correr tipo celeiro" },
-        { "photo": "painel-porta-correr", "caption": "Painel e porta de correr em madeira" },
+        {
+          "photo": "cama-madeira",
+          "caption": "Cama sob medida em madeira"
+        },
+        {
+          "photo": "cama-auxiliar",
+          "caption": "Cama auxiliar sob medida"
+        },
+        {
+          "photo": "guarda-roupa-infantil-nichos",
+          "caption": "Guarda-roupa infantil com nichos"
+        },
+        {
+          "photo": "porta-correr-madeira",
+          "caption": "Porta de correr em madeira"
+        },
+        {
+          "photo": "corredor-armarios",
+          "caption": "Corredor com armários planejados"
+        },
+        {
+          "photo": "guarda-roupa-divisorias",
+          "caption": "Guarda-roupa com divisórias internas"
+        },
+        {
+          "photo": "porta-celeiro",
+          "caption": "Porta de correr tipo celeiro"
+        },
+        {
+          "photo": "painel-porta-correr",
+          "caption": "Painel e porta de correr em madeira"
+        },
         {
           "photo": "guarda-roupa-espelho-ripado",
           "caption": "Guarda-roupa com espelho e detalhe ripado"
         },
-        { "photo": "painel-tv-dormitorio", "caption": "Painel de TV sob medida" },
-        { "photo": "cabeceira-estofada", "caption": "Cabeceira estofada com criados-mudos" },
-        { "photo": "armario-gavetas-interno", "caption": "Interior de armário com gavetas" },
-        { "photo": "guarda-roupa-portas-correr", "caption": "Guarda-roupa com portas de correr" },
-        { "photo": "guarda-roupa-porta-espelhada", "caption": "Guarda-roupa com porta espelhada" },
-        { "photo": "armario-cinza", "caption": "Armário planejado em tom cinza" },
-        { "photo": "dormitorio-armarios-bancada", "caption": "Dormitório com armários e bancada" }
+        {
+          "photo": "painel-tv-dormitorio",
+          "caption": "Painel de TV sob medida"
+        },
+        {
+          "photo": "cabeceira-estofada",
+          "caption": "Cabeceira estofada com criados-mudos"
+        },
+        {
+          "photo": "armario-gavetas-interno",
+          "caption": "Interior de armário com gavetas"
+        },
+        {
+          "photo": "guarda-roupa-portas-correr",
+          "caption": "Guarda-roupa com portas de correr"
+        },
+        {
+          "photo": "guarda-roupa-porta-espelhada",
+          "caption": "Guarda-roupa com porta espelhada"
+        },
+        {
+          "photo": "armario-cinza",
+          "caption": "Armário planejado em tom cinza"
+        },
+        {
+          "photo": "dormitorio-armarios-bancada",
+          "caption": "Dormitório com armários e bancada"
+        }
       ]
     },
     "process": {
@@ -200,7 +283,8 @@
       "eyebrow": "Ambientes · Home office",
       "title": "Home office planejado *sob medida*",
       "text": "Bancadas, armários e painéis personalizados para trabalhar melhor, com conforto e organização.",
-      "photo": "sala-reuniao-painel-ripado"
+      "photo": "sala-reuniao-painel-ripado",
+      "photoPosition": "50% 25%"
     },
     "card": {
       "text": "Bancadas, armários e painéis sob medida para criar um home office profissional, confortável e bem organizado.",
@@ -227,13 +311,34 @@
     "gallery": {
       "title": "Projetos de home office planejado",
       "items": [
-        { "photo": "sala-reuniao-painel-ripado", "caption": "Sala de reunião com painel ripado" },
-        { "photo": "mesa-trabalho", "caption": "Mesa de trabalho sob medida" },
-        { "photo": "home-office-bancada-l", "caption": "Bancada em L para estudo e trabalho" },
-        { "photo": "expositor-colecao", "caption": "Expositor personalizado para coleção" },
-        { "photo": "painel-bancada", "caption": "Painel sob medida com bancada" },
-        { "photo": "gaveteiro-corredicas", "caption": "Gaveteiro com corrediças telescópicas" },
-        { "photo": "home-office-bancada-armario", "caption": "Bancada e armário sob medida" },
+        {
+          "photo": "sala-reuniao-painel-ripado",
+          "caption": "Sala de reunião com painel ripado"
+        },
+        {
+          "photo": "mesa-trabalho",
+          "caption": "Mesa de trabalho sob medida"
+        },
+        {
+          "photo": "home-office-bancada-l",
+          "caption": "Bancada em L para estudo e trabalho"
+        },
+        {
+          "photo": "expositor-colecao",
+          "caption": "Expositor personalizado para coleção"
+        },
+        {
+          "photo": "painel-bancada",
+          "caption": "Painel sob medida com bancada"
+        },
+        {
+          "photo": "gaveteiro-corredicas",
+          "caption": "Gaveteiro com corrediças telescópicas"
+        },
+        {
+          "photo": "home-office-bancada-armario",
+          "caption": "Bancada e armário sob medida"
+        },
         {
           "photo": "gaveteiro-vertical-preto",
           "caption": "Gaveteiro vertical com acabamento preto"

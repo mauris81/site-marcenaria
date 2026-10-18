@@ -29,7 +29,7 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
   if (!service) notFound();
 
   return (
-    <PageHero eyebrow={service.hero.eyebrow} title={service.hero.title} text={service.hero.text}>
+    <PageHero {...service.hero}>
       <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
         Solicitar orçamento
         <ArrowRight

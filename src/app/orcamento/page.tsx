@@ -15,7 +15,7 @@ export default async function QuotePage() {
   const [quote, site] = await Promise.all([getQuoteContent(), getSite()]);
 
   return (
-    <PageHero eyebrow={quote.hero.eyebrow} title={quote.hero.title} text={quote.hero.text}>
+    <PageHero {...quote.hero}>
       <a
         href={whatsappUrl(site.contact.whatsapp, site.whatsappMessage)}
         target="_blank"

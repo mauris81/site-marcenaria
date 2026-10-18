@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+import imageWidths from "./src/lib/image-widths.json";
+
 const nextConfig: NextConfig = {
   // Gera um site 100% estático (SSG) em `out/`: cada rota vira um HTML pronto,
   // servível por qualquer host estático. Sem `trailingSlash`, a rota
@@ -10,6 +12,14 @@ const nextConfig: NextConfig = {
   // Links internos (`<Link href>`) passam a ser checados pelo TypeScript:
   // um link para uma rota inexistente quebra o build em vez de virar 404.
   typedRoutes: true,
+
+  // Fotos servidas nas versões WebP pré-geradas por scripts/optimize-images.mjs
+  // (o otimizador padrão do Next exige servidor, incompatível com o export).
+  images: {
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
+    ...imageWidths,
+  },
 
   turbopack: {
     rules: {
