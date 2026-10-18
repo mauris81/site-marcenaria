@@ -42,7 +42,7 @@ export async function getPhoto(id: string) {
 
 /** Item de galeria pronto para o navegador: dados da foto otimizada + legenda. */
 export type GalleryItem = {
-  src: string;
+  src: `/images/${string}`;
   alt: string;
   caption: string;
   width: number;

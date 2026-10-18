@@ -27,14 +27,17 @@ const manrope = Manrope({
   variable: "--font-manrope",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Marcenaria sob medida em São Paulo | Marcenaria Butantã",
-    template: "%s | Marcenaria Butantã",
-  },
-  description:
-    "Marcenaria sob medida na Zona Oeste de São Paulo para cozinhas planejadas, dormitórios, home offices, painéis e móveis personalizados.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSite();
+  return {
+    // Base das URLs absolutas (canônicas, Open Graph): o endereço de produção,
+    // já com o subcaminho do GitHub Pages — mesmo nos builds locais.
+    metadataBase: new URL(`${site.url}/`),
+    title: { default: site.name, template: `%s | ${site.name}` },
+    description: site.description,
+    applicationName: site.name,
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: "#110d0a",

@@ -13,8 +13,11 @@ import { PageHero } from "@/components/sections/page-hero";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { RegionsSection } from "@/components/sections/regions-section";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { JsonLd } from "@/components/seo/json-ld";
 import { buttonVariants } from "@/components/ui/button";
 import { getGallery, getService, getServices, getSite } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
+import { serviceStructuredData } from "@/lib/structured-data";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 // Um único template gera as páginas de todos os serviços em src/content/services.json.
@@ -27,9 +30,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps<"/[slug]">): Promise<Metadata> {
-  const service = await getService((await params).slug);
+  const [service, site] = await Promise.all([getService((await params).slug), getSite()]);
   if (!service) return {};
-  return { title: service.seo.title, description: service.seo.description };
+  return pageMetadata({ site, seo: service.seo, path: `/${service.slug}` });
 }
 
 export default async function ServicePage({ params }: PageProps<"/[slug]">) {
@@ -43,6 +46,7 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
 
   return (
     <PageTransition>
+      <JsonLd data={serviceStructuredData(site, service)} />
       <PageHero {...service.hero}>
         <Link href={quoteHref} className={buttonVariants({ size: "lg" })}>
           Solicitar orçamento

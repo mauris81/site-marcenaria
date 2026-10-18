@@ -7,13 +7,16 @@ import { Reveal } from "@/components/motion/reveal";
 import { QuoteForm } from "@/components/quote/quote-form";
 import { PageHero } from "@/components/sections/page-hero";
 import { RegionsSection } from "@/components/sections/regions-section";
+import { JsonLd } from "@/components/seo/json-ld";
 import { buttonVariants } from "@/components/ui/button";
 import { getQuoteContent, getSite } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
+import { pageStructuredData } from "@/lib/structured-data";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getQuoteContent();
-  return { title: seo.title, description: seo.description };
+  const [{ seo }, site] = await Promise.all([getQuoteContent(), getSite()]);
+  return pageMetadata({ site, seo, path: "/orcamento" });
 }
 
 export default async function QuotePage() {
@@ -22,6 +25,7 @@ export default async function QuotePage() {
 
   return (
     <PageTransition>
+      <JsonLd data={pageStructuredData(site, { name: "Orçamento", path: "/orcamento" })} />
       <PageHero {...quote.hero}>
         <a href="#formulario" className={buttonVariants({ size: "lg" })}>
           Preencher o formulário

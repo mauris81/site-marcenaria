@@ -11,9 +11,12 @@ import { PageHero } from "@/components/sections/page-hero";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { RegionsSection } from "@/components/sections/regions-section";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { JsonLd } from "@/components/seo/json-ld";
 import { ServiceShowcase } from "@/components/showcase/service-showcase";
 import { buttonVariants } from "@/components/ui/button";
 import { getHomeContent, getServices, getSite, type Service } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
+import { homeStructuredData } from "@/lib/structured-data";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 type ShowcasedService = Service & { showcase: NonNullable<Service["showcase"]> };
@@ -21,8 +24,8 @@ const hasShowcase = (service: Service): service is ShowcasedService =>
   service.showcase !== undefined;
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { seo } = await getHomeContent();
-  return { title: seo.title, description: seo.description };
+  const [{ seo }, site] = await Promise.all([getHomeContent(), getSite()]);
+  return pageMetadata({ site, seo, path: "/" });
 }
 
 export default async function HomePage() {
@@ -32,6 +35,7 @@ export default async function HomePage() {
 
   return (
     <PageTransition>
+      <JsonLd data={homeStructuredData(site)} />
       <PageHero {...home.hero}>
         <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
           Solicitar orçamento
