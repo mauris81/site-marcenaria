@@ -34,7 +34,7 @@ export function ServiceShowcase({ service, index }: ServiceShowcaseProps) {
         key={id}
         id={id}
         fill
-        sizes="(min-width: 1024px) 20vw, 42vw"
+        sizes="(min-width: 1024px) 20vw, 33vw"
         className="object-cover"
       />
     )),
