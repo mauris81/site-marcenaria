@@ -394,6 +394,11 @@
     "cta": {
       "title": "Seu trabalho precisa de um espaço melhor?",
       "text": "Conte como você usa o ambiente e criamos uma proposta sob medida, sem excessos e com boa funcionalidade."
+    },
+    "showcase": {
+      "reveal": "slats",
+      "title": "Gire o ripado e veja nossos *home offices*",
+      "photos": ["sala-reuniao-painel-ripado", "painel-bancada", "home-office-bancada-armario"]
     }
   }
 ]

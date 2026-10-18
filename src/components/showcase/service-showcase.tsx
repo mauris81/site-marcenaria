@@ -6,6 +6,7 @@ import type { Service } from "@/lib/content";
 
 import { CabinetReveal } from "./cabinet-reveal";
 import { DrawerReveal } from "./drawer-reveal";
+import { SlatsReveal } from "./slats-reveal";
 
 type ServiceShowcaseProps = {
   service: Service & { showcase: NonNullable<Service["showcase"]> };
@@ -43,5 +44,7 @@ export function ServiceShowcase({ service, index }: ServiceShowcaseProps) {
       return <CabinetReveal {...props} />;
     case "drawer":
       return <DrawerReveal {...props} />;
+    case "slats":
+      return <SlatsReveal {...props} />;
   }
 }
