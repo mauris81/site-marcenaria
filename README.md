@@ -1,14 +1,18 @@
-# Marcenaria Butantã
+# Site Marcenaria Butantã
 
-Site da Marcenaria Butantã: móveis planejados sob medida na Zona Oeste de São Paulo.
+Site institucional multipágina da **Marcenaria Butantã**, marcenaria de móveis planejados em São Paulo. Em produção em [marcenariabutanta.com.br](https://www.marcenariabutanta.com.br).
 
-**Produção:** <https://mauris81.github.io/site-marcenaria/>
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-0AE448?style=flat-square&logo=greensock&logoColor=black)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 Site estático (SSG) em Next.js. Cada página vira um HTML pronto no build e é
-servida pelo GitHub Pages, sem servidor. O pedido de orçamento abre o WhatsApp
-com a mensagem já preenchida. Conteúdo em JSON validado no build, fotos
-otimizadas automaticamente e animações na rolagem, com atenção a
-acessibilidade e SEO.
+publicada pela Vercel, sem servidor. O pedido de orçamento abre o WhatsApp com
+a mensagem já preenchida. Conteúdo em JSON validado no build, fotos otimizadas
+automaticamente e animações na rolagem, com atenção a acessibilidade e SEO.
 
 **Stack:** Next.js 16 (App Router, export estático) · React 19 · TypeScript ·
 Tailwind CSS 4 · GSAP + ScrollTrigger e Lenis (animações) · React Hook Form +
@@ -55,7 +59,8 @@ scripts/            Otimização das fotos, imagens de compartilhamento, ajuste 
 assets/photos/      Fotos originais do site (fonte das versões otimizadas)
 assets/brand/       Logo original
 public/             Arquivos servidos como estão (monograma do logo)
-.github/workflows/  Verificação e publicação no GitHub Pages
+.github/workflows/  Verificação automática (lint, tipos, testes e build)
+vercel.json         Publicação na Vercel
 ```
 
 ## Conteúdo
@@ -138,35 +143,26 @@ Gerado a partir do conteúdo, no build:
   site, serviços e trilha de navegação, só com fatos que estão no conteúdo;
 - `/sitemap.xml`, com as fotos do portfólio, e `/robots.txt`.
 
-No GitHub Pages de projeto, o `robots.txt` não fica na raiz do domínio e os
-buscadores o ignoram. Envie o sitemap pelo Google Search Console:
-`https://mauris81.github.io/site-marcenaria/sitemap.xml`.
+Depois de publicar, envie o sitemap no Google Search Console:
+`https://www.marcenariabutanta.com.br/sitemap.xml`.
 
-## Publicação (GitHub Pages)
+## Publicação (Vercel)
 
-O workflow `.github/workflows/site.yml`:
+A Vercel está ligada a este repositório:
 
-- em pull requests, roda `npm run check` e o build, sem publicar;
-- em push na `main`, gera o site com o subcaminho `/site-marcenaria` e publica.
+- push na `main` → publica em produção, em
+  [www.marcenariabutanta.com.br](https://www.marcenariabutanta.com.br);
+- push em qualquer outro ramo → gera uma prévia (só abre para quem tem acesso
+  ao projeto na Vercel).
 
-O subcaminho vem de `NEXT_PUBLIC_BASE_PATH`, que o workflow define. Localmente
-ele fica vazio e o site abre na raiz. Para reproduzir o build do Pages:
-`NEXT_PUBLIC_BASE_PATH=/site-marcenaria npm run build`.
+O `vercel.json` fixa como o site é publicado, independente do painel: roda
+`npm run build` e serve a pasta `out`. Com `cleanUrls`, `/cozinhas-planejadas`
+abre a página, e os endereços antigos com `.html` redirecionam (308) para os
+novos, preservando links e posição no Google.
 
-**Primeira publicação** (troca do site antigo pelo novo), nesta ordem:
-
-1. No GitHub: Settings → Pages → Build and deployment → Source: **GitHub
-   Actions**. Se o merge vier antes, o Pages continua publicando a própria
-   `main`, que não tem mais o site antigo, e o endereço passa a mostrar este
-   README no lugar do site.
-2. Faça o merge de `feat/nextjs-redesign` na `main`.
-3. Acompanhe a execução em Actions. Quando ela terminar, o site novo está no ar.
-4. Envie o sitemap no Google Search Console.
-
-**Domínio próprio:** configure-o em Settings → Pages. O subcaminho deixa de
-existir sozinho (o workflow passa a informar um caminho vazio). Atualize `url`
-em `site.json`, que é a base das URLs canônicas, do sitemap e dos dados
-estruturados.
+Fluxo de trabalho: desenvolva num ramo, confira a prévia da Vercel e faça o
+merge na `main` para publicar. O workflow `.github/workflows/site.yml` roda as
+verificações em pull requests e na `main`.
 
 ## Qualidade
 
@@ -174,3 +170,7 @@ estruturados.
 etapas do CI. Os testes cobrem a validação do conteúdo, o formulário de
 orçamento (máscara do telefone, mensagens de erro e mensagem do WhatsApp), os
 metadados e os dados estruturados.
+
+## Autor
+
+Desenvolvido por [Maurício Magri](https://github.com/mauris81), do layout à publicação.
