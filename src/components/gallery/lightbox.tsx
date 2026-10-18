@@ -91,8 +91,7 @@ export function Lightbox({ items, index, onIndexChange, onClose }: LightboxProps
                 alt={item.alt}
                 fill
                 sizes="100vw"
-                placeholder="blur"
-                blurDataURL={item.blurDataURL}
+                placeholder={item.blurDataURL}
                 className="object-contain motion-safe:animate-lightbox-in"
               />
             </div>

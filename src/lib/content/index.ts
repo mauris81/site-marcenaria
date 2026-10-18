@@ -47,7 +47,7 @@ export type GalleryItem = {
   caption: string;
   width: number;
   height: number;
-  blurDataURL: string;
+  blurDataURL: `data:image/webp;base64,${string}`;
 };
 
 /** Galeria de um serviço com os dados de cada foto resolvidos a partir do catálogo. */

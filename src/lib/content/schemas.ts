@@ -93,7 +93,7 @@ export const photosGeneratedSchema = z.strictObject({
       signature: z.string(),
       width: z.int().positive(),
       height: z.int().positive(),
-      blurDataURL: z.string().startsWith("data:image/webp;base64,"),
+      blurDataURL: z.templateLiteral(["data:image/webp;base64,", z.string()]),
     }),
   ),
 });

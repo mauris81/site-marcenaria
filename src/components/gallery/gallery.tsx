@@ -94,8 +94,7 @@ export function Gallery({ items }: GalleryProps) {
                     alt={item.alt}
                     width={item.width}
                     height={item.height}
-                    placeholder="blur"
-                    blurDataURL={item.blurDataURL}
+                    placeholder={item.blurDataURL}
                     sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 100vw"
                     className="h-auto w-full transition duration-700 ease-out-expo group-hover:scale-[1.04]"
                   />

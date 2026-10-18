@@ -24,8 +24,9 @@ export async function Photo({ id, alt, position, fill, style, ...props }: PhotoP
       src={`/images/${photo.id}`}
       alt={alt ?? photo.alt}
       {...(fill ? { fill } : { width: photo.width, height: photo.height })}
-      placeholder="blur"
-      blurDataURL={photo.blurDataURL}
+      // Miniatura direto como placeholder (o navegador a amplia suavizando): sem o
+      // SVG com filtro de desfoque que o next/image gera para placeholder="blur".
+      placeholder={photo.blurDataURL}
       style={{ objectPosition: position ?? photo.position, ...style }}
       {...props}
     />
