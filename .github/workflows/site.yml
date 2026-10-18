@@ -1,31 +1,24 @@
-# Verifica e publica o site no GitHub Pages.
-#
-# - Pull request: lint, tipos, testes, formatação e build (nada é publicado).
-# - Push na main (ou execução manual a partir dela): as mesmas verificações,
-#   build com o subcaminho do Pages (/site-marcenaria) e publicação.
-#
-# Antes da primeira publicação: Settings → Pages → Build and deployment →
-# Source: "GitHub Actions". Veja "Publicação" no README.
-name: Site
+# Verifica o código a cada pull request e a cada push na main: lint, tipos,
+# testes, formatação e build. A publicação fica com a Vercel: produção a partir
+# da main e uma prévia para cada push nos outros ramos.
+name: Verificação
 
 on:
   push:
     branches: [main]
   pull_request:
-  workflow_dispatch:
 
 permissions:
   contents: read
 
-# Uma execução por ramo. Em pull requests, um push novo cancela a verificação
-# anterior; na main, a publicação em andamento sempre termina.
+# Um push novo cancela a verificação anterior do mesmo ramo.
 concurrency:
-  group: site-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  group: verificacao-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-    name: Verificar e gerar o site
+  check:
+    name: Lint, tipos, testes e build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -40,34 +33,5 @@ jobs:
       - name: Lint, tipos, testes e formatação
         run: npm run check
 
-      # Informa o subcaminho do site (/site-marcenaria; vazio com domínio próprio).
-      - name: Configurar o GitHub Pages
-        id: pages
-        if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v6
-
-      - name: Gerar o site estático
+      - name: Build do site estático
         run: npm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
-
-      - name: Empacotar o site
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: out
-
-  deploy:
-    name: Publicar no GitHub Pages
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
