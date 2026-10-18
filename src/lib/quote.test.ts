@@ -45,6 +45,23 @@ describe("schema do orçamento", () => {
     expect(schema.safeParse({ ...valid, bairro: OTHER_NEIGHBORHOOD }).success).toBe(true);
   });
 
+  it("tira os espaços das pontas do nome e da mensagem", () => {
+    const result = schema.safeParse({
+      ...valid,
+      nome: "  Ana Souza ",
+      mensagem: " Cozinha em L  ",
+    });
+    expect(result.data).toMatchObject({ nome: "Ana Souza", mensagem: "Cozinha em L" });
+  });
+
+  it("limita a mensagem a 1.000 caracteres", () => {
+    expect(schema.safeParse({ ...valid, mensagem: "a".repeat(1000) }).success).toBe(true);
+    const result = schema.safeParse({ ...valid, mensagem: "a".repeat(1001) });
+    expect(result.error?.issues.map((issue) => issue.message)).toEqual([
+      "Use até 1.000 caracteres.",
+    ]);
+  });
+
   it("explica cada campo inválido em linguagem clara", () => {
     const result = schema.safeParse({
       ...valid,

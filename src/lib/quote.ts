@@ -1,7 +1,9 @@
-import { z } from "zod";
+import * as z from "zod/mini";
 
 // Regras do formulário de orçamento, separadas da interface: o mesmo schema
-// valida no navegador e é coberto por testes (quote.test.ts).
+// valida no navegador e é coberto por testes (quote.test.ts). Usa o Zod Mini,
+// a versão do Zod feita para o navegador: as mesmas regras com um quarto do
+// tamanho (cerca de 22 KB em vez de 88 KB de JavaScript).
 
 export const OTHER_NEIGHBORHOOD = "Outro bairro";
 
@@ -27,19 +29,25 @@ export function formatPhone(value: string) {
 export function createQuoteSchema(options: { neighborhoods: string[]; projectTypes: string[] }) {
   const neighborhoods = [...options.neighborhoods, OTHER_NEIGHBORHOOD];
   return z.object({
-    nome: z.string().trim().min(2, "Informe seu nome."),
+    nome: z.string().check(z.trim(), z.minLength(2, "Informe seu nome.")),
     telefone: z
       .string()
-      .refine(
-        (value) => /^\d{10,11}$/.test(onlyDigits(value)),
-        "Informe um telefone com DDD, como (11) 91234-5678.",
+      .check(
+        z.refine(
+          (value) => /^\d{10,11}$/.test(onlyDigits(value)),
+          "Informe um telefone com DDD, como (11) 91234-5678.",
+        ),
       ),
     email: z.union([z.literal(""), z.email("Confira o e-mail, por exemplo: nome@exemplo.com.")]),
-    bairro: z.string().refine((value) => neighborhoods.includes(value), "Selecione o bairro."),
+    bairro: z
+      .string()
+      .check(z.refine((value) => neighborhoods.includes(value), "Selecione o bairro.")),
     tipo: z
       .string()
-      .refine((value) => options.projectTypes.includes(value), "Selecione o tipo de projeto."),
-    mensagem: z.string().trim().max(1000, "Use até 1.000 caracteres."),
+      .check(
+        z.refine((value) => options.projectTypes.includes(value), "Selecione o tipo de projeto."),
+      ),
+    mensagem: z.string().check(z.trim(), z.maxLength(1000, "Use até 1.000 caracteres.")),
   });
 }
 
