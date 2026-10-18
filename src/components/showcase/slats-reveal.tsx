@@ -1,8 +1,7 @@
 "use client";
 
+import { clsx } from "clsx";
 import { useRef, type ReactNode } from "react";
-
-import { cn } from "@/lib/utils";
 
 import { ShowcaseCopy, type ShowcaseCopyProps } from "./showcase-copy";
 import { ShowcaseStage } from "./showcase-stage";
@@ -68,7 +67,7 @@ export function SlatsReveal({ photos, ...copy }: SlatsRevealProps) {
             <div className="relative h-full overflow-hidden rounded-sm">
               <ul
                 data-photos
-                className={cn(
+                className={clsx(
                   "grid h-full gap-1.5",
                   photos.length === 3 && "grid-cols-3",
                   photos.length === 2 && "grid-cols-2",

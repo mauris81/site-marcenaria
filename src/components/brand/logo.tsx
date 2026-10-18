@@ -1,7 +1,6 @@
+import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
-
-import { cn } from "@/lib/utils";
 
 type LogoProps = {
   className?: string;
@@ -14,7 +13,7 @@ export function Logo({ className, onClick }: LogoProps) {
     <Link
       href="/"
       onClick={onClick}
-      className={cn("group inline-flex items-center gap-3", className)}
+      className={clsx("group inline-flex items-center gap-3", className)}
     >
       <Image
         src="/brand/monogram.webp"

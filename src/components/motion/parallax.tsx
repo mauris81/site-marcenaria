@@ -1,9 +1,9 @@
 "use client";
 
+import { clsx } from "clsx";
 import { useRef, type ReactNode } from "react";
 
 import { MOTION_OK } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 import { useLazyGSAP } from "./use-lazy-gsap";
 
@@ -37,7 +37,7 @@ export function Parallax({ children, className, speed = 0.2 }: ParallaxProps) {
   });
 
   return (
-    <div ref={ref} className={cn("absolute inset-x-0 -top-[10%] h-[120%]", className)}>
+    <div ref={ref} className={clsx("absolute inset-x-0 -top-[10%] h-[120%]", className)}>
       {children}
     </div>
   );

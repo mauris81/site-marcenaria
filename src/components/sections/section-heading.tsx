@@ -1,6 +1,7 @@
+import { clsx } from "clsx";
+
 import { SplitHeading } from "@/components/motion/split-heading";
 import { Emphasis } from "@/components/ui/emphasis";
-import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
   id: string;
@@ -22,7 +23,7 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
+    <div className={clsx("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow && <p className="text-eyebrow font-semibold text-brand uppercase">{eyebrow}</p>}
       <SplitHeading id={id} className="mt-5 font-display text-heading">
         <Emphasis text={title} />

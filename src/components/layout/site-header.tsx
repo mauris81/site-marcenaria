@@ -1,5 +1,6 @@
 "use client";
 
+import { clsx } from "clsx";
 import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,7 +8,6 @@ import { useSyncExternalStore } from "react";
 
 import { Logo } from "@/components/brand/logo";
 import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 import { MobileMenu } from "./mobile-menu";
 
@@ -86,10 +86,7 @@ export function SiteHeader({ nav, whatsappHref, instagramHref }: SiteHeaderProps
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/orcamento"
-            className={cn(buttonVariants({ size: "sm" }), "hidden sm:inline-flex")}
-          >
+          <Link href="/orcamento" className={clsx(buttonVariants({ size: "sm" }), "max-sm:hidden")}>
             Solicitar orçamento
           </Link>
           <MobileMenu nav={nav} whatsappHref={whatsappHref} instagramHref={instagramHref} />

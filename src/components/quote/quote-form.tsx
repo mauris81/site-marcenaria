@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { clsx } from "clsx";
 import { AlertCircle, CheckCircle2, ChevronDown } from "lucide-react";
 import { useEffect, useMemo, useState, type ComponentProps, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
@@ -14,7 +15,6 @@ import {
   OTHER_NEIGHBORHOOD,
   type QuoteFormValues,
 } from "@/lib/quote";
-import { cn } from "@/lib/utils";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 type QuoteFormProps = {
@@ -189,7 +189,7 @@ export function QuoteForm({
               placeholder="Descreva o ambiente, medidas aproximadas, referências, materiais ou cores que você imagina."
               aria-invalid={!!errors.mensagem}
               aria-describedby={describedBy("mensagem")}
-              className={cn(controlClass, "resize-y py-3")}
+              className={clsx(controlClass, "resize-y py-3")}
               {...register("mensagem")}
             />
           </Field>
@@ -198,7 +198,10 @@ export function QuoteForm({
 
       <button
         type="submit"
-        className={cn(buttonVariants({ variant: "whatsapp", size: "lg" }), "mt-8 w-full sm:w-auto")}
+        className={clsx(
+          buttonVariants({ variant: "whatsapp", size: "lg" }),
+          "mt-8 w-full sm:w-auto",
+        )}
       >
         <WhatsAppIcon className="size-5" />
         Enviar pelo WhatsApp
@@ -276,7 +279,7 @@ function Select({
       <select
         aria-invalid={invalid}
         aria-describedby={describedBy}
-        className={cn(controlClass, "cursor-pointer appearance-none pr-12")}
+        className={clsx(controlClass, "cursor-pointer appearance-none pr-12")}
         {...props}
       >
         {children}
