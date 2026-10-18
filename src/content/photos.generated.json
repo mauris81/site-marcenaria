@@ -14,294 +14,343 @@
   "photos": {
     "tabua-resina-mar": {
       "signature": "b97c6dcad197607a-full",
+      "version": "74a1be61",
       "width": 1600,
       "height": 1201,
       "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoQAAwAA4BaJbACdEf/gep3EKhbkAD+mYUGDnCXImEBO7dnQLe3XQpbT3KgDUdT5lnl5koMZqCWzmLi+4Z1qt9f1J088dimOvAfZgAA"
     },
     "cozinha-compacta-armarios-claros": {
       "signature": "f42d6958c0b76b0d-trim",
+      "version": "c9c66946",
       "width": 610,
       "height": 814,
       "blurDataURL": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBACdASoQABUAPu1iqU2ppaOiMAgBMB2JZQDG9CLKX48zl/1I4Lw7t0AA/smA9x5NtCZCfQFnEj9qqbRVNzpcGiQVRpjVIvPE64JR2J31V0vIkzekQxc1271uCbmmGEFxwyD+J0hBd38GmtDPxX3c+lfDveSm20mFr63jaYyghwX4Bs/FpzIKijEirjUKNpRMghmAvkr3AAAA"
     },
     "cozinha-integrada-escura": {
       "signature": "0186250bf829de45-full",
+      "version": "38ff7ea2",
       "width": 870,
       "height": 653,
       "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAQCdASoQAAwAA4BaJaACdACghxH1YAD8UOqWY07k2Ibbe3NBtZJdvRaIFRbMZ5G9T06/sXHzdMK1wchKDxzZn8oetyfDUBvE9ZXivftOHtXKNpi0aLuM2wHLROoQAAA="
     },
     "cozinha-bancada-amadeirada": {
       "signature": "35bbba4fb69d9545-full",
+      "version": "715515a8",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAACwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JaAAAUrNFD/QkgkaNgADiKudEo5vj1OF9nq+C2yaep4ZP8HVRAjOJjzbJDbYznyvorrbNId4479vjJ5ScRCiQAUqE1z0ilEjP8Bf3Q59R2DdAOq9x9iEnifeAyo0ksa+Z3H+GlIPC+A8DBVcrBS8aQAA="
     },
     "cozinha-linear-coifa": {
       "signature": "a5dd3d83f889230c-full",
+      "version": "78655721",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAsAA4BaJaACdAEI8CGgxAD+mFeyB/3Kny73JJJI5xmEvrZnJh4JXGKioBkqfB39szxmEXcrwOC351cbpWb2r98hryEwSYsZe1wA"
     },
     "cristaleira-madeira": {
       "signature": "857a0716b8271ac1-full",
+      "version": "d4bb86cc",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAsAA4BaJYgCdABsUt94AP7ltlrIdRJsU73e7WGiZqX7NcR1W4E3OnHo/R8P9ZJ8RpJtRZroQFuNiWSbB/iGY4AAAA=="
     },
     "cozinha-clara-bancada-preta": {
       "signature": "b03bdb1bcc026e52-full",
+      "version": "5a94dde7",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoQAAsAA4BaJYgCdAEeeyCgBQAA/uAL2U7lt3Qyv+A2RUV/ar/q6GpPfpOFvR3M9cNJg/mJkNP3Ztc3+qoOGGc/iWpeMSDlfWQvOufPIWGOZcSY3q1OPqLjZnDpwAAA"
     },
     "cozinha-compacta-armarios-superiores": {
       "signature": "4790f048d9fb0146-full",
+      "version": "4813b727",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAsAA4BaJYgCdAEfTIWgFu4A+6HzeV6DIAWqZ4rPqzgnDor0XWVccZ2cF4PBdvpXgZmvQRgMqTFntxm22VVxHn8I6rwvaOat++KSQe6q0tc4BF0phMjWduAAAA=="
     },
     "torre-quente": {
       "signature": "3511c89d6fab245f-full",
+      "version": "0db31909",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAsAA4BaJQBOgBjdxCLKNQAA/u9pbHHmp2xgPAb1ZCiZhf3teBVI+2MEWF8fR+quXaafm7gdXj2W9zDpQKjNiECieC8ewAA="
     },
     "modulo-geladeira-forno": {
       "signature": "0420f9197514a252-full",
+      "version": "1f5a5b60",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAwAgCdASoQAAsAA4BaJQBOgCLt/7vLZVyZAAD+yfhIh81j7zhEnPvk4eMcwo+/RFfKqPUGkn/M4bha4Xti2ZTYwosfb5uAHLV9iA6Nm777OinGqdgAAA=="
     },
     "cozinha-verde-bancada-l": {
       "signature": "0dedea87a31c246a-full",
+      "version": "9ba10579",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsAA4BaJaACdAEPQJJp35gAAPysic2n5Vx2i3yL+ijUTHuEk9v8zEcfK6ZJ6qMg1udwWOdHLJwT1LjlR7CAAAA="
     },
     "cozinha-gaveteiros-forno": {
       "signature": "0c8cdc8b0ad14b92-full",
+      "version": "b0c6af1b",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAsAA4BaJQBOgB4O4u7f8AAA/uZulqyS/XLp7MBEOz5+EUtessAwUIrWQ+8dtheSGHgUOz4LZJ1Kd31NDHf9RV25P0f2wYuRJ5gAAAA="
     },
     "cozinha-armarios-inferiores": {
       "signature": "f64ed827b2d6ebaf-full",
+      "version": "b4e6f3f3",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAsAA4BaJbACdAD1bN4JEQAA/tD0sHlPi8HdRWS7NBkjL97P00SSxhsjzfB1/G1SDYqD7PJoZrMrkYx5DABx+x2ZB8+wAAA="
     },
     "cozinha-em-l": {
       "signature": "edbe01e22eb1806a-full",
+      "version": "dfc97466",
       "width": 960,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JQBajUABnyJzbnJU7u/AA+FQVkB1kqoKZFJ8ES3zI+f1WlIcZWy43NPUyl+hnlWAS7zujponzZ4BcNrJ5j9IY+GlnsIQWVqzaU8Hr7Yb61hkYQ943BsVghtOvGe0VtB1P2cx2hD/lRDmTf/cvVoygAAA="
     },
     "ilha-amadeirada": {
       "signature": "71413953e5ae5657-full",
+      "version": "f196edab",
       "width": 1201,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JQBdgA4mJ0Br3gkodPa+AAP64FDb8kz3UhlwRipEUDqjWK542JvS3tVkvRKYuFqvL9Q65Q5Pm7mKnODikgKdtDNkNwma0ByQ5t62raX2iOUWjaraUsaJQKMVJwVgRjoAojgAA"
     },
     "cozinha-ilha-central": {
       "signature": "5cf7232cc48b57e7-full",
+      "version": "dc20c5c9",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYwAAV/rS0RwbSa1MvoAA1wZL3rA/JDpZ6P+qRCcc0xrylM788PbR2FIlZiEtV7k/D6MChrf9BMjeT1v54nynPAXyR+KEepS7KBDL7IbvLUECgAA="
     },
     "bancada-cooktop": {
       "signature": "731dbc7d9e553810-full",
+      "version": "d51bc112",
       "width": 1201,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAADwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JQBdgMYnLheMeHSWWm6nAAP36HhiF6ynKUW7bBUNymOKC3NbGK7pyH2U/9GRB+5tgLEhyhF8lA+6j+uNBaZyPEaJxVCf8Ilbjo7whnuI4ob3qmc911pSBa7Mth4dKw4g+71BnlzXGAMJGUTJmPIVSHEtxeWlAAAA="
     },
     "cama-madeira": {
       "signature": "fe4e6cfe187dce2e-full",
+      "version": "e9ff6ad7",
       "width": 960,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwAwCdASoQABUAPu1kqU2ppaQiMAgBMB2JYwCAAAbZAvURw1VoAAD+5z8b7bHaBspAf+NvIoIMSRsX4J8ALEslIFqJVRvo3YzaA5UYsDHwUFUMlXzkYUCo3fs7upHfGvHx+se+wYUQAA=="
     },
     "cama-auxiliar": {
       "signature": "c1109a9cf40aee8d-full",
+      "version": "66d49a6a",
       "width": 960,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JYwAASfQcc1jO5BhYfF4AAP7nPxvm/dIRwb9lKvg1Dj5gvbVcLm8jFxSl5D0aH6D2F65pnaFgJmvJEP8a349HLgfQaPsVrvs9fhfGhAXlXU+hnYgAAA=="
     },
     "guarda-roupa-infantil-nichos": {
       "signature": "b95bec85b12edb31-full",
+      "version": "6bfbf299",
       "width": 592,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAABwBQCdASoQACMAPuleqE2pJSOiNVgIASAdCWIArC9eOBApIKkDjw9brAEdUL2tsaRVBkPAAP7tRbaXXu2c9RlSJtSgZfYqic88/JE8jELBDa0KIcTAyooDrS35vZMn3bVJuXwBCAE+AkXyusTk+UYttb6D2hRatWCwL5uwN1rViDdtgGd4Pr0XOzL7s2pATA1O1HY8RA2eBTjSdtkN1avqHAcm0GCtkkAhcSZ8reFRhIAA"
     },
     "porta-correr-madeira": {
       "signature": "96d4e36f271e0b88-full",
+      "version": "94b09094",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAsAA4BaJagCdADGHAMv0AD+tcp6BxFJxs7dcyfmeuUClOGiusrBINMs1+WTHy3UAxfYv5BQRzYIgWwtycrhoFdWHH202IAAAA=="
     },
     "corredor-armarios": {
       "signature": "416c9f0c37143bd5-full",
+      "version": "b321db75",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAsAA4BaJaACdAEUUzmedBAAAP7uOAd1tlH+al9kr5e0pE2EtTIKT+F+x06XAWLRLExp/JwaBUXaaYCM0lyuDbR7jEgA"
     },
     "guarda-roupa-divisorias": {
       "signature": "d8872800b107e243-full",
+      "version": "0cc5f6b3",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQAAsAA4BaJbACdAC86/ysAAD+CBcADSsT7reMslMFCGMFBD2NRAoVC8TK3igH4i0ZfjZ1w6ZVMmr/4dzdNoF/VCTlrSPnyYvD+z3YAAA="
     },
     "porta-celeiro": {
       "signature": "213eb669e15c238e-full",
+      "version": "8885a6c6",
       "width": 1920,
       "height": 2880,
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JZACdABbtVhzesI/XhICjgAD+lQSJAYKvBvUVynsqGoXrnhd6dywPVkUpfoJ7fKxJfUKq0mn3De6t08MaSpYDQmPz3fzExTmKm+FC5eVDjWNzzGyy5p9xCF2VW/AA"
     },
     "painel-porta-correr": {
       "signature": "96d4e36f271e0b88-full",
+      "version": "94b09094",
       "width": 1920,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADQAQCdASoQAAsAA4BaJagCdADGHAMv0AD+tcp6BxFJxs7dcyfmeuUClOGiusrBINMs1+WTHy3UAxfYv5BQRzYIgWwtycrhoFdWHH202IAAAA=="
     },
     "guarda-roupa-espelho-ripado": {
       "signature": "6431b33180da7540-full",
+      "version": "94ba01a2",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQABUAPu1iqk4ppaQiMAgBMB2JYwCdACPg53W2DA5hNniAAM3bhjPqVgGN1RopA75Qtd5WAPIiZDFztcEfqLKyewCGOj0tqABQeN8MvnU/do5Dqea+7Egjd+IAAoylibaPLpFoAAA="
     },
     "painel-tv-dormitorio": {
       "signature": "aa9fe5da7baa8b0c-full",
+      "version": "cfc909ee",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYwC7AA99B/jSCn+deAAA/Bf0aQ6BFBEqi2BVRKHlvMiEMKoTcgaHqWUei5ZjngP/7pdtikHzGK8p1RQ3w13ZrIrPtboG3NRnKjn70jZrQBlLiUxqSNd8s6aDMVpGbzanBUAmtefQAAAA"
     },
     "cabeceira-estofada": {
       "signature": "1d280392bd4edfd4-full",
+      "version": "eb24ef84",
       "width": 1201,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoQABUAPu1iqk4ppaQiMAgBMB2JQBdl4AA6fxXAoIIsnL/4QAD97hkiKi5W49U4qbwXThvxro3dfoKwvrsfrB+1Lw5bm5z3ktnjgVy55bfXVc98n6ODvICF684frc+ZEi9y+TJk5kVRyM44W52YTCO+QAA="
     },
     "armario-gavetas-interno": {
       "signature": "77017e09c19b6338-full",
+      "version": "9d21e071",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYwDG9B9YrZVTgQ26AAD4rKex26n2ymZ8TGrEiJixzgkZzgQQs1WH9CsX2//aAeAq3w9+ASHhhmitarseBU15nmtUs37J/iGfnWoiv9ChLThKcPp+jiub/LwsLzYxUvoAAA=="
     },
     "guarda-roupa-portas-correr": {
       "signature": "074813028fef1fab-full",
+      "version": "5834861f",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JZQDDNBRonBeJ8wFIDgAA/dJqr7TPpslCKTLDuZNrlO7UoSnEiZjf3xubhwL7PcthkeHuL1SXTNlM4UsUuYoi7Y8POrFY9jXy+G0rdUrYsOW8awAAAA=="
     },
     "guarda-roupa-porta-espelhada": {
       "signature": "17879678391a08e8-full",
+      "version": "673c904c",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwBACdASoQABUAPu1iqU2ppaOiMAgBMB2JYwDFBoAASokXnX4Y+b17AuAA/mLfizHTNI/hRVyK+Eq4UBqJIPYL8kPfV7smd/bGno+WZ4Rrd0dhm4EyEwLGStuo82DUla0JEXxoPiJ8MWb/mz3HiN+RSLHaAAAA"
     },
     "armario-cinza": {
       "signature": "0e3bfe4ddd5b471d-full",
+      "version": "26817026",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAACwAwCdASoQABUAPu1orU6ppiSiMAgBMB2JQBfnAlaNBULttP5MAAD8XVZYhVGtPBezypqXBfnXUDsxoC/PsOqXME3+iChw7Xt4+YY1XCIRrLByh91JjW9qe1F6OPeuVSoxAtSF97WlPbszztAu1xpvUF2UAAAA"
     },
     "dormitorio-armarios-bancada": {
       "signature": "fe21ec6ac4de5bdb-full",
+      "version": "ce45ed45",
       "width": 1600,
       "height": 740,
       "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAcAA4BaJZQC7AD7UUYCCgAA/pg1MeNH/LgPIBJnmchbCmznmAMyyOYIB4JaqZIDIsGmKyMkkKZNRKwAAA=="
     },
     "sala-reuniao-painel-ripado": {
       "signature": "fbc2e860eba028a2-full",
+      "version": "b425b1d3",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JQBOmUABlS/IC2bZdplqvngD+A/UVncf+KXZikGk24Z2meSA40ew1QbRH0IcM2Y0PTEGD0IPv00+kSCKyIA4FLq4AtFC5dSX69ny6icJ8cwvjZju8cy1pZ6RwI5Q/YS+gkIGgNEHKI8LPRKcUE2wAAAA="
     },
     "mesa-trabalho": {
       "signature": "5171bf1a50b496a6-full",
+      "version": "9ee375cd",
       "width": 1024,
       "height": 1536,
       "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JZACdAB6JQSfLtPnpCnpsmAD+w/4GjmhCqA6hNddTjpxZsSFs48SA8nmVW7pGUYHnw/jra67bSXKC99jdstuJVkBcj/7ZRKKIt9sB3qaAAA=="
     },
     "home-office-bancada-l": {
       "signature": "d420997a035354a2-full",
+      "version": "6d4f6756",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAADQAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JZQDCgBBdWTgmsU9+MkAA/ox3HTj15lqbY0cfQ7TopcyT0atKAU8psq8TWhcGFm5sVMLR+QsHAwrMnE11F9LiS6QFPLwRCeN5ZMFMzxGbxPpWB445M0k8zajoAAAA"
     },
     "expositor-colecao": {
       "signature": "dd30a5d21becbbb9-full",
+      "version": "60dcea1b",
       "width": 1600,
       "height": 1200,
       "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAQCdASoQAAwAA4BaJYwAAqo8AasMwAD+xgceuhPfmH/ETrC95+FITfXHSS8eyJsqDJG697nZvrf2PXvSR4t5f3WrCLqVjjH9iYwvh8t5924LnWseNTWHrN215Yqy+P/CsYAA"
     },
     "painel-bancada": {
       "signature": "7054e906eea8d958-full",
+      "version": "f23cdcec",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYgCxG1yBJF4dtOP0Q7cAAPmtCP0ikoxS/rPHbsA4sVf701AU/Q3/g0XO4VqdmwHW4sAxa1NsWTTk7QvqH2PW4Sydg+0AAAA="
     },
     "gaveteiro-corredicas": {
       "signature": "c6f4d1a192d033af-full",
+      "version": "01683730",
       "width": 1201,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAADwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JZQCw7BK4wp7ADk65i5P4AP5Ni0OMXcsBt56GeaLz5dSqNr9UeZfFFUcDrZYS3Hec59PRk+1Es1fg12OK9f06efLNSMa1dJWXaP3lTIBBp6V7NUoQJuia4M36ReJIbaIQAAAA"
     },
     "home-office-bancada-armario": {
       "signature": "02a8dd221005ef39-full",
+      "version": "fac19459",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JZQAAK8oWAjWcViL2SADW8hf7mxAjw1wDQuBmjx1sUBH093fUP3dMjZt3UF+nSeMd1IX8zFeRfe/aCn4zuSic3Yte8jsdhMjvmFq5bnQAAA=="
     },
     "gaveteiro-vertical-preto": {
       "signature": "3e8d7d2e86aa645f-full",
+      "version": "a959fb99",
       "width": 1201,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwBACdASoQABUAPu1iqU2ppaOiMAgBMB2JZQCdACKuZ2hpe2IKX3M2KMAA/r4Wgv9e0ga9PxMLg8G/f2FjJyEV1OL8sIY28OT2bkZDbnsrfWor5UrU/HRdDQS/ccL5bAhpAAAA"
     },
     "madeira-resina-negra": {
       "signature": "5652c30fc0bf560d-full",
+      "version": "1032bf21",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JagCdMoRwABTFrY2YUX9WgADo4/e1px6tJRm+NxGc3hOSEnioBhFLE88sOq5Rc9OxEQbynM0io9y6P4JVk1dzWf8ov+Rx2t0hmtB66Hrg7k5gzbxNCN1vT2Nu4lAA"
     },
     "porta-correr-puxador-barra": {
       "signature": "106c17e3db598b76-full",
+      "version": "7f5bea3f",
       "width": 960,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADQAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYgCdABeq09Fbo0HOBOwA/mAGJzZuGLC+kePVKtWgTwUQredjwzvKdsJUt62FXpDl+JJZQGpk1O1GvQmnfMrf6++ryPQT93zCAoAA"
     },
     "corredor-porta-correr-armario": {
       "signature": "6f906f971f0161b7-full",
+      "version": "dcbe9c09",
       "width": 960,
       "height": 1280,
       "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JQAAMLZjnaPNZX1JsAADc0PI1wkZd+zHAIx/ZDqWRKWNBv7Ib/wsalPH0Hxlc60WBhz9BES9vbjU2E2QFL3gA"
     },
     "porta-giro-batente-preto": {
       "signature": "7b6f8cec41e83b3c-full",
+      "version": "d407104a",
       "width": 900,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAQBACdASoQABwAPu1qrU8ppiQiMAgBMB2JYwC7ACG7pYGEml1Q1MOtoAD8KTR9zAJotsN2Tr0WEX2A9SxeH5cwoD98upwQbJtpAuYHajQi2EQBYBGTTpGOkn5iN/Gr3H2XmVpWfRb1wDFT6znXZ3qtxd4SRAap5fW6UKVEW7eB7990S02JbjTiPTVcAAAA"
     },
     "portas-giro-corredor": {
       "signature": "d2cc9732025f8621-full",
+      "version": "d92d946c",
       "width": 900,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAADQBACdASoQABwAPu1kqU2ppaQiMAgBMB2JZACdL13x/lAAkAAk44dmFonwvreBAADOMU57Pr73uyWSm1IsWlSFn/sIGarNJp7LiiNWReNpTfuVZvMxJHvIDtVK3j6pyHFKPAn6BnbHACCbN2t2TON26jE4RD00Tt5F2lu23chlt67+/N3ipce193mcErhS17loIJ9X5UaMxzWlk3VPow6KdAjawNflLovpwKBQWAAAAA=="
     },
     "sala-painel-portas-correr": {
       "signature": "c9d6cc7d26b63839-full",
+      "version": "24a89aa7",
       "width": 1600,
       "height": 1200,
       "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQAgCdASoQAAwAA4BaJbACdAywCoGwxLfGoMAA8afRndqhJSrm388dJp0Rxd5X/G7inaoeIzlldmhZWAjP/Gv4YBl8C2fwCQuRoWBk4dLMxkVXLHDzJIAA"
     },
     "porta-correr-puxador-cava": {
       "signature": "b149b014e71d41f7-full",
+      "version": "617085a4",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoQABUAPu1kqk4ppaQiMAgBMB2JQBOmUABv4AYzZC87mkKAAP1J4TXqjIOw05fh7IXn48qyFKRRy1V232Vq4fv4Ir+uqVoFId3R4QK9iwxJ2RQAB4PC8O+O8Q0Cgi9yV9ygnDwqAAA="
     },
     "porta-correr-brinquedoteca": {
       "signature": "5c7d946cb608379e-full",
+      "version": "81134dd9",
       "width": 1200,
       "height": 1600,
       "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoQABUAPu1kqU2ppaOiMAgBMB2JQBOgBBtjEYxLJlu28z4A/HcI7vHqyhdR5Mq5RJt1fnphIq4tr/COgGSI6hRqyA4LaKMknXzTIS772HX5eXWJaequnUNE2KGNaRNBChrSZXzQMAj24TxUAAA="

@@ -56,13 +56,14 @@ src/
                     motion, ui, seo
   content/          Conteúdo do site em JSON (textos, serviços, fotos)
   lib/              Carregamento e validação do conteúdo, SEO, formulário, GSAP
-  assets/textures/  Texturas de madeira das cenas (geradas por scripts/generate-textures.mjs)
+  assets/           Monograma do logo e texturas de madeira das cenas (geradas por
+                    scripts/generate-textures.mjs), importados pelo código
 scripts/            Otimização das fotos, imagens de compartilhamento, texturas, ajuste do export
 assets/photos/      Fotos originais do site (fonte das versões otimizadas)
 assets/brand/       Logo original
-public/             Arquivos servidos como estão (monograma do logo)
+public/             Gerado no build: fotos otimizadas (images/) e de compartilhamento (og/)
 .github/workflows/  Verificação automática (lint, tipos, testes e build)
-vercel.json         Publicação na Vercel
+vercel.json         Publicação na Vercel e cache (um ano para /_next/static e /images)
 ```
 
 ## Conteúdo

@@ -85,8 +85,12 @@ export function loadContent(raw: RawContent) {
     throw new Error(`Conteúdo inconsistente:\n- ${problems.join("\n- ")}`);
   }
 
-  // Cada foto do catálogo já sai com dimensões e placeholder das versões otimizadas.
-  const photos = catalog.map((photo) => ({ ...photo, ...generated.photos[photo.id] }));
+  // Cada foto do catálogo já sai com dimensões, placeholder e o endereço das
+  // versões otimizadas (o loader do next/image completa com a largura).
+  const photos = catalog.map((photo) => {
+    const optimized = generated.photos[photo.id];
+    return { ...photo, ...optimized, src: `/images/${photo.id}.${optimized.version}` as const };
+  });
 
   return { site, photos, home, services, quote };
 }

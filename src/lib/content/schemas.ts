@@ -91,6 +91,8 @@ export const photosGeneratedSchema = z.strictObject({
     slug,
     z.strictObject({
       signature: z.string(),
+      /** Vai no nome dos arquivos gerados: muda quando a foto muda. */
+      version: z.string().regex(/^[0-9a-f]{8}$/),
       width: z.int().positive(),
       height: z.int().positive(),
       blurDataURL: z.templateLiteral(["data:image/webp;base64,", z.string()]),

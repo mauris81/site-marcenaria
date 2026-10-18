@@ -65,7 +65,7 @@ const fonts = await Promise.all([
   font("manrope", 700),
 ]);
 
-const monogram = await sharp(join(root, "public", "brand", "monogram.webp"))
+const monogram = await sharp(join(root, "src", "assets", "brand", "monogram.webp"))
   .resize(128)
   .png()
   .toBuffer();

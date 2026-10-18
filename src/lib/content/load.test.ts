@@ -22,12 +22,15 @@ describe("conteúdo do site (src/content)", () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it("entrega cada foto com dimensões e placeholder das versões otimizadas", () => {
+  it("entrega cada foto com dimensões, placeholder e endereço versionado", () => {
     const { photos } = loadContent(raw);
     for (const photo of photos) {
       expect(photo.width).toBeGreaterThan(0);
       expect(photo.height).toBeGreaterThan(0);
       expect(photo.blurDataURL).toMatch(/^data:image\/webp;base64,/);
+      // A versão no nome é o que permite o cache de um ano das fotos (vercel.json).
+      expect(photo.src).toBe(`/images/${photo.id}.${photo.version}`);
+      expect(photo.version).toMatch(/^[0-9a-f]{8}$/);
     }
   });
 

@@ -1,9 +1,12 @@
 // Gera as versões otimizadas das fotos do catálogo (src/content/photos.json):
 //
-// - public/images/<id>-<largura>.webp — uma por largura de src/lib/image-widths.json
-//   (arquivos gerados, fora do Git). O loader do next/image aponta para elas.
-// - src/content/photos.generated.json — dimensões e placeholder borrado de cada
-//   foto (versionado, pois o site precisa dele para compilar).
+// - public/images/<id>.<versão>-<largura>.webp — uma por largura de
+//   src/lib/image-widths.json (arquivos gerados, fora do Git). O loader do
+//   next/image aponta para elas. A versão vem do conteúdo da foto e da
+//   qualidade de compressão: muda junto com a imagem, então o endereço pode ficar
+//   em cache por um ano (vercel.json) sem nunca mostrar uma foto antiga.
+// - src/content/photos.generated.json — dimensões, versão e placeholder borrado
+//   de cada foto (versionado, pois o site precisa dele para compilar).
 //
 // Roda sozinho antes de `dev` e `build`. Fotos já processadas são puladas;
 // use `npm run images -- --force` para refazer todas. Fotos com `"trim": true` no
@@ -37,6 +40,7 @@ await mkdir(outDir, { recursive: true });
 
 const generated = { settings, photos: {} };
 const totals = { processed: 0, originalBytes: 0, servedBytes: 0 };
+const expected = new Set();
 
 for (const photo of photos) {
   const source = join(root, photo.file);
@@ -44,7 +48,6 @@ for (const photo of photos) {
     throw new Error(`Foto "${photo.id}": arquivo não encontrado em ${photo.file}`);
   }
   const sourceStat = await stat(source);
-  const outputs = widths.map((width) => join(outDir, `${photo.id}-${width}.webp`));
   const cached = previous?.photos?.[photo.id];
   // Assinatura do processamento: muda se o conteúdo do arquivo ou os ajustes da
   // foto mudarem. Pelo conteúdo (e não pela data), é a mesma em qualquer clone.
@@ -52,9 +55,14 @@ for (const photo of photos) {
     .update(await readFile(source))
     .digest("hex");
   const signature = `${hash.slice(0, 16)}-${photo.trim ? "trim" : "full"}`;
+  // Versão no nome dos arquivos: assinatura + qualidade, o que define os bytes servidos.
+  const version = createHash("sha1").update(`${signature}:${QUALITY}`).digest("hex").slice(0, 8);
+  const name = (width) => `${photo.id}.${version}-${width}.webp`;
+  const outputs = widths.map((width) => join(outDir, name(width)));
+  widths.forEach((width) => expected.add(name(width)));
 
   if (!force && cached?.signature === signature && outputs.every((file) => existsSync(file))) {
-    generated.photos[photo.id] = cached;
+    generated.photos[photo.id] = { ...cached, version };
   } else {
     // Decodifica o original (até 18 MP) uma única vez, já aplicando a orientação
     // do EXIF, e deriva todas as larguras desses pixels. Os metadados (EXIF) não
@@ -83,6 +91,7 @@ for (const photo of photos) {
 
     generated.photos[photo.id] = {
       signature,
+      version,
       width: info.width,
       height: info.height,
       blurDataURL: `data:image/webp;base64,${blur.toString("base64")}`,
@@ -92,11 +101,10 @@ for (const photo of photos) {
 
   totals.originalBytes += sourceStat.size;
   // Referência de "peso servido": a versão de 1080 px, a mais pedida por celulares e notebooks.
-  totals.servedBytes += (await stat(join(outDir, `${photo.id}-1080.webp`))).size;
+  totals.servedBytes += (await stat(join(outDir, name(1080)))).size;
 }
 
-// Apaga versões de fotos que saíram do catálogo.
-const expected = new Set(photos.flatMap((p) => widths.map((w) => `${p.id}-${w}.webp`)));
+// Apaga versões antigas e de fotos que saíram do catálogo.
 for (const file of await readdir(outDir)) {
   if (!expected.has(file)) await rm(join(outDir, file));
 }

@@ -57,7 +57,7 @@ export async function getGallery(service: Service): Promise<GalleryItem[]> {
     // A integridade das referências já é garantida no carregamento do conteúdo.
     if (!photo) throw new Error(`Foto "${id}" ausente do catálogo.`);
     return {
-      src: `/images/${photo.id}`,
+      src: photo.src,
       alt: photo.alt,
       caption,
       width: photo.width,

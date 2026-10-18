@@ -2,6 +2,10 @@ import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
+// Importado (e não servido de public/): o arquivo ganha um nome com hash e entra
+// no cache de um ano de /_next/static, sem revalidar a cada visita.
+import monogram from "@/assets/brand/monogram.webp";
+
 type LogoProps = {
   className?: string;
   onClick?: () => void;
@@ -16,7 +20,7 @@ export function Logo({ className, onClick }: LogoProps) {
       className={clsx("group inline-flex items-center gap-3", className)}
     >
       <Image
-        src="/brand/monogram.webp"
+        src={monogram}
         alt=""
         width={44}
         height={44}

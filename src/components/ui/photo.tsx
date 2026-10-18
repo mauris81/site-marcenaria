@@ -21,7 +21,7 @@ export async function Photo({ id, alt, position, fill, style, ...props }: PhotoP
 
   return (
     <Image
-      src={`/images/${photo.id}`}
+      src={photo.src}
       alt={alt ?? photo.alt}
       {...(fill ? { fill } : { width: photo.width, height: photo.height })}
       // Miniatura direto como placeholder (o navegador a amplia suavizando): sem o
