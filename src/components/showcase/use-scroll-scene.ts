@@ -25,7 +25,14 @@ export function useScrollScene(
       mm.add(MOTION_OK, () => {
         const timeline = gsap.timeline({
           defaults: { ease: "none" },
-          scrollTrigger: { trigger: element, start: "top top", end: "bottom bottom", scrub: 1 },
+          scrollTrigger: {
+            trigger: element,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 1,
+            // Valores calculados por função (ex.: profundidade da gaveta) são refeitos ao redimensionar.
+            invalidateOnRefresh: true,
+          },
         });
         timeline.fromTo("[data-scene-progress]", { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0);
         timeline.to("[data-scene-hint]", { autoAlpha: 0, duration: 0.08 }, 0.1);

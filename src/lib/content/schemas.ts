@@ -42,11 +42,11 @@ const cta = z.strictObject({ eyebrow: text.optional(), title: text, text: text }
  * Cena interativa do serviço na Home (porta, gaveta...). Cada tipo de cena
  * comporta uma faixa de fotos; o limite garante que a animação nunca quebre.
  */
-const showcaseLimits = { door: { min: 4, max: 6 } } as const;
+const showcaseLimits = { door: { min: 4, max: 6 }, drawer: { min: 4, max: 6 } } as const;
 
 const showcase = z
   .strictObject({
-    reveal: z.enum(["door"]),
+    reveal: z.enum(["door", "drawer"]),
     /** Aceita *ênfase* entre asteriscos. */
     title: text,
     photos: z.array(photoRef),

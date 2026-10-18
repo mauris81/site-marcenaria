@@ -279,6 +279,18 @@
     "cta": {
       "title": "Quer organizar melhor seu quarto?",
       "text": "Envie as medidas ou uma foto do espaço e damos o primeiro direcionamento para o projeto."
+    },
+    "showcase": {
+      "reveal": "drawer",
+      "title": "Puxe a gaveta e veja nossos *dormitórios*",
+      "photos": [
+        "guarda-roupa-espelho-ripado",
+        "cabeceira-estofada",
+        "painel-tv-dormitorio",
+        "dormitorio-armarios-bancada",
+        "porta-correr-madeira",
+        "cama-madeira"
+      ]
     }
   },
   {

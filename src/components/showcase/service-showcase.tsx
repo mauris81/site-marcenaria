@@ -5,6 +5,7 @@ import { Photo } from "@/components/ui/photo";
 import type { Service } from "@/lib/content";
 
 import { CabinetReveal } from "./cabinet-reveal";
+import { DrawerReveal } from "./drawer-reveal";
 
 type ServiceShowcaseProps = {
   service: Service & { showcase: NonNullable<Service["showcase"]> };
@@ -40,5 +41,7 @@ export function ServiceShowcase({ service, index }: ServiceShowcaseProps) {
   switch (showcase.reveal) {
     case "door":
       return <CabinetReveal {...props} />;
+    case "drawer":
+      return <DrawerReveal {...props} />;
   }
 }
