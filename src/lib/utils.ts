@@ -19,6 +19,8 @@ const twMerge = extendTailwindMerge({
         "on-primary",
         "whatsapp",
         "whatsapp-hover",
+        "whatsapp-bright",
+        "whatsapp-bright-hover",
       ],
       text: ["display-xl", "display", "heading", "title", "lead", "eyebrow"],
       ease: ["out-expo", "out-quart", "in-out-quint"],

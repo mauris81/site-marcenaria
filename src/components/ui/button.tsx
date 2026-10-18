@@ -12,7 +12,7 @@ export const buttonVariants = cva(
         primary: "bg-primary text-on-primary hover:-translate-y-0.5 hover:shadow-lift",
         secondary: "border border-line-strong text-ink hover:border-ink hover:bg-ink/5",
         whatsapp:
-          "bg-whatsapp text-white hover:-translate-y-0.5 hover:bg-whatsapp-hover hover:shadow-lift",
+          "bg-whatsapp-bright text-espresso-900 hover:-translate-y-0.5 hover:bg-whatsapp-bright-hover hover:shadow-lift",
       },
       size: {
         sm: "min-h-11 px-5 text-sm",

@@ -33,9 +33,13 @@
   --color-oak-700: #8a5a2e;
   --color-oak-800: #5c3b1f;
 
-  /* Verde do WhatsApp escurecido para o ícone branco atingir 3,5:1 (o #25d366 original fica em 2:1). */
+  /* WhatsApp. Botão só com ícone (flutuante): verde escurecido para o ícone branco
+     atingir 3,5:1 (gráficos pedem 3:1; o #25d366 original fica em 2:1).
+     Botão com texto: verde original com texto escuro, 9,8:1 (texto pede 4,5:1). */
   --color-whatsapp: #1a9e4f;
   --color-whatsapp-hover: #16934a;
+  --color-whatsapp-bright: #25d366;
+  --color-whatsapp-bright-hover: #3ddc7a;
 }
 
 /* 2. Tokens semânticos — o que os componentes usam (bg-canvas, text-ink...).
