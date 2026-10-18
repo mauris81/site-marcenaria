@@ -9,11 +9,6 @@ const nextConfig: NextConfig = {
   // a mesma URL do site atual — links e indexação existentes continuam válidos.
   output: "export",
 
-  // No GitHub Pages de projeto o site vive em /site-marcenaria: o workflow de
-  // publicação define NEXT_PUBLIC_BASE_PATH e o Next prefixa links e arquivos.
-  // Localmente fica vazio e o site abre na raiz (localhost:3000).
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
-
   // Links internos (`<Link href>`) passam a ser checados pelo TypeScript:
   // um link para uma rota inexistente quebra o build em vez de virar 404.
   typedRoutes: true,
