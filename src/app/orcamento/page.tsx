@@ -25,7 +25,14 @@ export default async function QuotePage() {
 
   return (
     <PageTransition>
-      <JsonLd data={pageStructuredData(site, { name: "Orçamento", path: "/orcamento" })} />
+      <JsonLd
+        data={pageStructuredData(site, {
+          name: "Orçamento",
+          path: "/orcamento",
+          seo: quote.seo,
+          type: "ContactPage",
+        })}
+      />
       <PageHero {...quote.hero}>
         <a href="#formulario" className={buttonVariants({ size: "lg" })}>
           Preencher o formulário

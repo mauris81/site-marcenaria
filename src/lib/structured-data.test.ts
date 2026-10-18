@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import home from "@/content/home.json";
+import quote from "@/content/quote.json";
 import services from "@/content/services.json";
 import site from "@/content/site.json";
 import { serviceSchema, siteSchema } from "@/lib/content/schemas";
@@ -12,7 +14,9 @@ import {
 } from "./structured-data";
 
 const siteData = siteSchema.parse(site);
-const service = serviceSchema.parse(services[0]);
+const allServices = services.map((item) => serviceSchema.parse(item));
+const service = allServices[0];
+const homeData = () => homeStructuredData(siteData, { seo: home.seo, services: allServices });
 
 type Node = Record<string, unknown>;
 const nodes = (data: { "@graph": object[] }) => data["@graph"] as Node[];
@@ -34,7 +38,7 @@ function urls(value: unknown): string[] {
 
 describe("dados estruturados (schema.org)", () => {
   it("descreve a empresa só com fatos do conteúdo", () => {
-    const business = byType(homeStructuredData(siteData), "HomeAndConstructionBusiness");
+    const business = byType(homeData(), "HomeAndConstructionBusiness");
     expect(business).toMatchObject({
       name: "Marcenaria Butantã",
       telephone: "+5511958522265",
@@ -54,9 +58,7 @@ describe("dados estruturados (schema.org)", () => {
   });
 
   it("usa URLs absolutas no domínio de produção", () => {
-    const all = [homeStructuredData(siteData), serviceStructuredData(siteData, service)].flatMap(
-      urls,
-    );
+    const all = [homeData(), serviceStructuredData(siteData, service)].flatMap(urls);
     expect(all.length).toBeGreaterThan(5);
     for (const url of all) expect(url).toMatch(/^https:\/\/www\.marcenariabutanta\.com\.br\//);
   });
@@ -86,8 +88,51 @@ describe("dados estruturados (schema.org)", () => {
   });
 
   it("monta a trilha de páginas avulsas", () => {
-    const data = pageStructuredData(siteData, { name: "Orçamento", path: "/orcamento" });
-    expect(byType(data, "BreadcrumbList").itemListElement).toHaveLength(2);
+    const data = pageStructuredData(siteData, {
+      name: "Orçamento",
+      path: "/orcamento",
+      seo: quote.seo,
+      type: "ContactPage",
+    });
+    const page = byType(data, "ContactPage");
+    const trail = byType(data, "BreadcrumbList");
+    expect(trail.itemListElement).toHaveLength(2);
+    expect(page.breadcrumb).toEqual({ "@id": trail["@id"] });
+    expect(page.name).toBe(`${quote.seo.title} | Marcenaria Butantã`);
+  });
+
+  it("liga site, página e empresa num único grafo", () => {
+    const data = homeData();
+    const page = byType(data, "WebPage");
+    expect(page).toMatchObject({
+      url: "https://www.marcenariabutanta.com.br/",
+      isPartOf: { "@id": byType(data, "WebSite")["@id"] },
+      about: { "@id": byType(data, "HomeAndConstructionBusiness")["@id"] },
+      primaryImageOfPage: {
+        url: "https://www.marcenariabutanta.com.br/og/home.jpg",
+        width: 1200,
+        height: 630,
+      },
+    });
+  });
+
+  it("lista os serviços no catálogo da empresa, com os mesmos @id das páginas", () => {
+    const catalog = byType(homeData(), "HomeAndConstructionBusiness").hasOfferCatalog as {
+      itemListElement: { itemOffered: { "@id": string } }[];
+    };
+    expect(catalog.itemListElement).toHaveLength(allServices.length);
+    const fromServicePage = byType(serviceStructuredData(siteData, service), "Service")["@id"];
+    expect(catalog.itemListElement.map((offer) => offer.itemOffered["@id"])).toContain(
+      fromServicePage,
+    );
+  });
+
+  it("oferece canal de contato com o telefone da empresa", () => {
+    expect(byType(homeData(), "HomeAndConstructionBusiness").contactPoint).toMatchObject({
+      "@type": "ContactPoint",
+      telephone: "+5511958522265",
+      contactType: "customer service",
+    });
   });
 
   it("escapa < para o conteúdo nunca fechar a tag <script>", () => {

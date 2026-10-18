@@ -35,7 +35,7 @@ export default async function HomePage() {
 
   return (
     <PageTransition>
-      <JsonLd data={homeStructuredData(site)} />
+      <JsonLd data={homeStructuredData(site, { seo: home.seo, services })} />
       <PageHero {...home.hero}>
         <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
           Solicitar orçamento
