@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { withBasePath } from "@/lib/base-path";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -17,7 +18,7 @@ export function Logo({ className, onClick }: LogoProps) {
       className={cn("group inline-flex items-center gap-3", className)}
     >
       <Image
-        src="/brand/monogram.webp"
+        src={withBasePath("/brand/monogram.webp")}
         alt=""
         width={44}
         height={44}
