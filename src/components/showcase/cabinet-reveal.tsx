@@ -74,8 +74,9 @@ export function CabinetReveal({ photos, ...copy }: CabinetRevealProps) {
             data-cabinet
             className="relative mx-auto aspect-[4/5] w-full max-w-[min(100%,38svh)] rounded-md carcass p-2.5 [transform-style:preserve-3d] lg:aspect-[4/3] lg:max-w-none"
           >
-            {/* Interior do armário */}
-            <div className="relative h-full overflow-hidden rounded-sm bg-espresso-800 shadow-[inset_0_0_70px_rgb(0_0_0/0.9)]">
+            {/* Interior do armário. `isolate` mantém o LED (z-10) acima das fotos, mas
+                dentro do interior: com as portas fechadas, ele não aparece através delas. */}
+            <div className="relative isolate h-full overflow-hidden rounded-sm bg-espresso-800 shadow-[inset_0_0_70px_rgb(0_0_0/0.9)]">
               <div
                 data-led
                 aria-hidden="true"
@@ -105,7 +106,9 @@ export function CabinetReveal({ photos, ...copy }: CabinetRevealProps) {
             </div>
 
             {/* Portas: frente em carvalho com puxador, verso em MDF claro. As duas
-                frentes são metades da mesma lâmina, com o veio contínuo de uma para a outra. */}
+                frentes são metades da mesma lâmina, com o veio contínuo de uma para a outra.
+                A porta tem espessura (--door-thickness): frente e verso ficam meia espessura
+                à frente e atrás da dobradiça, e a fita de borda fecha a lateral livre. */}
             {(["left", "right"] as const).map((side) => (
               <div
                 key={side}
@@ -113,15 +116,15 @@ export function CabinetReveal({ photos, ...copy }: CabinetRevealProps) {
                 aria-hidden="true"
                 className={
                   side === "left"
-                    ? "absolute inset-y-2.5 left-2.5 w-[calc(50%-0.75rem)] origin-left [transform:rotateY(-100deg)] [transform-style:preserve-3d] motion-reduce:hidden"
-                    : "absolute inset-y-2.5 right-2.5 w-[calc(50%-0.75rem)] origin-right [transform:rotateY(100deg)] [transform-style:preserve-3d] motion-reduce:hidden"
+                    ? "absolute inset-y-2.5 left-2.5 w-[calc(50%-0.75rem)] origin-left [transform:rotateY(-100deg)] [--door-thickness:6px] [transform-style:preserve-3d] motion-reduce:hidden lg:[--door-thickness:9px]"
+                    : "absolute inset-y-2.5 right-2.5 w-[calc(50%-0.75rem)] origin-right [transform:rotateY(100deg)] [--door-thickness:6px] [transform-style:preserve-3d] motion-reduce:hidden lg:[--door-thickness:9px]"
                 }
               >
                 <div
                   className={
                     side === "left"
-                      ? "absolute inset-0 rounded-[3px] veneer-oak [--veneer-position:0%_50%] [--veneer-size:200%_auto] [backface-visibility:hidden]"
-                      : "absolute inset-0 rounded-[3px] veneer-oak [--veneer-position:100%_50%] [--veneer-size:200%_auto] [backface-visibility:hidden]"
+                      ? "absolute inset-0 [transform:translateZ(calc(var(--door-thickness)/2))] rounded-[3px] veneer-oak [--veneer-position:0%_50%] [--veneer-size:200%_auto] [backface-visibility:hidden]"
+                      : "absolute inset-0 [transform:translateZ(calc(var(--door-thickness)/2))] rounded-[3px] veneer-oak [--veneer-position:100%_50%] [--veneer-size:200%_auto] [backface-visibility:hidden]"
                   }
                 >
                   <span
@@ -136,8 +139,16 @@ export function CabinetReveal({ photos, ...copy }: CabinetRevealProps) {
                     className="absolute inset-0 rounded-[3px] bg-black opacity-0"
                   />
                 </div>
+                {/* Fita de borda da lateral livre, de frente para fora da porta. */}
+                <div
+                  className={
+                    side === "left"
+                      ? "absolute inset-y-0 right-0 w-[var(--door-thickness)] translate-x-1/2 [transform:rotateY(90deg)] bg-linear-to-b from-[#b98450] to-[#8a5a2e] [backface-visibility:hidden]"
+                      : "absolute inset-y-0 left-0 w-[var(--door-thickness)] -translate-x-1/2 [transform:rotateY(-90deg)] bg-linear-to-b from-[#b98450] to-[#8a5a2e] [backface-visibility:hidden]"
+                  }
+                />
                 {/* Verso (girado 180°: a dobradiça fica no lado oposto ao da frente). */}
-                <div className="absolute inset-0 [transform:rotateY(180deg)] rounded-[3px] melamine [backface-visibility:hidden]">
+                <div className="absolute inset-0 [transform:rotateY(180deg)_translateZ(calc(var(--door-thickness)/2))] rounded-[3px] melamine [backface-visibility:hidden]">
                   <span className="absolute inset-0 rounded-[3px] bg-linear-to-b from-black/25 to-black/50" />
                   {["top-[12%]", "bottom-[12%]"].map((position) => (
                     <span
