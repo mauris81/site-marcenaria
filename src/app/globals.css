@@ -297,6 +297,45 @@
   padding-inline: clamp(1.25rem, 0.5rem + 3vw, 3rem);
 }
 
+/* Materiais das cenas de móveis (porta, gaveta, ripado), desenhados só com CSS:
+   nenhuma imagem extra para baixar. */
+
+/* Lâmina de carvalho: tons alternados + veios verticais + brilho de verniz. */
+@utility veneer-oak {
+  background-color: #7a4f27;
+  background-image:
+    linear-gradient(115deg, rgb(255 255 255 / 0.1), transparent 38%, rgb(0 0 0 / 0.28)),
+    repeating-linear-gradient(90deg, rgb(0 0 0 / 0.07) 0 2px, transparent 2px 9px),
+    repeating-linear-gradient(92deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 17px),
+    linear-gradient(90deg, #6b4222, #8f5f33 22%, #7b4f28 48%, #976a3d 74%, #7a4f27);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.06),
+    inset 0 -40px 80px rgb(0 0 0 / 0.25);
+}
+
+/* MDF claro dos interiores e do verso das portas. */
+@utility melamine {
+  background-image: linear-gradient(180deg, #ebe5db, #d6cdbf);
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.08);
+}
+
+/* Puxador em latão escovado. */
+@utility handle-brass {
+  border-radius: 999px;
+  background-image: linear-gradient(90deg, #6f4524, #eed0ab 45%, #b8783d 70%, #6f4524);
+  box-shadow:
+    0 2px 6px rgb(0 0 0 / 0.45),
+    inset 0 1px 0 rgb(255 255 255 / 0.35);
+}
+
+/* Corpo (caixa) do móvel. */
+@utility carcass {
+  background-image: linear-gradient(180deg, #2c231c, #15100c);
+  box-shadow:
+    0 60px 90px -40px rgb(0 0 0 / 0.85),
+    inset 0 1px 0 rgb(255 255 255 / 0.06);
+}
+
 /* Motivo de painel ripado — assinatura visual ligada a um dos produtos da marcenaria. */
 @utility bg-slats {
   background-image: repeating-linear-gradient(

@@ -38,6 +38,30 @@ const feature = z.strictObject({ title: text, text: text });
 const step = z.strictObject({ label: text, title: text, text: text });
 const cta = z.strictObject({ eyebrow: text.optional(), title: text, text: text });
 
+/**
+ * Cena interativa do serviço na Home (porta, gaveta...). Cada tipo de cena
+ * comporta uma faixa de fotos; o limite garante que a animação nunca quebre.
+ */
+const showcaseLimits = { door: { min: 4, max: 6 } } as const;
+
+const showcase = z
+  .strictObject({
+    reveal: z.enum(["door"]),
+    /** Aceita *ênfase* entre asteriscos. */
+    title: text,
+    photos: z.array(photoRef),
+  })
+  .superRefine((value, ctx) => {
+    const { min, max } = showcaseLimits[value.reveal];
+    if (value.photos.length < min || value.photos.length > max) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["photos"],
+        message: `a cena "${value.reveal}" exibe de ${min} a ${max} fotos (recebeu ${value.photos.length})`,
+      });
+    }
+  });
+
 export const photoSchema = z.strictObject({
   id: slug,
   /** Caminho do arquivo original, a partir da raiz do projeto. */
@@ -123,6 +147,7 @@ export const serviceSchema = z.strictObject({
   process: z.strictObject({ title: text, text: text, steps: z.array(step).min(1) }),
   regionsTitle: text,
   cta,
+  showcase: showcase.optional(),
 });
 
 export const servicesSchema = z

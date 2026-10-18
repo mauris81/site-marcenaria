@@ -58,6 +58,16 @@ describe("conteúdo do site (src/content)", () => {
     expect(() => loadContent({ ...raw, services: brokenServices })).toThrow(/Tipo inventado/);
   });
 
+  it("barra cenas com mais fotos do que a animação comporta", () => {
+    const brokenServices = structuredClone(services);
+    const showcase = brokenServices.find((service) => service.showcase)?.showcase;
+    if (!showcase) throw new Error("nenhum serviço com showcase para testar");
+    showcase.photos = [...showcase.photos, ...showcase.photos];
+    expect(() => loadContent({ ...raw, services: brokenServices })).toThrow(
+      /exibe de \d+ a \d+ fotos/,
+    );
+  });
+
   it("protege o SEO barrando títulos longos demais", () => {
     const longTitle = "Um título de página muito longo que certamente será cortado no Google";
     const broken = { ...raw, home: { ...home, seo: { ...home.seo, title: longTitle } } };

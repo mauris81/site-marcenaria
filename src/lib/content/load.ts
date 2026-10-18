@@ -56,6 +56,9 @@ export function loadContent(raw: RawContent) {
     service.gallery.items.forEach((item, index) =>
       requirePhoto(item.photo, `${at} › gallery.items[${index}]`),
     );
+    service.showcase?.photos.forEach((id, index) =>
+      requirePhoto(id, `${at} › showcase.photos[${index}]`),
+    );
     if (!quote.form.projectTypes.includes(service.quoteType)) {
       problems.push(
         `${at} › quoteType: "${service.quoteType}" não está em quote.json › form.projectTypes`,

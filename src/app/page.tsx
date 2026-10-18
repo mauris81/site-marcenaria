@@ -10,9 +10,14 @@ import { PageHero } from "@/components/sections/page-hero";
 import { ProcessSteps } from "@/components/sections/process-steps";
 import { ScrollMarquee } from "@/components/sections/scroll-marquee";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { ServiceShowcase } from "@/components/showcase/service-showcase";
 import { buttonVariants } from "@/components/ui/button";
-import { getHomeContent, getSite } from "@/lib/content";
+import { getHomeContent, getServices, getSite, type Service } from "@/lib/content";
 import { whatsappUrl } from "@/lib/whatsapp";
+
+type ShowcasedService = Service & { showcase: NonNullable<Service["showcase"]> };
+const hasShowcase = (service: Service): service is ShowcasedService =>
+  service.showcase !== undefined;
 
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await getHomeContent();
@@ -20,8 +25,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [home, site] = await Promise.all([getHomeContent(), getSite()]);
+  const [home, site, services] = await Promise.all([getHomeContent(), getSite(), getServices()]);
   const whatsappHref = whatsappUrl(site.contact.whatsapp, site.whatsappMessage);
+  const showcased = services.filter(hasShowcase);
 
   return (
     <PageTransition>
@@ -45,6 +51,21 @@ export default async function HomePage() {
       </PageHero>
 
       <Differentials {...home.differentials} />
+
+      {/* Cenas interativas: cada serviço com `showcase` vira um móvel que se abre na rolagem. */}
+      <section aria-labelledby="ambientes">
+        <div className="container-site pt-24 md:pt-32">
+          <SectionHeading
+            id="ambientes"
+            eyebrow={home.services.eyebrow}
+            title={home.services.title}
+            text={home.services.text}
+          />
+        </div>
+        {showcased.map((service, index) => (
+          <ServiceShowcase key={service.slug} service={service} index={index + 1} />
+        ))}
+      </section>
 
       <section aria-labelledby="processo" className="theme-light border-t border-line">
         <div className="container-site py-24 md:py-32">

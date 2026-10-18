@@ -132,6 +132,18 @@
     "cta": {
       "title": "Quer planejar sua cozinha com mais segurança?",
       "text": "Envie suas medidas, referências ou dúvidas. A gente ajuda a transformar a ideia em um projeto possível."
+    },
+    "showcase": {
+      "reveal": "door",
+      "title": "Abra o armário e veja nossas *cozinhas*",
+      "photos": [
+        "cozinha-bancada-amadeirada",
+        "cozinha-integrada-escura",
+        "bancada-cooktop",
+        "ilha-amadeirada",
+        "cozinha-ilha-central",
+        "cozinha-verde-bancada-l"
+      ]
     }
   },
   {
