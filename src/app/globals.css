@@ -179,6 +179,11 @@
     overflow: hidden;
   }
 
+  /* Com a rolagem suave (Lenis) ativa, o navegador não deve suavizar de novo. */
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
   body {
     font-family: var(--font-sans);
     line-height: 1.6;
@@ -238,12 +243,13 @@
   pointer-events: none;
 }
 
+/* A página antiga recua e escurece; a nova sobe por cima como uma cortina. */
 ::view-transition-old(.page-exit) {
-  animation: page-out 0.28s var(--ease-in-out-quint) both;
+  animation: page-out 0.8s var(--ease-in-out-quint) both;
 }
 
 ::view-transition-new(.page-enter) {
-  animation: page-in 0.6s var(--ease-out-expo) 0.12s both;
+  animation: page-in 0.9s var(--ease-out-expo) 0.08s both;
 }
 
 ::view-transition-group(site-header),
@@ -264,17 +270,16 @@
 
 @keyframes page-out {
   to {
-    opacity: 0;
-    filter: blur(6px);
-    translate: 0 -12px;
+    scale: 0.94;
+    opacity: 0.35;
+    filter: brightness(0.45);
   }
 }
 
 @keyframes page-in {
   from {
-    opacity: 0;
-    filter: blur(8px);
-    translate: 0 16px;
+    clip-path: inset(100% 0 0 0);
+    translate: 0 8vh;
   }
 }
 
@@ -288,6 +293,24 @@
 }
 
 /* 6. Utilitários do projeto. */
+
+/* Barra de progresso de leitura: preenche com a rolagem da página, em CSS puro
+   (scroll-driven animation). Sem suporte no navegador, simplesmente não aparece. */
+@utility scroll-progress {
+  transform-origin: left;
+  scale: 0 1;
+
+  @supports (animation-timeline: scroll()) {
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes scroll-progress {
+  to {
+    scale: 1 1;
+  }
+}
 
 /* Largura máxima + respiro lateral fluido, usado por todas as seções. */
 @utility container-site {
