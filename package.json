@@ -24,7 +24,6 @@
     "check": "npm run lint && npm run typecheck && npm run test && npm run format:check"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.9.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

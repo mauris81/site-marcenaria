@@ -2,7 +2,9 @@
 
 import { useRef } from "react";
 
-import { gsap, MOTION_OK, SplitText, useGSAP } from "@/lib/gsap";
+import { MOTION_OK } from "@/lib/motion";
+
+import { useLazyGSAP } from "./use-lazy-gsap";
 
 /**
  * Assinatura gigante (decorativa) cujas letras sobem uma a uma, de trás de uma
@@ -12,31 +14,27 @@ import { gsap, MOTION_OK, SplitText, useGSAP } from "@/lib/gsap";
 export function SplitWordmark({ text }: { text: string }) {
   const ref = useRef<HTMLParagraphElement>(null);
 
-  useGSAP(
-    () => {
-      const element = ref.current;
-      if (!element) return;
+  useLazyGSAP(ref, (element, { gsap, SplitText, visibleAtStart }) => {
+    if (visibleAtStart) return;
 
-      const mm = gsap.matchMedia();
-      mm.add(MOTION_OK, () => {
-        SplitText.create(element, {
-          type: "chars",
-          mask: "chars",
-          aria: "none",
-          autoSplit: true,
-          onSplit: (split) =>
-            gsap.from(split.chars, {
-              yPercent: 110,
-              duration: 1.4,
-              stagger: 0.035,
-              scrollTrigger: { trigger: element, start: "top 95%", once: true },
-            }),
-        });
+    const mm = gsap.matchMedia();
+    mm.add(MOTION_OK, () => {
+      SplitText.create(element, {
+        type: "chars",
+        mask: "chars",
+        aria: "none",
+        autoSplit: true,
+        onSplit: (split) =>
+          gsap.from(split.chars, {
+            yPercent: 110,
+            duration: 1.4,
+            stagger: 0.035,
+            scrollTrigger: { trigger: element, start: "top 95%", once: true },
+          }),
       });
-      return () => mm.revert();
-    },
-    { scope: ref },
-  );
+    });
+    return () => mm.revert();
+  });
 
   return (
     <p

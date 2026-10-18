@@ -2,8 +2,10 @@
 
 import { useRef, type ReactNode } from "react";
 
-import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
+import { MOTION_OK } from "@/lib/motion";
 import { cn } from "@/lib/utils";
+
+import { useLazyGSAP } from "./use-lazy-gsap";
 
 type ParallaxProps = {
   children: ReactNode;
@@ -19,24 +21,20 @@ type ParallaxProps = {
 export function Parallax({ children, className, speed = 0.2 }: ParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      const layer = ref.current;
-      const section = layer?.parentElement;
-      if (!layer || !section) return;
+  useLazyGSAP(ref, (layer, { gsap }) => {
+    const section = layer.parentElement;
+    if (!section) return;
 
-      const mm = gsap.matchMedia();
-      mm.add(MOTION_OK, () => {
-        gsap.to(layer, {
-          yPercent: speed * 100,
-          ease: "none",
-          scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: true },
-        });
+    const mm = gsap.matchMedia();
+    mm.add(MOTION_OK, () => {
+      gsap.to(layer, {
+        yPercent: speed * 100,
+        ease: "none",
+        scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: true },
       });
-      return () => mm.revert();
-    },
-    { scope: ref },
-  );
+    });
+    return () => mm.revert();
+  });
 
   return (
     <div ref={ref} className={cn("absolute inset-x-0 -top-[10%] h-[120%]", className)}>

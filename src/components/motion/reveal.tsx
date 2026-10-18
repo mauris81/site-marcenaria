@@ -2,7 +2,9 @@
 
 import { useRef, type ReactNode } from "react";
 
-import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
+import { MOTION_OK } from "@/lib/motion";
+
+import { useLazyGSAP } from "./use-lazy-gsap";
 
 type RevealProps = {
   children: ReactNode;
@@ -24,30 +26,27 @@ type RevealProps = {
 export function Reveal({ children, className, stagger = false }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      const element = ref.current;
-      if (!element) return;
+  useLazyGSAP(ref, (element, { gsap, visibleAtStart }) => {
+    // Já na tela ao abrir a página: fica como está, sem animação de entrada.
+    if (visibleAtStart) return;
 
-      const mm = gsap.matchMedia();
-      mm.add(MOTION_OK, () => {
-        // `opacity`, e não `autoAlpha` (visibility: hidden): antes de revelado, o
-        // conteúdo continua no leitor de tela e na ordem do Tab.
-        const tween = gsap.from(stagger ? element.children : element, {
-          opacity: 0,
-          y: 40,
-          stagger: stagger ? 0.12 : 0,
-          scrollTrigger: { trigger: element, start: "top 85%", once: true },
-        });
-        // Se o foco do teclado chegar antes da rolagem, revela na hora.
-        const reveal = () => tween.progress(1);
-        element.addEventListener("focusin", reveal);
-        return () => element.removeEventListener("focusin", reveal);
+    const mm = gsap.matchMedia();
+    mm.add(MOTION_OK, () => {
+      // `opacity`, e não `autoAlpha` (visibility: hidden): antes de revelado, o
+      // conteúdo continua no leitor de tela e na ordem do Tab.
+      const tween = gsap.from(stagger ? element.children : element, {
+        opacity: 0,
+        y: 40,
+        stagger: stagger ? 0.12 : 0,
+        scrollTrigger: { trigger: element, start: "top 85%", once: true },
       });
-      return () => mm.revert();
-    },
-    { scope: ref },
-  );
+      // Se o foco do teclado chegar antes da rolagem, revela na hora.
+      const reveal = () => tween.progress(1);
+      element.addEventListener("focusin", reveal);
+      return () => element.removeEventListener("focusin", reveal);
+    });
+    return () => mm.revert();
+  });
 
   return (
     <div ref={ref} className={className}>

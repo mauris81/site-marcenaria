@@ -5,8 +5,8 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 
 import type { GalleryItem } from "@/lib/content";
-import { POINTER_OK } from "@/components/motion/pointer-depth";
-import { gsap, MOTION_OK, ScrollTrigger, useGSAP } from "@/lib/gsap";
+import { useLazyGSAP } from "@/components/motion/use-lazy-gsap";
+import { MOTION_OK, POINTER_OK } from "@/lib/motion";
 
 import { Lightbox } from "./lightbox";
 
@@ -24,9 +24,10 @@ export function Gallery({ items }: GalleryProps) {
   const ref = useRef<HTMLUListElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia();
+  useLazyGSAP(ref, (list, { gsap, ScrollTrigger, visibleAtStart }) => {
+    const mm = gsap.matchMedia();
+    // Galeria já na tela ao abrir a página: as fotos ficam como estão.
+    if (!visibleAtStart) {
       mm.add(MOTION_OK, () => {
         // `opacity`, e não `autoAlpha` (visibility: hidden): fotos ainda não
         // reveladas continuam no leitor de tela e na ordem do Tab.
@@ -39,43 +40,41 @@ export function Gallery({ items }: GalleryProps) {
           onEnter: (batch) => gsap.to(batch, { ...shown, stagger: 0.08, duration: 1.2 }),
         });
         // Se o foco do teclado chegar a uma foto antes da rolagem, ela aparece na hora.
-        const list = ref.current;
         const revealFocused = (event: FocusEvent) => {
           const figure = (event.target as HTMLElement).closest("[data-gallery-item]");
           if (figure) gsap.to(figure, { ...shown, duration: 0.4, overwrite: true });
         };
-        list?.addEventListener("focusin", revealFocused);
-        return () => list?.removeEventListener("focusin", revealFocused);
+        list.addEventListener("focusin", revealFocused);
+        return () => list.removeEventListener("focusin", revealFocused);
       });
-      // Inclinação 3D + reflexo seguindo o mouse (só em computador).
-      mm.add(POINTER_OK, () => {
-        const cleanups = gsap.utils.toArray<HTMLElement>("[data-tilt]").map((card) => {
-          gsap.set(card, { transformPerspective: 900 });
-          const rotateX = gsap.quickTo(card, "rotationX", { duration: 0.8, ease: "power3.out" });
-          const rotateY = gsap.quickTo(card, "rotationY", { duration: 0.8, ease: "power3.out" });
-          const onMove = (event: PointerEvent) => {
-            const box = card.getBoundingClientRect();
-            const x = (event.clientX - box.left) / box.width;
-            const y = (event.clientY - box.top) / box.height;
-            rotateY((x - 0.5) * 10);
-            rotateX((0.5 - y) * 8);
-            card.style.setProperty("--shine-x", `${x * 100}%`);
-            card.style.setProperty("--shine-y", `${y * 100}%`);
-          };
-          const onLeave = () => (rotateX(0), rotateY(0));
-          card.addEventListener("pointermove", onMove);
-          card.addEventListener("pointerleave", onLeave);
-          return () => {
-            card.removeEventListener("pointermove", onMove);
-            card.removeEventListener("pointerleave", onLeave);
-          };
-        });
-        return () => cleanups.forEach((cleanup) => cleanup());
+    }
+    // Inclinação 3D + reflexo seguindo o mouse (só em computador).
+    mm.add(POINTER_OK, () => {
+      const cleanups = gsap.utils.toArray<HTMLElement>("[data-tilt]").map((card) => {
+        gsap.set(card, { transformPerspective: 900 });
+        const rotateX = gsap.quickTo(card, "rotationX", { duration: 0.8, ease: "power3.out" });
+        const rotateY = gsap.quickTo(card, "rotationY", { duration: 0.8, ease: "power3.out" });
+        const onMove = (event: PointerEvent) => {
+          const box = card.getBoundingClientRect();
+          const x = (event.clientX - box.left) / box.width;
+          const y = (event.clientY - box.top) / box.height;
+          rotateY((x - 0.5) * 10);
+          rotateX((0.5 - y) * 8);
+          card.style.setProperty("--shine-x", `${x * 100}%`);
+          card.style.setProperty("--shine-y", `${y * 100}%`);
+        };
+        const onLeave = () => (rotateX(0), rotateY(0));
+        card.addEventListener("pointermove", onMove);
+        card.addEventListener("pointerleave", onLeave);
+        return () => {
+          card.removeEventListener("pointermove", onMove);
+          card.removeEventListener("pointerleave", onLeave);
+        };
       });
-      return () => mm.revert();
-    },
-    { scope: ref },
-  );
+      return () => cleanups.forEach((cleanup) => cleanup());
+    });
+    return () => mm.revert();
+  });
 
   return (
     <>

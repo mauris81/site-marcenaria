@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 
-import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
+import { useLazyGSAP } from "@/components/motion/use-lazy-gsap";
+import { MOTION_OK } from "@/lib/motion";
 
 type ProcessStepsProps = {
   steps: { label: string; title: string; text: string }[];
@@ -16,41 +17,37 @@ type ProcessStepsProps = {
 export function ProcessSteps({ steps }: ProcessStepsProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useGSAP(
-    () => {
-      const root = ref.current;
-      if (!root) return;
+  useLazyGSAP(ref, (root, { gsap, visibleAtStart }) => {
+    const mm = gsap.matchMedia();
+    mm.add({ desktop: "(min-width: 768px)", motion: MOTION_OK }, (context) => {
+      const { desktop, motion } = context.conditions as { desktop: boolean; motion: boolean };
+      if (!motion) return;
 
-      const mm = gsap.matchMedia();
-      mm.add({ desktop: "(min-width: 768px)", motion: MOTION_OK }, (context) => {
-        const { desktop, motion } = context.conditions as { desktop: boolean; motion: boolean };
-        if (!motion) return;
-
-        gsap.from("[data-process-line]", {
-          [desktop ? "scaleX" : "scaleY"]: 0,
-          ease: "none",
-          scrollTrigger: { trigger: root, start: "top 70%", end: "bottom 60%", scrub: 0.6 },
-        });
-        // `opacity`, e não `autoAlpha`: o texto segue acessível ao leitor de tela
-        // mesmo antes de aparecer.
-        gsap.from("[data-process-number]", {
-          scale: 0.3,
-          opacity: 0,
-          stagger: 0.15,
-          ease: "back.out(2.2)",
-          scrollTrigger: { trigger: root, start: "top 80%", once: true },
-        });
-        gsap.from("[data-process-step]", {
-          opacity: 0,
-          y: 32,
-          stagger: 0.15,
-          scrollTrigger: { trigger: root, start: "top 80%", once: true },
-        });
+      gsap.from("[data-process-line]", {
+        [desktop ? "scaleX" : "scaleY"]: 0,
+        ease: "none",
+        scrollTrigger: { trigger: root, start: "top 70%", end: "bottom 60%", scrub: 0.6 },
       });
-      return () => mm.revert();
-    },
-    { scope: ref },
-  );
+      // Etapas já na tela ao abrir a página ficam como estão, sem entrada.
+      if (visibleAtStart) return;
+      // `opacity`, e não `autoAlpha`: o texto segue acessível ao leitor de tela
+      // mesmo antes de aparecer.
+      gsap.from("[data-process-number]", {
+        scale: 0.3,
+        opacity: 0,
+        stagger: 0.15,
+        ease: "back.out(2.2)",
+        scrollTrigger: { trigger: root, start: "top 80%", once: true },
+      });
+      gsap.from("[data-process-step]", {
+        opacity: 0,
+        y: 32,
+        stagger: 0.15,
+        scrollTrigger: { trigger: root, start: "top 80%", once: true },
+      });
+    });
+    return () => mm.revert();
+  });
 
   return (
     <div ref={ref} className="relative">

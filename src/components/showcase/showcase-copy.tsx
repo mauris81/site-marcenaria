@@ -49,12 +49,13 @@ export function ShowcaseCopy({
             className="size-4 transition-transform duration-500 ease-out-expo group-hover:translate-x-1"
           />
         </Link>
+        {/* A seta pula só enquanto a cena se aproxima (data-active, ver useScrollScene). */}
         <p
           data-scene-hint
           aria-hidden="true"
-          className="flex items-center gap-2 text-sm text-ink-muted motion-reduce:hidden"
+          className="group/hint flex items-center gap-2 text-sm text-ink-muted motion-reduce:hidden"
         >
-          <ArrowDown className="size-4 motion-safe:animate-bounce" />
+          <ArrowDown className="size-4 group-data-active/hint:animate-bounce" />
           {hint}
         </p>
       </div>
