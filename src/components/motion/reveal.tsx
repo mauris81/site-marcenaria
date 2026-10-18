@@ -15,6 +15,11 @@ type RevealProps = {
  * Conteúdo sobe e aparece uma única vez quando chega à tela. Use abaixo da dobra:
  * acima dela o conteúdo já é visível no primeiro quadro. Sem JS ou com
  * "reduzir movimento", o conteúdo simplesmente aparece, sem animação.
+ *
+ * O GSAP anima opacity e transform do elemento (ou dos filhos diretos, com
+ * `stagger`): eles não podem ter `transition` CSS nessas propriedades, ou o
+ * GSAP lê valores no meio da transição e o conteúdo fica invisível. Para um
+ * card com efeito de hover, envolva-o num <div>.
  */
 export function Reveal({ children, className, stagger = false }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);

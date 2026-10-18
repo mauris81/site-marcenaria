@@ -44,34 +44,40 @@ export default async function QuotePage() {
           <h2 id="canais" className="font-display text-heading">
             {quote.channels.title}
           </h2>
+          {/* Cada card num <div>: o Reveal anima o invólucro e o card fica livre
+              para a própria transição de hover (sem disputar opacity/transform). */}
           <Reveal stagger className="mt-10 grid gap-6 md:grid-cols-2">
-            <a
-              href="#formulario"
-              className="group rounded-2xl border border-line bg-surface p-8 transition duration-500 ease-out-expo hover:-translate-y-1 hover:border-brand/50 hover:shadow-lift"
-            >
-              <h3 className="font-display text-title">{quote.channels.form.title}</h3>
-              <p className="mt-3 text-ink-muted">{quote.channels.form.text}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand">
-                Ir para o formulário
-                <ArrowDown
-                  aria-hidden="true"
-                  className="size-4 transition-transform duration-500 ease-out-expo group-hover:translate-y-0.5"
-                />
-              </span>
-            </a>
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-2xl border border-line bg-surface p-8 transition duration-500 ease-out-expo hover:-translate-y-1 hover:border-whatsapp-bright/60 hover:shadow-lift"
-            >
-              <h3 className="font-display text-title">{quote.channels.whatsapp.title}</h3>
-              <p className="mt-3 text-ink-muted">{quote.channels.whatsapp.text}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand">
-                <WhatsAppIcon className="size-4" />
-                {quote.channels.whatsapp.cta}
-              </span>
-            </a>
+            <div>
+              <a
+                href="#formulario"
+                className="group block h-full rounded-2xl border border-line bg-surface p-8 transition duration-500 ease-out-expo hover:-translate-y-1 hover:border-brand/50 hover:shadow-lift"
+              >
+                <h3 className="font-display text-title">{quote.channels.form.title}</h3>
+                <p className="mt-3 text-ink-muted">{quote.channels.form.text}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand">
+                  Ir para o formulário
+                  <ArrowDown
+                    aria-hidden="true"
+                    className="size-4 transition-transform duration-500 ease-out-expo group-hover:translate-y-0.5"
+                  />
+                </span>
+              </a>
+            </div>
+            <div>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block h-full rounded-2xl border border-line bg-surface p-8 transition duration-500 ease-out-expo hover:-translate-y-1 hover:border-whatsapp-bright/60 hover:shadow-lift"
+              >
+                <h3 className="font-display text-title">{quote.channels.whatsapp.title}</h3>
+                <p className="mt-3 text-ink-muted">{quote.channels.whatsapp.text}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand">
+                  <WhatsAppIcon className="size-4" />
+                  {quote.channels.whatsapp.cta}
+                </span>
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
