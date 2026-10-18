@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 
 import { WhatsAppIcon } from "@/components/icons/brand";
@@ -13,10 +14,16 @@ type CtaBannerProps = {
   title: string;
   text: string;
   whatsappHref: string;
+  /** Pré-seleciona o tipo de projeto no formulário de orçamento. */
+  quoteType?: string;
 };
 
 /** Chamada final para orçamento, reaproveitada em todas as páginas de conteúdo. */
-export function CtaBanner({ eyebrow, title, text, whatsappHref }: CtaBannerProps) {
+export function CtaBanner({ eyebrow, title, text, whatsappHref, quoteType }: CtaBannerProps) {
+  const quoteHref = (
+    quoteType ? `/orcamento?tipo=${encodeURIComponent(quoteType)}#formulario` : "/orcamento"
+  ) as Route;
+
   return (
     <UnfoldSection aria-labelledby="chamada-final" className="theme-light">
       <div className="container-site py-24 md:py-36">
@@ -28,7 +35,7 @@ export function CtaBanner({ eyebrow, title, text, whatsappHref }: CtaBannerProps
           align="center"
         />
         <Reveal className="mt-12 flex flex-wrap justify-center gap-4">
-          <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
+          <Link href={quoteHref} className={buttonVariants({ size: "lg" })}>
             Solicitar orçamento
             <ArrowRight
               aria-hidden="true"

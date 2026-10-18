@@ -17,6 +17,7 @@ const twMerge = extendTailwindMerge({
         "line-strong",
         "primary",
         "on-primary",
+        "danger",
         "whatsapp",
         "whatsapp-hover",
         "whatsapp-bright",

@@ -55,6 +55,7 @@
   --color-line-strong: var(--line-strong);
   --color-primary: var(--primary);
   --color-on-primary: var(--on-primary);
+  --color-danger: var(--danger);
 
   /* As variáveis --font-fraunces e --font-manrope vêm do next/font (layout.tsx). */
   --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
@@ -158,6 +159,8 @@
     --line-strong: rgb(243 237 228 / 0.4);
     --primary: var(--color-oak-300);
     --on-primary: var(--color-espresso-900);
+    /* Erros de formulário: 9,8:1 sobre o canvas escuro. */
+    --danger: #f4a3a3;
     /* Grão sutil (SVG inline, zero requisições) que dá textura “de material”. */
     --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
     color-scheme: dark;
@@ -173,6 +176,8 @@
     --line-strong: rgb(26 20 16 / 0.5);
     --primary: var(--color-espresso-850);
     --on-primary: var(--color-linen-50);
+    /* Erros de formulário: 5,7:1 sobre o canvas claro. */
+    --danger: #b42318;
     --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
     color-scheme: light;
   }

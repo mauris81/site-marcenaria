@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -38,11 +38,13 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
 
   const gallery = await getGallery(service);
   const whatsappHref = whatsappUrl(site.contact.whatsapp, site.whatsappMessage);
+  // O formulário chega com o tipo de projeto deste serviço já selecionado.
+  const quoteHref = `/orcamento?tipo=${encodeURIComponent(service.quoteType)}#formulario` as Route;
 
   return (
     <PageTransition>
       <PageHero {...service.hero}>
-        <Link href="/orcamento" className={buttonVariants({ size: "lg" })}>
+        <Link href={quoteHref} className={buttonVariants({ size: "lg" })}>
           Solicitar orçamento
           <ArrowRight
             aria-hidden="true"
@@ -96,7 +98,7 @@ export default async function ServicePage({ params }: PageProps<"/[slug]">) {
         neighborhoods={site.area.neighborhoods}
       />
 
-      <CtaBanner {...service.cta} whatsappHref={whatsappHref} />
+      <CtaBanner {...service.cta} whatsappHref={whatsappHref} quoteType={service.quoteType} />
     </PageTransition>
   );
 }
