@@ -1,7 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
-import { useRef, type ReactNode } from "react";
+import { useRef, type CSSProperties, type ReactNode } from "react";
 
 import { ShowcaseCopy, type ShowcaseCopyProps } from "./showcase-copy";
 import { ShowcaseStage } from "./showcase-stage";
@@ -94,7 +94,11 @@ export function SlatsReveal({ photos, ...copy }: SlatsRevealProps) {
             >
               {Array.from({ length: SLATS }, (_, index) => (
                 <div key={index} data-slat className="relative h-full flex-1">
-                  <div className="absolute inset-0 rounded-[1px] veneer-slat" />
+                  {/* Cada ripa mostra outro trecho da lâmina, como ripas cortadas da mesma tábua. */}
+                  <div
+                    className="absolute inset-0 rounded-[1px] veneer-slat"
+                    style={{ "--veneer-position": `${(index * 41) % 100}% 50%` } as CSSProperties}
+                  />
                   <div data-slat-shade className="absolute inset-0 bg-black opacity-0" />
                 </div>
               ))}

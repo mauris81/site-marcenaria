@@ -50,18 +50,17 @@ function afterFirstContentfulPaint(callback: () => void) {
   };
 }
 
-let animationsNeeded: Promise<void> | undefined;
+let pageInUse: Promise<void> | undefined;
 
 /**
- * Resolve quando vale a pena montar animações: no primeiro sinal de uso da
- * página (rolar, girar a roda do mouse, tocar, clicar ou teclar) ou, se a
- * pessoa só olhar a primeira tela, alguns segundos depois. Nada na
- * primeira tela depende do GSAP (o hero anima em CSS), então ele fica fora do
- * carregamento. Uma só espera para todas as seções; em navegações dentro do
- * site, já está resolvida.
+ * Resolve no primeiro sinal de uso da página (rolar, girar a roda do mouse,
+ * tocar, clicar ou teclar) ou, se a pessoa só olhar a primeira tela, alguns
+ * segundos depois. É a hora de buscar o que só importa fora da primeira tela:
+ * o GSAP (o hero anima em CSS) e as texturas das cenas. Uma só espera para a
+ * página toda; em navegações dentro do site, já está resolvida.
  */
-function whenAnimationsNeeded() {
-  animationsNeeded ??= new Promise<void>((resolve) => {
+export function whenPageInUse() {
+  pageInUse ??= new Promise<void>((resolve) => {
     const events = ["scroll", "wheel", "touchstart", "pointerdown", "keydown"] as const;
     const start = () => {
       for (const type of events) window.removeEventListener(type, start);
@@ -77,12 +76,12 @@ function whenAnimationsNeeded() {
       }, 5000),
     );
   });
-  return animationsNeeded;
+  return pageInUse;
 }
 
 /**
  * Monta as animações GSAP de um elemento só quando a página começa a ser usada
- * (ver whenAnimationsNeeded) e quando ele chega a uma altura de tela de
+ * (ver whenPageInUse) e quando ele chega a uma altura de tela de
  * distância. O próprio GSAP é baixado nessa hora, então não pesa no
  * carregamento; cada elemento monta numa tarefa própria, para nenhuma tarefa
  * longa travar a página.
@@ -105,7 +104,7 @@ export function useLazyGSAP(ref: RefObject<HTMLElement | null>, setup: Setup) {
     let observer: IntersectionObserver | undefined;
     let initTimer: ReturnType<typeof setTimeout> | undefined;
 
-    whenAnimationsNeeded().then(() => {
+    whenPageInUse().then(() => {
       if (cancelled) return;
       observer = new IntersectionObserver(
         ([entry]) => {

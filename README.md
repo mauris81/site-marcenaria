@@ -34,16 +34,17 @@ npm run build      # gera o site em out/
 npm run preview    # serve out/ em http://localhost:3000
 ```
 
-| Comando           | O que faz                                                                        |
-| ----------------- | -------------------------------------------------------------------------------- |
-| `npm run dev`     | Servidor de desenvolvimento (gera as versões das fotos antes)                    |
-| `npm run build`   | Otimiza as fotos, gera as imagens de compartilhamento e exporta o site em `out/` |
-| `npm run preview` | Serve o `out/` localmente                                                        |
-| `npm run images`  | Versões WebP das fotos em `public/images/` e `src/content/photos.generated.json` |
-| `npm run og`      | Imagens de compartilhamento em `public/og/`                                      |
-| `npm run check`   | Lint, tipos, testes e formatação (o mesmo que o CI roda)                         |
-| `npm run test`    | Testes (Vitest); `npm run test:watch` para o modo contínuo                       |
-| `npm run format`  | Formata o código com Prettier                                                    |
+| Comando            | O que faz                                                                        |
+| ------------------ | -------------------------------------------------------------------------------- |
+| `npm run dev`      | Servidor de desenvolvimento (gera as versões das fotos antes)                    |
+| `npm run build`    | Otimiza as fotos, gera as imagens de compartilhamento e exporta o site em `out/` |
+| `npm run preview`  | Serve o `out/` localmente                                                        |
+| `npm run images`   | Versões WebP das fotos em `public/images/` e `src/content/photos.generated.json` |
+| `npm run og`       | Imagens de compartilhamento em `public/og/`                                      |
+| `npm run textures` | Texturas de madeira das cenas em `src/assets/textures/` (versionadas)            |
+| `npm run check`    | Lint, tipos, testes e formatação (o mesmo que o CI roda)                         |
+| `npm run test`     | Testes (Vitest); `npm run test:watch` para o modo contínuo                       |
+| `npm run format`   | Formata o código com Prettier                                                    |
 
 ## Estrutura
 
@@ -55,7 +56,8 @@ src/
                     motion, ui, seo
   content/          Conteúdo do site em JSON (textos, serviços, fotos)
   lib/              Carregamento e validação do conteúdo, SEO, formulário, GSAP
-scripts/            Otimização das fotos, imagens de compartilhamento, ajuste do export
+  assets/textures/  Texturas de madeira das cenas (geradas por scripts/generate-textures.mjs)
+scripts/            Otimização das fotos, imagens de compartilhamento, texturas, ajuste do export
 assets/photos/      Fotos originais do site (fonte das versões otimizadas)
 assets/brand/       Logo original
 public/             Arquivos servidos como estão (monograma do logo)

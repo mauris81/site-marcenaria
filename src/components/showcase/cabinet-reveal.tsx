@@ -104,7 +104,8 @@ export function CabinetReveal({ photos, ...copy }: CabinetRevealProps) {
               </ul>
             </div>
 
-            {/* Portas: frente em carvalho com puxador, verso em MDF claro. */}
+            {/* Portas: frente em carvalho com puxador, verso em MDF claro. As duas
+                frentes são metades da mesma lâmina, com o veio contínuo de uma para a outra. */}
             {(["left", "right"] as const).map((side) => (
               <div
                 key={side}
@@ -116,7 +117,13 @@ export function CabinetReveal({ photos, ...copy }: CabinetRevealProps) {
                     : "absolute inset-y-2.5 right-2.5 w-[calc(50%-0.75rem)] origin-right [transform:rotateY(100deg)] [transform-style:preserve-3d] motion-reduce:hidden"
                 }
               >
-                <div className="absolute inset-0 rounded-[3px] veneer-oak [backface-visibility:hidden]">
+                <div
+                  className={
+                    side === "left"
+                      ? "absolute inset-0 rounded-[3px] veneer-oak [--veneer-position:0%_50%] [--veneer-size:200%_auto] [backface-visibility:hidden]"
+                      : "absolute inset-0 rounded-[3px] veneer-oak [--veneer-position:100%_50%] [--veneer-size:200%_auto] [backface-visibility:hidden]"
+                  }
+                >
                   <span
                     className={
                       side === "left"

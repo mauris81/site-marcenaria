@@ -1,10 +1,13 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useRef, type CSSProperties, type ReactNode } from "react";
 
 import { ShowcaseCopy, type ShowcaseCopyProps } from "./showcase-copy";
 import { ShowcaseStage } from "./showcase-stage";
 import { useScrollScene } from "./use-scroll-scene";
+
+// Trecho da lâmina em cada frente (gaveta de cima, do meio e de baixo).
+const FRONT_POSITIONS = ["0% 0%", "100% 55%", "35% 100%"];
 
 type DrawerRevealProps = Omit<ShowcaseCopyProps, "hint"> & {
   /** Fotos já renderizadas no servidor (4 a 6), arrumadas nas divisórias da gaveta. */
@@ -62,8 +65,13 @@ export function DrawerReveal({ photos, ...copy }: DrawerRevealProps) {
     );
   });
 
-  const drawerFront = (
-    <div aria-hidden="true" className="absolute inset-0 rounded-[3px] veneer-oak">
+  // Frente de gaveta com o veio na horizontal; cada gaveta mostra outro trecho da lâmina.
+  const drawerFront = (position: string) => (
+    <div
+      aria-hidden="true"
+      className="absolute inset-0 rounded-[3px] veneer-oak-across [--veneer-size:150%_auto]"
+      style={{ "--veneer-position": position } as CSSProperties}
+    >
       <span className="absolute top-1/2 left-1/2 h-1.5 w-1/3 -translate-x-1/2 -translate-y-1/2 handle-brass" />
     </div>
   );
@@ -90,7 +98,7 @@ export function DrawerReveal({ photos, ...copy }: DrawerRevealProps) {
               {/* Tampo */}
               <div
                 aria-hidden="true"
-                className="absolute inset-x-0 bottom-full h-[calc(var(--depth)*0.45)] origin-bottom [transform:rotateX(90deg)] veneer-oak brightness-125"
+                className="absolute inset-x-0 bottom-full h-[calc(var(--depth)*0.45)] origin-bottom [transform:rotateX(90deg)] veneer-oak-across brightness-125"
               />
               {/* Corpo com as três gavetas */}
               <div className="relative grid grid-rows-3 gap-2 rounded-sm carcass p-2 [transform-style:preserve-3d]">
@@ -124,23 +132,23 @@ export function DrawerReveal({ photos, ...copy }: DrawerRevealProps) {
                     {/* Laterais e traseira */}
                     <div
                       aria-hidden="true"
-                      className="absolute inset-y-0 left-0 w-[var(--depth)] origin-left [transform:rotateY(90deg)] veneer-oak brightness-75"
+                      className="absolute inset-y-0 left-0 w-[var(--depth)] origin-left [transform:rotateY(90deg)] veneer-oak-across brightness-75"
                     />
                     <div
                       aria-hidden="true"
-                      className="absolute inset-y-0 right-0 w-[var(--depth)] origin-right [transform:rotateY(-90deg)] veneer-oak brightness-75"
+                      className="absolute inset-y-0 right-0 w-[var(--depth)] origin-right [transform:rotateY(-90deg)] veneer-oak-across brightness-75"
                     />
                     <div
                       aria-hidden="true"
-                      className="absolute inset-0 [transform:translateZ(calc(var(--depth)*-1))] veneer-oak brightness-50"
+                      className="absolute inset-0 [transform:translateZ(calc(var(--depth)*-1))] veneer-oak-across brightness-50"
                     />
-                    {drawerFront}
+                    {drawerFront(FRONT_POSITIONS[0])}
                   </div>
                 </div>
                 {/* Gavetas de baixo (fixas) */}
-                {[0, 1].map((drawer) => (
-                  <div key={drawer} className="relative aspect-[5/2] lg:aspect-[3/1]">
-                    {drawerFront}
+                {FRONT_POSITIONS.slice(1).map((position) => (
+                  <div key={position} className="relative aspect-[5/2] lg:aspect-[3/1]">
+                    {drawerFront(position)}
                   </div>
                 ))}
               </div>
@@ -159,7 +167,7 @@ export function DrawerReveal({ photos, ...copy }: DrawerRevealProps) {
                 </li>
               ))}
             </ul>
-            <div className="relative h-14">{drawerFront}</div>
+            <div className="relative h-14">{drawerFront(FRONT_POSITIONS[0])}</div>
           </div>
 
           <div

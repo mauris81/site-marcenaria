@@ -1,9 +1,9 @@
 "use client";
 
 import type { gsap } from "gsap";
-import type { RefObject } from "react";
+import { useEffect, type RefObject } from "react";
 
-import { useLazyGSAP } from "@/components/motion/use-lazy-gsap";
+import { useLazyGSAP, whenPageInUse } from "@/components/motion/use-lazy-gsap";
 import { MOTION_OK } from "@/lib/motion";
 
 /**
@@ -11,14 +11,40 @@ import { MOTION_OK } from "@/lib/motion";
  * o palco fica preso na tela (CSS sticky) e a rolagem dirige uma timeline.
  *
  * A timeline tem duração total 1, então as posições funcionam como "fases" de 0 a 1.
- * Cada cena só descreve as próprias fases em `build`; progresso, dica de rolagem e
- * movimento reduzido são tratados aqui, iguais para todas. A cena só é montada
- * quando chega perto da tela (useLazyGSAP).
+ * Cada cena só descreve as próprias fases em `build`; progresso, dica de rolagem,
+ * movimento reduzido e texturas são tratados aqui, iguais para todas. A cena só
+ * é montada quando chega perto da tela (useLazyGSAP).
  */
 export function useScrollScene(
   root: RefObject<HTMLElement | null>,
   build: (timeline: gsap.core.Timeline) => void,
 ) {
+  // As texturas de madeira são imagens: ficam fora do carregamento e só são
+  // pedidas quando a página começa a ser usada e a cena está a duas telas de
+  // distância, com ou sem animação (o CSS as aplica sob [data-textures]).
+  useEffect(() => {
+    const element = root.current;
+    if (!element) return;
+    let cancelled = false;
+    let observer: IntersectionObserver | undefined;
+    whenPageInUse().then(() => {
+      if (cancelled) return;
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry?.isIntersecting) return;
+          observer?.disconnect();
+          element.setAttribute("data-textures", "");
+        },
+        { rootMargin: "200% 0px" },
+      );
+      observer.observe(element);
+    });
+    return () => {
+      cancelled = true;
+      observer?.disconnect();
+    };
+  }, [root]);
+
   useLazyGSAP(root, (element, { gsap, ScrollTrigger }) => {
     const mm = gsap.matchMedia();
     mm.add(MOTION_OK, () => {

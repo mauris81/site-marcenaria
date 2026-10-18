@@ -81,10 +81,7 @@ export function SlidingDoorReveal({ photos, ...copy }: SlidingDoorRevealProps) {
             className="relative mx-auto aspect-[4/5] w-full max-w-[min(100%,38svh)] overflow-hidden rounded-md bg-linear-to-b from-espresso-800 to-espresso-900 shadow-lift lg:aspect-[16/11] lg:max-w-none"
           >
             {/* Piso de madeira e rodapé */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-x-0 bottom-0 h-[13%] bg-[repeating-linear-gradient(90deg,rgb(0_0_0/0.22)_0_1px,transparent_1px_14%),linear-gradient(180deg,#4a3220,#22170e)]"
-            />
+            <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[13%] floor-oak" />
             <div
               aria-hidden="true"
               className="absolute inset-x-0 bottom-[13%] h-[1.2%] bg-black/60"
