@@ -50,11 +50,42 @@ function afterFirstContentfulPaint(callback: () => void) {
   };
 }
 
+let animationsNeeded: Promise<void> | undefined;
+
 /**
- * Monta as animações GSAP de um elemento só depois que a página já apareceu na
- * tela e quando ele chega a uma altura de tela de distância. O próprio GSAP é
- * baixado nessa hora, então não pesa no carregamento; cada elemento monta numa
- * tarefa própria, para nenhuma tarefa longa travar a página.
+ * Resolve quando vale a pena montar animações: no primeiro sinal de uso da
+ * página (rolar, girar a roda do mouse, tocar, clicar ou teclar) ou, se a
+ * pessoa só olhar a primeira tela, alguns segundos depois. Nada na
+ * primeira tela depende do GSAP (o hero anima em CSS), então ele fica fora do
+ * carregamento. Uma só espera para todas as seções; em navegações dentro do
+ * site, já está resolvida.
+ */
+function whenAnimationsNeeded() {
+  animationsNeeded ??= new Promise<void>((resolve) => {
+    const events = ["scroll", "wheel", "touchstart", "pointerdown", "keydown"] as const;
+    const start = () => {
+      for (const type of events) window.removeEventListener(type, start);
+      resolve();
+    };
+    for (const type of events) window.addEventListener(type, start, { passive: true });
+    // Sem interação: pelo menos 5 s depois da primeira pintura, e então no
+    // próximo momento ocioso do navegador.
+    afterFirstContentfulPaint(() =>
+      setTimeout(() => {
+        if ("requestIdleCallback" in window) requestIdleCallback(start, { timeout: 2000 });
+        else start();
+      }, 5000),
+    );
+  });
+  return animationsNeeded;
+}
+
+/**
+ * Monta as animações GSAP de um elemento só quando a página começa a ser usada
+ * (ver whenAnimationsNeeded) e quando ele chega a uma altura de tela de
+ * distância. O próprio GSAP é baixado nessa hora, então não pesa no
+ * carregamento; cada elemento monta numa tarefa própria, para nenhuma tarefa
+ * longa travar a página.
  *
  * `setup` recebe o GSAP e os plugins, roda num gsap.context com escopo no
  * elemento (seletores relativos a ele) e pode devolver uma limpeza, como no
@@ -74,7 +105,8 @@ export function useLazyGSAP(ref: RefObject<HTMLElement | null>, setup: Setup) {
     let observer: IntersectionObserver | undefined;
     let initTimer: ReturnType<typeof setTimeout> | undefined;
 
-    const cancelWait = afterFirstContentfulPaint(() => {
+    whenAnimationsNeeded().then(() => {
+      if (cancelled) return;
       observer = new IntersectionObserver(
         ([entry]) => {
           if (!entry?.isIntersecting) return;
@@ -104,7 +136,6 @@ export function useLazyGSAP(ref: RefObject<HTMLElement | null>, setup: Setup) {
 
     return () => {
       cancelled = true;
-      cancelWait();
       observer?.disconnect();
       clearTimeout(initTimer);
       context?.revert();
