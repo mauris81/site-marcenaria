@@ -37,12 +37,18 @@ export function SplitWordmark({ text }: { text: string }) {
   });
 
   return (
-    <p
-      ref={ref}
-      aria-hidden="true"
-      className="font-display text-[9.2vw] leading-none font-light tracking-[-0.03em] whitespace-nowrap text-ink/10 select-none lg:text-[12vw]"
-    >
-      {text}
-    </p>
+    // No desktop, a fonte acompanha a largura do próprio bloco (unidade cqi), e
+    // não a da tela: a assinatura ocupa a coluna sem ser cortada nos monitores
+    // largos. "Marcenaria Butantã" mede ~6,6× o tamanho da fonte; dividir por
+    // 6,9 deixa uma folga de ~4% (outro nome pede outro divisor).
+    <div className="@container">
+      <p
+        ref={ref}
+        aria-hidden="true"
+        className="font-display text-[9.2vw] leading-none font-light tracking-[-0.03em] whitespace-nowrap text-ink/10 select-none lg:text-[length:calc(100cqi/6.9)]"
+      >
+        {text}
+      </p>
+    </div>
   );
 }
