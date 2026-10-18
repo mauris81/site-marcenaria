@@ -9,6 +9,7 @@
 // use `npm run images -- --force` para refazer todas. Fotos com `"trim": true` no
 // catálogo têm tarjas pretas uniformes recortadas (ex.: capturas de tela).
 
+import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -45,14 +46,14 @@ for (const photo of photos) {
   const sourceStat = await stat(source);
   const outputs = widths.map((width) => join(outDir, `${photo.id}-${width}.webp`));
   const cached = previous?.photos?.[photo.id];
-  // Assinatura do processamento: muda se o arquivo ou os ajustes da foto mudarem.
-  const signature = `${sourceStat.size}-${Math.round(sourceStat.mtimeMs)}-${photo.trim ? "trim" : "full"}`;
+  // Assinatura do processamento: muda se o conteúdo do arquivo ou os ajustes da
+  // foto mudarem. Pelo conteúdo (e não pela data), é a mesma em qualquer clone.
+  const hash = createHash("sha1")
+    .update(await readFile(source))
+    .digest("hex");
+  const signature = `${hash.slice(0, 16)}-${photo.trim ? "trim" : "full"}`;
 
-  if (
-    !force &&
-    cached?.signature === signature &&
-    (await allNewerThan(outputs, sourceStat.mtimeMs))
-  ) {
+  if (!force && cached?.signature === signature && outputs.every((file) => existsSync(file))) {
     generated.photos[photo.id] = cached;
   } else {
     // Decodifica o original (até 18 MP) uma única vez, já aplicando a orientação
@@ -107,10 +108,3 @@ console.log(
   `images: ${photos.length} fotos (${totals.processed} processadas agora) · ` +
     `originais ${mb(totals.originalBytes)} → ${mb(totals.servedBytes)} na versão de 1080 px`,
 );
-
-async function allNewerThan(files, mtimeMs) {
-  for (const file of files) {
-    if (!existsSync(file) || (await stat(file)).mtimeMs < mtimeMs) return false;
-  }
-  return true;
-}
