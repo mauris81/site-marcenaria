@@ -2,10 +2,3 @@
 package-lock.json
 next-env.d.ts
 src/content/photos.generated.json
-
-# Site estático legado — removido ao final da migração
-/*.html
-/assets
-/style.css
-/script.js
-/Fotos

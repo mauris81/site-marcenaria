@@ -11,9 +11,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Site estático legado — removido ao final da migração.
-    "assets/**",
-    "script.js",
   ]),
 ]);
 
