@@ -108,7 +108,7 @@ export const photosSchema = z.array(photoSchema).superRefine((photos, ctx) => {
   });
 });
 
-/** Número de WhatsApp: 55 + DDD + número, só dígitos (ex.: 5511994408731). */
+/** Número de WhatsApp: 55 + DDD + número, só dígitos (ex.: 5511958522265). */
 const whatsappNumber = z.string().regex(/^55\d{10,11}$/, "use 55 + DDD + número, apenas dígitos");
 
 export const siteSchema = z.strictObject({

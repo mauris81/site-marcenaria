@@ -11,7 +11,7 @@ export function onlyDigits(value: string) {
 
 /**
  * Máscara de telefone brasileiro enquanto a pessoa digita:
- * (11) 99440-8731 para celular (11 dígitos) e (11) 4002-8922 para fixo (10).
+ * (11) 91234-5678 para celular (11 dígitos) e (11) 4002-8922 para fixo (10).
  */
 export function formatPhone(value: string) {
   const digits = onlyDigits(value).slice(0, 11);
@@ -32,7 +32,7 @@ export function createQuoteSchema(options: { neighborhoods: string[]; projectTyp
       .string()
       .refine(
         (value) => /^\d{10,11}$/.test(onlyDigits(value)),
-        "Informe um telefone com DDD, como (11) 99440-8731.",
+        "Informe um telefone com DDD, como (11) 91234-5678.",
       ),
     email: z.union([z.literal(""), z.email("Confira o e-mail, por exemplo: nome@exemplo.com.")]),
     bairro: z.string().refine((value) => neighborhoods.includes(value), "Selecione o bairro."),

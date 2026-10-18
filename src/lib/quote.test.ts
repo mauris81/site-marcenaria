@@ -9,7 +9,7 @@ const schema = createQuoteSchema({
 
 const valid = {
   nome: "Ana Souza",
-  telefone: "(11) 99440-8731",
+  telefone: "(11) 91234-5678",
   email: "",
   bairro: "Butantã",
   tipo: "Cozinha planejada",
@@ -18,7 +18,7 @@ const valid = {
 
 describe("formatPhone", () => {
   it("formata celular com 9 dígitos (bug do site antigo: (11) 9585-22265)", () => {
-    expect(formatPhone("11994408731")).toBe("(11) 99440-8731");
+    expect(formatPhone("11912345678")).toBe("(11) 91234-5678");
   });
 
   it("formata telefone fixo com 8 dígitos", () => {
@@ -28,11 +28,11 @@ describe("formatPhone", () => {
   it("formata enquanto a pessoa digita e ignora o que não é número", () => {
     expect(formatPhone("1")).toBe("(1");
     expect(formatPhone("1199")).toBe("(11) 99");
-    expect(formatPhone("11 9 9440-8731")).toBe("(11) 99440-8731");
+    expect(formatPhone("11 9 1234-5678")).toBe("(11) 91234-5678");
   });
 
   it("limita a 11 dígitos", () => {
-    expect(formatPhone("119944087319999")).toBe("(11) 99440-8731");
+    expect(formatPhone("119123456789999")).toBe("(11) 91234-5678");
   });
 });
 

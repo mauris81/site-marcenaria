@@ -37,7 +37,7 @@ describe("dados estruturados (schema.org)", () => {
     const business = byType(homeStructuredData(siteData), "HomeAndConstructionBusiness");
     expect(business).toMatchObject({
       name: "Marcenaria Butantã",
-      telephone: "+5511994408731",
+      telephone: "+5511958522265",
       sameAs: ["https://www.instagram.com/marcenariabutanta"],
       address: { addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" },
     });
