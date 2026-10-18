@@ -50,11 +50,12 @@ const showcaseLimits = {
   door: { min: 4, max: 6 },
   drawer: { min: 4, max: 6 },
   slats: { min: 1, max: 3 },
+  sliding: { min: 4, max: 4 },
 } as const;
 
 const showcase = z
   .strictObject({
-    reveal: z.enum(["door", "drawer", "slats"]),
+    reveal: z.enum(["door", "drawer", "slats", "sliding"]),
     /** Aceita *ênfase* entre asteriscos. */
     title: text,
     photos: z.array(photoRef),
