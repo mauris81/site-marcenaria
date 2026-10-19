@@ -1,5 +1,5 @@
 // Gera as imagens de compartilhamento (Open Graph) de cada página em public/og/:
-// home.jpg, <slug do serviço>.jpg e orcamento.jpg — os nomes que
+// home.jpg, <slug do serviço>.jpg, orcamento.jpg e links.jpg — os nomes que
 // src/lib/seo.ts (shareImagePath) coloca nos metadados.
 //
 // 1200×630: foto do ambiente sob um véu escuro, logo, título (com a ênfase em
@@ -31,8 +31,8 @@ const outDir = join(root, "public", "og");
 const require = createRequire(import.meta.url);
 const readJson = async (path) => JSON.parse(await readFile(join(root, path), "utf8"));
 
-const [site, home, services, quote, photos] = await Promise.all(
-  ["site", "home", "services", "quote", "photos"].map((name) =>
+const [site, home, services, quote, links, photos] = await Promise.all(
+  ["site", "home", "services", "quote", "links", "photos"].map((name) =>
     readJson(`src/content/${name}.json`),
   ),
 );
@@ -42,6 +42,7 @@ const pages = [
   { file: "home", ...home },
   ...services.map((service) => ({ file: service.slug, ...service })),
   { file: "orcamento", ...quote },
+  { file: "links", ...links },
 ];
 
 // Fontes do site em WOFF (o Satori não lê WOFF2), dos pacotes @fontsource.

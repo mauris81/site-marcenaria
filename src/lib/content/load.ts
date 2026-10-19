@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import {
   homeSchema,
+  linksPageSchema,
   photosGeneratedSchema,
   photosSchema,
   quotePageSchema,
@@ -16,6 +17,7 @@ export type RawContent = {
   home: unknown;
   services: unknown;
   quote: unknown;
+  links: unknown;
 };
 
 /**
@@ -30,6 +32,7 @@ export function loadContent(raw: RawContent) {
   const home = parse(homeSchema, raw.home, "home.json");
   const services = parse(servicesSchema, raw.services, "services.json");
   const quote = parse(quotePageSchema, raw.quote, "quote.json");
+  const links = parse(linksPageSchema, raw.links, "links.json");
 
   const problems: string[] = [];
 
@@ -81,6 +84,20 @@ export function loadContent(raw: RawContent) {
     }
   }
 
+  // Página de links: capa, botões que dependem de site.json e páginas que existem.
+  requirePhoto(links.hero.photo, "links.json › hero.photo");
+  requireSharePhoto(links, "links.json");
+  const sitePaths = new Set(["/", "/orcamento", ...services.map((service) => `/${service.slug}`)]);
+  links.links.forEach((link, index) => {
+    const at = `links.json › links[${index}]`;
+    if (link.type === "page" && !sitePaths.has(link.path)) {
+      problems.push(`${at} › path: a página "${link.path}" não existe no site`);
+    }
+    if (link.type === "maps" && !site.contact.googleMaps) {
+      problems.push(`${at}: defina contact.googleMaps em site.json`);
+    }
+  });
+
   if (problems.length > 0) {
     throw new Error(`Conteúdo inconsistente:\n- ${problems.join("\n- ")}`);
   }
@@ -92,7 +109,7 @@ export function loadContent(raw: RawContent) {
     return { ...photo, ...optimized, src: `/images/${photo.id}.${optimized.version}` as const };
   });
 
-  return { site, photos, home, services, quote };
+  return { site, photos, home, services, quote, links };
 }
 
 export type Content = ReturnType<typeof loadContent>;

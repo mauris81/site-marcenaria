@@ -1,6 +1,7 @@
 import "server-only";
 
 import home from "@/content/home.json";
+import links from "@/content/links.json";
 import photosGenerated from "@/content/photos.generated.json";
 import photos from "@/content/photos.json";
 import quote from "@/content/quote.json";
@@ -14,7 +15,7 @@ import type { Service } from "./schemas";
 // Hoje é JSON local, validado uma vez durante o build. As funções são assíncronas
 // de propósito — imitam uma API/CMS, então trocar a fonte de dados no futuro
 // não exige mudar nenhuma página ou componente.
-const content = loadContent({ site, photos, photosGenerated, home, services, quote });
+const content = loadContent({ site, photos, photosGenerated, home, services, quote, links });
 
 export async function getSite() {
   return content.site;
@@ -34,6 +35,10 @@ export async function getService(slug: string) {
 
 export async function getQuoteContent() {
   return content.quote;
+}
+
+export async function getLinksContent() {
+  return content.links;
 }
 
 export async function getPhoto(id: string) {
@@ -68,4 +73,11 @@ export async function getGallery(service: Service): Promise<GalleryItem[]> {
 }
 
 export type { Photo } from "./load";
-export type { HomeContent, QuotePageContent, Service, Site } from "./schemas";
+export type {
+  HomeContent,
+  LinkItem,
+  LinksPageContent,
+  QuotePageContent,
+  Service,
+  Site,
+} from "./schemas";

@@ -42,7 +42,10 @@ describe("dados estruturados (schema.org)", () => {
     expect(business).toMatchObject({
       name: "Marcenaria Butantã",
       telephone: "+5511958522265",
-      sameAs: ["https://www.instagram.com/marcenariabutanta"],
+      sameAs: [
+        "https://www.instagram.com/marcenariabutanta",
+        "https://maps.google.com/?cid=13913482093133120128",
+      ],
       address: { addressLocality: "São Paulo", addressRegion: "SP", addressCountry: "BR" },
     });
     expect(business.areaServed).toHaveLength(site.area.neighborhoods.length);

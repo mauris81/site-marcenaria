@@ -1,14 +1,7 @@
-import type { Metadata, Route, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader, type NavItem } from "@/components/layout/site-header";
-import { SkipLink } from "@/components/layout/skip-link";
-import { WhatsAppButton } from "@/components/layout/whatsapp-button";
-import { PointerEffects } from "@/components/motion/pointer-effects";
-import { SmoothScroll } from "@/components/motion/smooth-scroll";
-import { getServices, getSite } from "@/lib/content";
-import { whatsappUrl } from "@/lib/whatsapp";
+import { getSite } from "@/lib/content";
 
 import "./globals.css";
 
@@ -56,15 +49,9 @@ export const viewport: Viewport = {
   themeColor: "#110d0a",
 };
 
-export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const [site, services] = await Promise.all([getSite(), getServices()]);
-  // A navegação nasce dos dados: cadastrar um serviço já o coloca no menu e no rodapé.
-  const nav: NavItem[] = services.map((service) => ({
-    label: service.navLabel,
-    href: `/${service.slug}` as Route,
-  }));
-  const whatsappHref = whatsappUrl(site.contact.whatsapp, site.whatsappMessage);
-
+// Layout raiz: documento, fontes e metadados comuns. Cabeçalho e rodapé ficam
+// em (site)/layout.tsx, para que /links tenha uma página própria, sem eles.
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
@@ -72,21 +59,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${fraunces.variable} ${manrope.variable}`}
     >
-      <body>
-        <SmoothScroll />
-        <PointerEffects />
-        <SkipLink />
-        <SiteHeader
-          nav={nav}
-          whatsappHref={whatsappHref}
-          instagramHref={site.contact.instagram.url}
-        />
-        <main id="conteudo" tabIndex={-1} className="outline-none">
-          {children}
-        </main>
-        <SiteFooter site={site} nav={nav} whatsappHref={whatsappHref} />
-        <WhatsAppButton href={whatsappHref} />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

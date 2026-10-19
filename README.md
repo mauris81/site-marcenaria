@@ -50,8 +50,9 @@ npm run preview    # serve out/ em http://localhost:3000
 
 ```
 src/
-  app/              Páginas (App Router): home, [slug] (serviços), orcamento,
-                    sitemap.ts e robots.ts
+  app/              Páginas (App Router). (site)/ reúne home, [slug] (serviços)
+                    e orcamento, com cabeçalho e rodapé; links/ é a página de
+                    links do Instagram, sem eles; sitemap.ts e robots.ts
   components/       layout, sections, showcase (cenas 3D), gallery, quote,
                     motion, ui, seo
   content/          Conteúdo do site em JSON (textos, serviços, fotos)
@@ -79,6 +80,7 @@ uma mensagem que aponta o arquivo e o campo.
 | `home.json`             | Textos da página inicial                                                 |
 | `services.json`         | Um item por serviço: vira página, entra no menu, no rodapé e no sitemap  |
 | `quote.json`            | Página de orçamento: textos, tipos de projeto e etapas                   |
+| `links.json`            | Página de links (`/links`): capa, botão de destaque e lista de botões    |
 | `photos.json`           | Catálogo de fotos: id, arquivo, texto alternativo e enquadramento        |
 | `photos.generated.json` | Gerado por `npm run images` (dimensões e placeholder); versionado        |
 
@@ -110,6 +112,30 @@ Trechos de texto entre `*asteriscos*` aparecem em itálico, na cor da marca.
 
 A pasta `Fotos/` guarda arquivos pessoais e é ignorada pelo Git. As fotos do
 site ficam só em `assets/photos/`.
+
+### Página de links (link na bio)
+
+[`/links`](https://www.marcenariabutanta.com.br/links) reúne, numa página
+pensada para o celular, tudo o que a marcenaria tem: orçamento pelo WhatsApp,
+formulário, Instagram, avaliações no Google, parcerias com arquitetos e
+corretores, site, telefone e os ambientes de `services.json`. É o endereço
+para colocar no campo "Site" da bio do Instagram (e em cartões, QR codes e
+anúncios). Fica fora do Google (`noindex`) e do sitemap.
+
+Cada botão é um item em `src/content/links.json › links`, por `type`:
+
+| `type`      | O que faz                                               |
+| ----------- | ------------------------------------------------------- |
+| `whatsapp`  | Abre o WhatsApp com `message` já escrita                |
+| `page`      | Página do site (`path`: `/`, `/orcamento` ou `/<slug>`) |
+| `url`       | Qualquer outro endereço (`url`)                         |
+| `instagram` | Perfil de `site.json`                                   |
+| `maps`      | Perfil do Google (`contact.googleMaps` em `site.json`)  |
+| `phone`     | Ligação para o telefone de `site.json`                  |
+
+`page`, `url` e `whatsapp` aceitam `icon`: `form`, `site`, `partners` ou
+`whatsapp`. A ordem no arquivo é a ordem na tela. Contatos vêm de `site.json`,
+então trocar o número lá atualiza todos os botões.
 
 ### Adicionar um serviço
 

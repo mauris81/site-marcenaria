@@ -46,7 +46,10 @@ function business(site: Site, services?: Service[]) {
     telephone,
     image: absoluteUrl(site, shareImagePath("/")),
     logo: absoluteUrl(site, "/apple-icon.png"),
-    sameAs: [site.contact.instagram.url],
+    sameAs: [
+      site.contact.instagram.url,
+      ...(site.contact.googleMaps ? [site.contact.googleMaps] : []),
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: site.area.city,

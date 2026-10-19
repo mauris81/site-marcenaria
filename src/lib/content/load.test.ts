@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import home from "@/content/home.json";
+import links from "@/content/links.json";
 import photosGenerated from "@/content/photos.generated.json";
 import photos from "@/content/photos.json";
 import quote from "@/content/quote.json";
@@ -9,7 +10,7 @@ import site from "@/content/site.json";
 
 import { loadContent, type RawContent } from "./load";
 
-const raw: RawContent = { site, photos, photosGenerated, home, services, quote };
+const raw: RawContent = { site, photos, photosGenerated, home, services, quote, links };
 
 describe("conteúdo do site (src/content)", () => {
   it("é válido e consistente entre os arquivos", () => {
