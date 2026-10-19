@@ -117,10 +117,10 @@ site ficam só em `assets/photos/`.
 
 [`/links`](https://www.marcenariabutanta.com.br/links) reúne, numa página
 pensada para o celular, tudo o que a marcenaria tem: orçamento pelo WhatsApp,
-formulário, Instagram, avaliações no Google, parcerias com arquitetos e
-corretores, site, telefone e os ambientes de `services.json`. É o endereço
-para colocar no campo "Site" da bio do Instagram (e em cartões, QR codes e
-anúncios). Fica fora do Google (`noindex`) e do sitemap.
+formulário, Instagram, avaliações no Google, site, telefone e os ambientes
+de `services.json`. É o endereço para colocar no campo "Site" da bio do
+Instagram (e em cartões, QR codes e anúncios). Fica fora do Google (`noindex`)
+e do sitemap.
 
 Cada botão é um item em `src/content/links.json › links`, por `type`:
 
