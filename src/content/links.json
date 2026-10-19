@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "Links da Marcenaria Butantã",
+    "description": "Orçamento pelo WhatsApp, projetos, avaliações no Google e os ambientes que a Marcenaria Butantã faz sob medida na Zona Oeste de São Paulo.",
+    "ogDescription": "Peça seu orçamento, veja nossos projetos e conheça a Marcenaria Butantã."
+  },
+  "hero": {
+    "eyebrow": "Sob medida · Zona Oeste de SP",
+    "title": "Móveis planejados *sob medida*",
+    "text": "Projeto, fabricação e montagem com acabamento cuidadoso, do primeiro croqui à entrega.",
+    "photo": "cozinha-verde-bancada-l",
+    "photoPosition": "50% 60%"
+  },
+  "featured": {
+    "label": "Orçamento pelo WhatsApp",
+    "text": "Mande fotos, medidas ou referências do ambiente",
+    "message": "Olá, vim pelo Instagram e gostaria de solicitar um orçamento para móveis sob medida."
+  },
+  "links": [
+    {
+      "type": "page",
+      "icon": "form",
+      "label": "Formulário de orçamento",
+      "text": "Conte o projeto com calma",
+      "path": "/orcamento"
+    },
+    {
+      "type": "instagram",
+      "label": "Projetos no Instagram",
+      "text": "Móveis entregues e bastidores"
+    },
+    {
+      "type": "maps",
+      "label": "Avaliações no Google",
+      "text": "Veja o que dizem nossos clientes"
+    },
+    {
+      "type": "whatsapp",
+      "icon": "partners",
+      "label": "Arquitetos e corretores",
+      "text": "Parcerias e indicações",
+      "message": "Olá! Sou arquiteto(a)/corretor(a) e gostaria de conversar sobre uma parceria com a Marcenaria Butantã."
+    },
+    {
+      "type": "page",
+      "icon": "site",
+      "label": "Site completo",
+      "text": "marcenariabutanta.com.br",
+      "path": "/"
+    },
+    {
+      "type": "phone",
+      "label": "Ligar agora"
+    }
+  ],
+  "services": {
+    "title": "Ambientes que fazemos"
+  }
+}

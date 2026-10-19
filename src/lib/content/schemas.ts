@@ -122,6 +122,8 @@ export const siteSchema = z.strictObject({
     whatsapp: whatsappNumber,
     phone: text,
     instagram: z.strictObject({ handle: z.string().startsWith("@"), url: z.url() }),
+    /** Perfil da empresa no Google (avaliações e mapa). */
+    googleMaps: z.url().optional(),
   }),
   whatsappMessage: text,
   area: z.strictObject({
@@ -202,6 +204,55 @@ export const quotePageSchema = z.strictObject({
   regions: z.strictObject({ title: text, text: text }),
 });
 
+/** Caminho de uma página do próprio site: "/", "/orcamento", "/cozinhas-planejadas". */
+const internalPath = z
+  .string()
+  .regex(/^\/(?:[a-z0-9]+(?:-[a-z0-9]+)*)?$/, 'use um caminho do site, ex.: "/orcamento"');
+
+const linkIcon = z.enum(["form", "site", "partners", "whatsapp"]);
+const linkBase = { label: text.max(40), text: text.max(70).optional() };
+
+/**
+ * Um botão da página de links. Contatos (WhatsApp, telefone, Instagram, Google)
+ * saem de site.json, então trocar o número ou o perfil lá atualiza os botões.
+ */
+const linkItem = z.discriminatedUnion("type", [
+  z.strictObject({ type: z.literal("page"), icon: linkIcon, path: internalPath, ...linkBase }),
+  z.strictObject({ type: z.literal("url"), icon: linkIcon, url: z.url(), ...linkBase }),
+  /** Conversa no WhatsApp com a mensagem já escrita. */
+  z.strictObject({
+    type: z.literal("whatsapp"),
+    icon: linkIcon.optional(),
+    message: text,
+    ...linkBase,
+  }),
+  z.strictObject({ type: z.literal("instagram"), ...linkBase }),
+  z.strictObject({ type: z.literal("maps"), ...linkBase }),
+  /** Ligação; sem `text`, mostra o telefone de site.json. */
+  z.strictObject({ type: z.literal("phone"), ...linkBase }),
+]);
+
+/** Página de links (/links): o "link na bio" do Instagram. */
+export const linksPageSchema = z.strictObject({
+  seo,
+  hero: z.strictObject({
+    eyebrow: text,
+    /** Frase de apresentação; aceita *ênfase*. Também vai na imagem de compartilhamento. */
+    title: text,
+    text: text,
+    /** Foto de capa, no topo da página. */
+    photo: photoRef,
+    photoPosition: position.optional(),
+  }),
+  /** Botão de destaque: orçamento pelo WhatsApp. */
+  featured: z.strictObject({ label: text.max(40), text: text.max(70), message: text }),
+  links: z.array(linkItem).min(1),
+  /** Grade com os ambientes de services.json. */
+  services: z.strictObject({ title: text }),
+});
+
+export type LinkItem = z.infer<typeof linkItem>;
+export type LinksPageContent = z.infer<typeof linksPageSchema>;
 export type Site = z.infer<typeof siteSchema>;
 export type HomeContent = z.infer<typeof homeSchema>;
 export type Service = z.infer<typeof serviceSchema>;
